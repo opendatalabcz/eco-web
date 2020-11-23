@@ -26,7 +26,7 @@ follow this **[link](https://code.visualstudio.com/docs/python/python-tutorial)*
 **4.)** Next step is to run this command **pip install selenium** to install selenium language library.\
 **5.)** From this **[page](https://www.selenium.dev/documentation/en/webdriver/driver_requirements/#quick-reference)** download controller for your web browser or use included 
 one (For Chrome on version 86 for Windows 10).\
-**6.)** Next step is to set PATH for webdriver. Run this command on Windows **setx /m path "%path%;[Path_to_WebDriver]\WebDriver"** or **$ export PATH="$PATH:/path/to/chromedriver"** 
+**6.)** Next step is to set PATH for the webdriver. Run this command on Windows **setx /m path "%path%;[Path_to_WebDriver]\WebDriver"** or **$ export PATH="$PATH:/path/to/chromedriver"** 
 in case you are using Linux or macOS.\
 **7.)** Run command **conda bakalarka activate** to start environment which contains all needed libraries and plugins for Python.\
-**8.)** Run command **scrapy crawl [spider_name] -o [output_name]** to start selected spider.
+**8.)** Run command **scrapy crawl [spider_name] -o [output_name]** to start the selected spider.
