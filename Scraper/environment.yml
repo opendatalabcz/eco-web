@@ -48,7 +48,7 @@ dependencies:
     - pyopenssl==19.1.0
     - queuelib==1.5.0
     - scrapy==2.4.0
-    - selenium==3.141.0
+    - scrapy-splash==0.7.2
     - service-identity==18.1.0
     - twisted==20.3.0
     - urllib3==1.25.11
