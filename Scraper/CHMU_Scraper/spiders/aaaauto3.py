@@ -2,7 +2,9 @@ import scrapy
 from scrapy_splash import SplashRequest
 
 class AAAautoScraper(scrapy.Spider):
-    name = 'AAAAuto2'
+    name = 'AAAAuto3'
+    base_url = 'https://www.aaaauto.cz/4x4-offroad-suv/'
+    i = 0
 
     def start_requests(self):
         """Function to start scraping given URL.
@@ -13,7 +15,7 @@ class AAAautoScraper(scrapy.Spider):
         Yields parsed requests
         """
         # Uses Splash by calling it in Docker image and calls parse function on returned requests
-        yield SplashRequest(url='https://www.aaaauto.cz/4x4-offroad-suv/?srclp=hp4x4&category=15&pmin=150000&pmax=500000', callback=self.parse)
+        yield SplashRequest(url=self.base_url + '?srclp=hp4x4&category=15&pmin=150000&pmax=500000', callback=self.parse)
 
     def parse(self, response):
         """Function to parse given response from URL
@@ -34,3 +36,9 @@ class AAAautoScraper(scrapy.Spider):
                 'fuel_type': car.xpath('.//div[2]/ul/li[3]/text()').extract_first(),
                 'engine': car.xpath('.//div[2]/ul/li[4]/text()').extract_first(),
             }
+        # If 5 page treshold wasn't met, look for another page and if exists, scrape it
+        if self.i < 5:
+            self.i += 1
+            next_page = response.xpath('//*[@id="modern2019-list"]/nav/ul/li[11]/a/@href').extract_first()
+            if next_page is not None:
+                yield SplashRequest(url=self.base_url + next_page, callback=self.parse)
