@@ -1,4 +1,5 @@
 import scrapy
+from scrapy_splash import SplashRequest
 from CHMU_Scraper.items import StationItem
 
 #tmp
@@ -9,21 +10,35 @@ from scrapy.loader import ItemLoader
 
 class WeatherStationsSpider(scrapy.Spider):
     name = 'weather_stations'
-    start_urls = [
-        'http://portal.chmi.cz/historicka-data/pocasi/denni-data/Denni-data-dle-z.-123-1998-Sb#'
-    ]
-    headers = {
-        "Referer": "http://portal.chmi.cz/historicka-data/pocasi/denni-data/Denni-data-dle-z.-123-1998-Sb",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36"
-    }
+    i = 0
+
+    def start_requests(self):
+        """Function to start scraping given URL.
+        
+        Arguments:
+            self -- instance of the class
+        Yields parsed requests
+        """
+        # Uses Splash by calling it in Docker image and calls parse function on returned requests
+        yield SplashRequest(url='http://portal.chmi.cz/historicka-data/pocasi/denni-data/Denni-data-dle-z.-123-1998-Sb#', callback=self.parse, args={'wait': 0.5})
 
     def parse(self, response):
-        url = 'http://portal.chmi.cz/files/portal/docs/meteo/ok/denni_data/denni_data_cs.html'
-
-        yield scrapy.Request(url, callback=self.parse_api, headers=self.headers)
-
-    def parse_api(self, response):
-        for dataType in response.xpath("//html/body/ul/li"):
-            l = ItemLoader(item=ChmuScraperItem(), selector=dataType)
-            l.add_xpath('text', ".//a/@href")
-            yield l.load_item()
+        """Function to parse given response from URL
+        
+        Arguments:
+            self -- instance of the class
+            response -- response to parse
+        Yields parsed given request
+        """
+        # Finds all hyperlinks for data type navigation and extracs its properties
+        for hyperlink in response.xpath("//div[@id='loadedcontent']/ul/li"):
+            yield {
+                'hyperlink_name': hyperlink.xpath(".//a/text()").extract_first(),
+                'hyperlink_url': hyperlink.xpath(".//a/@href").extract_first(),
+            }
+        # If 5 page treshold wasn't met, look for another page and if exists, scrape it
+        #if self.i < 5:
+        #    self.i += 1
+        #    next_page = response.xpath('//*[@id="modern2019-list"]/nav/ul/li[11]/a/@href').extract_first()
+        #    if next_page is not None:
+        #        yield SplashRequest(url=self.base_url + next_page, callback=self.parse)
