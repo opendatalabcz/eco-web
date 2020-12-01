@@ -22,11 +22,11 @@ The repository contains a web scraper for downloading data from Czech Hydrometeo
 and **[VS Code IDE](https://code.visualstudio.com/)**.\
 **2.)** *Optional* - If you are using VS Code, you have to install the Python module from the modules store in VS Code. For more help about installation process in VS Code,
 follow this **[link](https://code.visualstudio.com/docs/python/python-tutorial)**.\
-**3.)** Open CMD in VS Code or standalone and in eco-web/Scraper directory run this command **conda env update**.\
-**4.)** Next step is to run this command **pip install selenium** to install selenium language library.\
-**5.)** From this **[page](https://www.selenium.dev/documentation/en/webdriver/driver_requirements/#quick-reference)** download controller for your web browser or use included 
-one (For Chrome on version 86 for Windows 10).\
-**6.)** Next step is to set PATH for the webdriver. Run this command on Windows **setx /m path "%path%;[Path_to_WebDriver]\WebDriver"** or **$ export PATH="$PATH:/path/to/chromedriver"** 
-in case you are using Linux or macOS.\
-**7.)** Run command **conda bakalarka activate** to start environment which contains all needed libraries and plugins for Python.\
-**8.)** Run command **scrapy crawl [spider_name] -o [output_name]** to start the selected spider.
+**3.)** Open CMD on Windows or Terminal on Linux and macOS in VS Code or standalone and in eco-web/Scraper directory run this command **conda env update**.\
+**4.)** Install **[Docker](https://www.docker.com/products/docker-desktop)**.\
+**5.)** Start Docker.\
+**6.)** Run **docker pull scrapinghub/splash** command in PowerShell if using Windows or in terminal on macOS. In case of using Linux, run **sudo docker pull scrapinghub/splash**
+in terminal.\
+**7.)** If you are using **Docker Desktop**, open **images** tab and run Splash container on port **8050**. Later you can just start Splash container from Containers tab. On Linux, use **docker run -p 8050:8050 scrapinghub/splash** command in Terminal.\
+**8.)** Run command **conda bakalarka activate** to start environment which contains all needed libraries and plugins for Python.\
+**9.)** Run command **scrapy crawl [spider_name] -o [output_name]** to start the selected spider.
