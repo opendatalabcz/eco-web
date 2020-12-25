@@ -1,11 +1,5 @@
 import scrapy
 from scrapy_splash import SplashRequest
-from CHMU_Scraper.items import StationItem
-
-#tmp
-from CHMU_Scraper.items import ChmuScraperItem
-
-from scrapy.loader import ItemLoader
 
 
 class WeatherStationsSpider(scrapy.Spider):

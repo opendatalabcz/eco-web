@@ -18,23 +18,3 @@ class ChmuScraperItem(scrapy.Item):
         input_processor = MapCompose(remove_tags, remove_whitespace),
         output_processor = TakeFirst()
     )
-
-class TestItem(scrapy.Item):
-    text = scrapy.Field(
-        input_processor = MapCompose(remove_tags, remove_whitespace),
-        output_processor = TakeFirst()
-    )
-
-class StationItem(scrapy.Item):
-    id = scrapy.Field(
-        input_processor = MapCompose(remove_tags, remove_whitespace),
-        output_processor = TakeFirst()
-    )
-    region = scrapy.Field(
-        input_processor = MapCompose(remove_tags, remove_whitespace),
-        output_processor = TakeFirst()
-    )
-    name = scrapy.Field(
-        input_processor = MapCompose(remove_tags, remove_whitespace),
-        output_processor = TakeFirst()
-    )
