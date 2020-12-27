@@ -28,5 +28,5 @@ follow this **[link](https://code.visualstudio.com/docs/python/python-tutorial)*
 **6.)** Run **docker pull scrapinghub/splash** command in PowerShell if using Windows or in terminal on macOS. In case of using Linux, run **sudo docker pull scrapinghub/splash**
 in terminal.\
 **7.)** If you are using **Docker Desktop**, open **images** tab and run Splash container on port **8050**. Later you can just start Splash container from Containers tab. On Linux, use **docker run -p 8050:8050 scrapinghub/splash** command in Terminal.\
-**8.)** Run command **conda bakalarka activate** to start environment which contains all needed libraries and plugins for Python.\
+**8.)** Run command **conda activate eco-web** to start environment which contains all needed libraries and plugins for Python.\
 **9.)** Run command **scrapy crawl [spider_name] -o [output_name]** to start the selected spider.
