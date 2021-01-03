@@ -26,7 +26,7 @@ class FilenamesSpider(scrapy.Spider):
 
     def parse(self, response):
         """Function to parse given response from URL
-        
+
         Arguments:
             self -- instance of the class
             response -- response to parse
@@ -39,7 +39,7 @@ class FilenamesSpider(scrapy.Spider):
         for hyperlink in response.xpath('//*[@id="CR"]/map/area'):
             self.id += 1
             # Extract href atribute and use regexp to identify end extract just a station code which will be used as filename
-            output: str = hyperlink.xpath(".//@href").extract_first()
+            output = hyperlink.xpath(".//@href").extract_first()
             fileName = re.search(r'(?<=\-)(.*?)(?=\.)', output)
             # Check if something was found and store that if yes
             if fileName:

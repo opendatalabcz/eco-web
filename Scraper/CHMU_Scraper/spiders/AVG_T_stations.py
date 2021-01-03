@@ -34,27 +34,27 @@ class AverageTemperatureStationsSpider(scrapy.Spider):
 
     def start_requests(self):
         """Function to start scraping given URL.
-        
+
         Arguments:
             self -- instance of the class
         Yields parsed requests
         """
         regionID = 0
         for row in range(1, 8):
-            for column in range (1, 3):
+            for column in range(1, 3):
                 # Uses Splash by calling it in Docker image and calls parse function on returned requests. Using lua script to navigate through page
                 yield SplashRequest(
-                    url='http://portal.chmi.cz/historicka-data/pocasi/denni-data/Denni-data-dle-z.-123-1998-Sb#', 
-                    callback=self.parse, 
-                    cb_kwargs=dict(regionID=regionID), 
-                    endpoint='execute', 
+                    url='http://portal.chmi.cz/historicka-data/pocasi/denni-data/Denni-data-dle-z.-123-1998-Sb#',
+                    callback=self.parse,
+                    cb_kwargs=dict(regionID=regionID),
+                    endpoint='execute',
                     args={'wait': 30, 'lua_source': self.generateScript(row, column)}
                 )
                 regionID += 1
 
     def parse(self, response, regionID):
         """Function to parse given response from URL
-        
+
         Arguments:
             self -- instance of the class
             response -- response to parse
@@ -75,7 +75,7 @@ class AverageTemperatureStationsSpider(scrapy.Spider):
 
     def generateScript(self, row: int, column: int) -> str:
         """Function to generate lua script for navigation on page to retrieve needed html from table
-        
+
         Arguments:
             self -- instance of the class
             row -- index of row in range from 1 to 15
@@ -85,7 +85,7 @@ class AverageTemperatureStationsSpider(scrapy.Spider):
         if row < 1 or row > 14 or column < 1 or column > 2:
             return None
         # Lua script for splash for navigation on webpage, because it's using JavaScript
-        script="""
+        script = """
             function main(splash, args)
                 assert(splash:go(args.url))
                 assert(splash:wait(3))
