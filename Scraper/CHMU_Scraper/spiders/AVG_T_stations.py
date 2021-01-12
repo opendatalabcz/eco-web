@@ -17,18 +17,18 @@ class AverageTemperatureStationsSpider(scrapy.Spider):
     # List of regions from whcich comes stations
     regions = [
         'Praha',
-        'Jihocesky',
-        'Jihomoravsky',
-        'Karlovarsky',
-        'Vysocina',
-        'Kralovehradecky',
-        'Liberecky',
-        'Moravskoslezsky',
-        'Olomoucky',
-        'Pardubicky',
-        'Plzensky',
         'Stredocesky',
+        'Jihocesky',
+        'Plzensky',
+        'Karlovarsky',
         'Ustecky',
+        'Liberecky',
+        'Kralovehradecky',
+        'Pardubicky',
+        'Vysocina',
+        'Jihomoravsky',
+        'Olomoucky',
+        'Moravskoslezsky',
         'Zlinsky',
     ]
 
