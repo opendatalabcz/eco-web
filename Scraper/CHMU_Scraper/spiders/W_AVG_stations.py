@@ -5,7 +5,7 @@ from scrapy_splash import SplashRequest
 
 
 class AverageTemperatureStationsSpider(scrapy.Spider):
-    name = 'AVG_T_stations'
+    name = 'W_AVG_stations'
 
     # Set custom settings so pages will be downloaded one by one with delay, so it doesn't load the server that much
     custom_settings = {
@@ -39,18 +39,16 @@ class AverageTemperatureStationsSpider(scrapy.Spider):
             self -- instance of the class
         Yields parsed requests
         """
-        regionID = 0
-        for row in range(1, 8):
+        for regionID in range(0, 14):
             for column in range(1, 3):
                 # Uses Splash by calling it in Docker image and calls parse function on returned requests. Using lua script to navigate through page
                 yield SplashRequest(
-                    url='http://portal.chmi.cz/historicka-data/pocasi/denni-data/Denni-data-dle-z.-123-1998-Sb#',
+                    url='https://www.chmi.cz/historicka-data/hydrologie/denni_data/denni-data-dle-z.-123-1998-Sb#',
                     callback=self.parse,
                     cb_kwargs=dict(regionID=regionID),
                     endpoint='execute',
-                    args={'wait': 30, 'lua_source': self.generateScript(row, column)}
+                    args={'wait': 30, 'lua_source': self.generateScript(regionID + 1)}
                 )
-                regionID += 1
 
     def parse(self, response, regionID):
         """Function to parse given response from URL
@@ -64,17 +62,19 @@ class AverageTemperatureStationsSpider(scrapy.Spider):
         for hyperlink in response.xpath('//*[@id="loadedcontent"]/a'):
             self.id += 1
             stationName = hyperlink.xpath(".//text()").extract_first()
-            result = re.split(r', [\d]*-[\d]*$', stationName)[0]
+            fileName = re.search(r'^[0-9]{6}', stationName).group(0)
+            result = re.sub(r'^[0-9]{6}, ', '', stationName)
             normalizedName = unidecode.unidecode(result).replace(" ", "")
             yield {
                 'id': self.id,
                 'region': self.regions[regionID],
                 'station_name': result,
-                'normalized_name': normalizedName
+                'normalized_name': normalizedName,
+                'file_name': fileName
             }
 
-    def generateScript(self, row: int, column: int) -> str:
-        """Function to generate lua script for navigation on page to retrieve needed html from table
+    def generateScript(self, region: int) -> str:
+        """Function to generate lua script for navigation on page to retrieve needed html
 
         Arguments:
             self -- instance of the class
@@ -82,17 +82,17 @@ class AverageTemperatureStationsSpider(scrapy.Spider):
             column -- index of column in range from 1 to 3
         Yields parsed given request
         """
-        if row < 1 or row > 14 or column < 1 or column > 2:
+        if region < 1 or region > 14:
             return None
         # Lua script for splash for navigation on webpage, because it's using JavaScript
         script = """
             function main(splash, args)
                 assert(splash:go(args.url))
                 assert(splash:wait(3))
-                js = string.format("document.querySelector('#loadedcontent > ul > li:nth-child(1) > a').click()", args.page)
+                js = string.format("document.querySelector('#loadedcontent > ul > li > a').click()", args.page)
                 splash:runjs(js)
                 assert(splash:wait(3))
-                js = string.format("document.querySelector('#loadedcontent > table > tbody > tr:nth-child(""" + str(row) + """) > td:nth-child(""" + str(column) + """) > a').click()", args.page)
+                js = string.format("document.querySelector('#loadedcontent > ul > li:nth-child(""" + str(region) + """) > a').click()", args.page)
                 splash:runjs(js)
                 assert(splash:wait(3))
                 return {

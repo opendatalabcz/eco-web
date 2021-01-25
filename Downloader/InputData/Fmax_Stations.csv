@@ -1,0 +1,196 @@
+id,region,station_name,normalized_name,file_name
+0,Praha,"Praha, Karlov, okres: Praha","Praha,Karlov,okres:Praha",P1PKAR01
+1,Praha,"Praha, Klementinum, okres: Praha","Praha,Klementinum,okres:Praha",P1PKLE01
+2,Praha,"Praha, Libu�, okres: Praha","Praha,Libu,okres:Praha",P1PLIB01
+3,Praha,"Praha, Ruzyn�, okres: Praha","Praha,Ruzyn,okres:Praha",P1PRUZ01
+4,Praha,"Praha, Vinohrady - Flora, okres: Praha","Praha,Vinohrady-Flora,okres:Praha",P1PVIN01
+5,Stredocesky,"Hulice, okres: Bene�ov","Hulice,okres:Beneov",P3HULI01
+6,Stredocesky,"Netvo�ice, okres: Bene�ov","Netvoice,okres:Beneov",P3NETV01
+7,Stredocesky,"Vla�im, okres: Bene�ov","Vlaim,okres:Beneov",P3VLAS01
+8,Stredocesky,"Neum�tely, okres: Beroun","Neumtely,okres:Beroun",P1NEUM01
+9,Stredocesky,"L�ny, okres: Kladno","Lny,okres:Kladno",P1LANY01
+10,Stredocesky,"Radovesnice II., okres: Kol�n","RadovesniceII.,okres:Koln",H3RADO01
+11,Stredocesky,"Vav�inec, ��ov, okres: Kutn� Hora","Vavinec,ov,okres:KutnHora",P3STAN01
+12,Stredocesky,"Zb��ov, Dobrov�tov, okres: Kutn� Hora","Zbov,Dobrovtov,okres:KutnHora",H3ZBYS01
+13,Stredocesky,"Kralupy nad Vltavou, okres: M�ln�k","KralupynadVltavou,okres:Mlnk",P1KRAL01
+14,Stredocesky,"Tuha�, okres: M�ln�k","Tuha,okres:Mlnk",P2TUHA01
+15,Stredocesky,"Katusice, okres: Mlad� Boleslav","Katusice,okres:MladBoleslav",P2KATU01
+16,Stredocesky,"Sem�ice, okres: Mlad� Boleslav","Semice,okres:MladBoleslav",P2SEMC01
+17,Stredocesky,"Pod�brady, okres: Nymburk","Podbrady,okres:Nymburk",H3PODE01
+18,Stredocesky,"Brand�s nad Labem-St.B, okres: Praha-v�chod","BrandsnadLabem-St.B,okres:Praha-vchod",P2BRAN01
+19,Stredocesky,"Ond�ejov, okres: Praha-v�chod","Ondejov,okres:Praha-vchod",P3ONDR01
+20,Stredocesky,"Dob�ichovice, okres: Praha-z�pad","Dobichovice,okres:Praha-zpad",P1DOBE01
+21,Stredocesky,"Pr�honice, okres: Praha-z�pad","Prhonice,okres:Praha-zpad",P1PRUH01
+22,Stredocesky,"Nedrahovice, Rudolec, okres: P��bram","Nedrahovice,Rudolec,okres:Pbram",P3NRUD01
+23,Stredocesky,"P��bram, okres: P��bram","Pbram,okres:Pbram",P1PRIB01
+24,Stredocesky,"Ro�mit�l pod T�em��nem, okres: P��bram","RomitlpodTemnem,okres:Pbram",C1ROZM01
+25,Stredocesky,"He�manov, okres: Rakovn�k","Hemanov,okres:Rakovnk",L2HERM01
+26,Jihocesky,"By�ov, okres: �esk� Bud�jovice","Byov,okres:eskBudjovice",C2BYNO01
+27,Jihocesky,"�esk� Bud�jovice, Ro�nov, okres: �esk� Bud�jovice","eskBudjovice,Ronov,okres:eskBudjovice",C2CBUD01
+28,Jihocesky,"Temel�n, okres: �esk� Bud�jovice","Temeln,okres:eskBudjovice",C1TEME01
+29,Jihocesky,"�ern� v Po�umav�, okres: �esk� Krumlov","ernvPoumav,okres:eskKrumlov",C1CERP01
+30,Jihocesky,"�esk� Krumlov, P��se�n�, okres: �esk� Krumlov","eskKrumlov,Psen,okres:eskKrumlov",C2CKRU01
+31,Jihocesky,"Vy��� Brod, okres: �esk� Krumlov","VyBrod,okres:eskKrumlov",C2VBRO01
+32,Jihocesky,"Jind�ich�v Hradec, D�bol�n, okres: Jind�ich�v Hradec","JindichvHradec,Dboln,okres:JindichvHradec",C2JHRA01
+33,Jihocesky,"Vr�, okres: P�sek","Vr,okres:Psek",C1VRAZ01
+34,Jihocesky,"Husinec, okres: Prachatice","Husinec,okres:Prachatice",C1HUSI01
+35,Jihocesky,"Chur��ov, okres: Prachatice","Churov,okres:Prachatice",C1CHUR01
+36,Jihocesky,"Kti�, Tisovka, okres: Prachatice","Kti,Tisovka,okres:Prachatice",C1KTIS01
+37,Jihocesky,"Lenora, Hou�n�, okres: Prachatice","Lenora,Houn,okres:Prachatice",C1LENO01
+38,Jihocesky,"Volary, okres: Prachatice","Volary,okres:Prachatice",C1VOLR01
+39,Jihocesky,"Kocelovice, okres: Strakonice","Kocelovice,okres:Strakonice",C1KOCE01
+40,Jihocesky,"Strakonice, okres: Strakonice","Strakonice,okres:Strakonice",C1STRA01
+41,Jihocesky,"Borkovice, okres: T�bor","Borkovice,okres:Tbor",C2BORK01
+42,Jihocesky,"Nad�jkov, V�trov, okres: T�bor","Nadjkov,Vtrov,okres:Tbor",C2NADV01
+43,Jihocesky,"T�bor, M�ice, okres: T�bor","Tbor,Mice,okres:Tbor",C2TABO01
+44,Jihocesky,"T�bor, N�chod, okres: T�bor","Tbor,Nchod,okres:Tbor",C2TABO01
+45,Plzensky,"Doma�lice, okres: Doma�lice","Domalice,okres:Domalice",L1DOMA01
+46,Plzensky,"Sta�kov, okres: Doma�lice","Stakov,okres:Domalice",L1STAN01
+47,Plzensky,"Hojsova Str�, okres: Klatovy","HojsovaStr,okres:Klatovy",L1HOJS01
+48,Plzensky,"Ka�persk� Hory, okres: Klatovy","KaperskHory,okres:Klatovy",C1KHOR01
+49,Plzensky,"Klatovy, okres: Klatovy","Klatovy,okres:Klatovy",L1KLAT01
+50,Plzensky,"Vlkonice, okres: Klatovy","Vlkonice,okres:Klatovy",C1VLKO01
+51,Plzensky,"�elezn� Ruda, Hojsova Str�, okres: Klatovy","eleznRuda,HojsovaStr,okres:Klatovy",L1HOJS01
+52,Plzensky,"Nepomuk, okres: Plze�-jih","Nepomuk,okres:Plze-jih",L1NEPO01
+53,Plzensky,"Plze�, Dob�any, okres: Plze�-jih","Plze,Dobany,okres:Plze-jih",L1PLZD01
+54,Plzensky,"Plze�, Mikulka, okres: Plze�-m�sto","Plze,Mikulka,okres:Plze-msto",L1PLMI01
+55,Plzensky,"Kralovice, okres: Plze�-sever","Kralovice,okres:Plze-sever",L2KRAL01
+56,Plzensky,"Zbiroh, �vab�n, okres: Rokycany","Zbiroh,vabn,okres:Rokycany",L2ZBIR01
+57,Plzensky,"Konstantinovy L�zn�, okres: Tachov","KonstantinovyLzn,okres:Tachov",L2KONL01
+58,Plzensky,"P�imda, okres: Tachov","Pimda,okres:Tachov",L2PRIM01
+59,Plzensky,"St��bro, okres: Tachov","Stbro,okres:Tachov",L2STRI01
+60,Karlovarsky,"A�, okres: Cheb","A,okres:Cheb",L3AS0001
+61,Karlovarsky,"Dyle�, okres: Cheb","Dyle,okres:Cheb",L2DYLE01
+62,Karlovarsky,"Cheb, okres: Cheb","Cheb,okres:Cheb",L3CHEB01
+63,Karlovarsky,"Mari�nsk� L�zn�, vod�rna, okres: Cheb","MarinskLzn,vodrna,okres:Cheb",L2MLAV01
+64,Karlovarsky,"Karlovy Vary, Ol�ov� Vrata, okres: Karlovy Vary","KarlovyVary,OlovVrata,okres:KarlovyVary",L3KVAL01
+65,Karlovarsky,"Kl�novec, okres: Karlovy Vary","Klnovec,okres:KarlovyVary",L3KLIN01
+66,Karlovarsky,"Kr�sn� �dol�, okres: Karlovy Vary","Krsndol,okres:KarlovyVary",L2KRAU01
+67,Karlovarsky,"Sokolov, okres: Sokolov","Sokolov,okres:Sokolov",L3SOKO01
+68,Karlovarsky,"�indelov�, Obora, okres: Sokolov","indelov,Obora,okres:Sokolov",L3SIND01
+69,Ustecky,"D���n, okres: D���n","Dn,okres:Dn",U2DECI01
+70,Ustecky,"Sn�n�k, okres: D���n","Snnk,okres:Dn",U1SNEZ01
+71,Ustecky,"M�d�nec, okres: Chomutov","Mdnec,okres:Chomutov",U1MEDE01
+72,Ustecky,"Tu�imice, okres: Chomutov","Tuimice,okres:Chomutov",U1KATU01
+73,Ustecky,"Doksany, okres: Litom��ice","Doksany,okres:Litomice",U1DOKS01
+74,Ustecky,"Louny, okres: Louny","Louny,okres:Louny",U1LOUN01
+75,Ustecky,"Smolnice, okres: Louny","Smolnice,okres:Louny",U1SMOL01
+76,Ustecky,"Strojetice, okres: Louny","Strojetice,okres:Louny",U1STRJ01
+77,Ustecky,"�atec, okres: Louny","atec,okres:Louny",U1ZATE01
+78,Ustecky,"Nov� Ves v Hor�ch, okres: Most","NovVesvHorch,okres:Most",U1NOVE01
+79,Ustecky,"Teplice, okres: Teplice","Teplice,okres:Teplice",U1TEPL01
+80,Ustecky,"�st� nad Labem, Ko�kov, okres: �st� nad Labem","stnadLabem,Kokov,okres:stnadLabem",U1ULKO01
+81,Ustecky,"�st� nad Labem, Va�ov, okres: �st� nad Labem","stnadLabem,Vaov,okres:stnadLabem",U1ULMA01
+82,Liberecky,"�esk� L�pa, okres: �esk� L�pa","eskLpa,okres:eskLpa",U2CELI01
+83,Liberecky,"Doksy, okres: �esk� L�pa","Doksy,okres:eskLpa",U2DOKY01
+84,Liberecky,"Str� pod Ralskem, okres: �esk� L�pa","StrpodRalskem,okres:eskLpa",U2STRR01
+85,Liberecky,"Bed�ichov, okres: Jablonec nad Nisou","Bedichov,okres:JablonecnadNisou",U2BEDR01
+86,Liberecky,"Desn�, Sou�, okres: Jablonec nad Nisou","Desn,Sou,okres:JablonecnadNisou",P2DESN01
+87,Liberecky,"Ko�enov, Jizerka, okres: Jablonec nad Nisou","Koenov,Jizerka,okres:JablonecnadNisou",P2KORE01
+88,Liberecky,"B�l� Potok - Sm�dava, okres: Liberec","BlPotok-Smdava,okres:Liberec",U2SMED01
+89,Liberecky,"�esk� Dub, Modlibohov, okres: Liberec","eskDub,Modlibohov,okres:Liberec",P2CDUB01
+90,Liberecky,"Hejnice, okres: Liberec","Hejnice,okres:Liberec",U2HEJN01
+91,Liberecky,"Jablonn� v Podje�t�d�, okres: Liberec","JablonnvPodjetd,okres:Liberec",U2JAPO01
+92,Liberecky,"Liberec, okres: Liberec","Liberec,okres:Liberec",U2LIBC01
+93,Liberecky,"Harrachov, okres: Semily","Harrachov,okres:Semily",P2HARR01
+94,Liberecky,"Holenice, okres: Semily","Holenice,okres:Semily",P2HOLE01
+95,Liberecky,"Turnov, okres: Semily","Turnov,okres:Semily",P2TURN01
+96,Kralovehradecky,"Hradec Kr�lov�, Nov� Hradec Kr�lov�, okres: Hradec Kr�lov�","HradecKrlov,NovHradecKrlov,okres:HradecKrlov",H3HRAD01
+97,Kralovehradecky,"Hradec Kr�lov�, Svobodn� Dvory, okres: Hradec Kr�lov�","HradecKrlov,SvobodnDvory,okres:HradecKrlov",H3SVOD01
+98,Kralovehradecky,"Nov� Byd�ov, okres: Hradec Kr�lov�","NovBydov,okres:HradecKrlov",H3NBYD01
+99,Kralovehradecky,"Holovousy, okres: Ji��n","Holovousy,okres:Jin",H3HOLO01
+100,Kralovehradecky,"Ji��n, okres: Ji��n","Jin,okres:Jin",H3JICI01
+101,Kralovehradecky,"L�zn� B�lohrad, okres: Ji��n","LznBlohrad,okres:Jin",H3LBEL01
+102,Kralovehradecky,"Broumov, okres: N�chod","Broumov,okres:Nchod",H3BROU01
+103,Kralovehradecky,"�esk� Skalice, Rozko�, okres: N�chod","eskSkalice,Rozko,okres:Nchod",H1CSKL01
+104,Kralovehradecky,"Teplice nad Metuj� Zdo�ov, okres: N�chod","TeplicenadMetujZdoov,okres:Nchod",H1TEPZ01
+105,Kralovehradecky,"Velichovky, okres: N�chod","Velichovky,okres:Nchod",H1VELI01
+106,Kralovehradecky,"Borohr�dek, okres: Rychnov nad Kn�nou","Borohrdek,okres:RychnovnadKnnou",H2BORH01
+107,Kralovehradecky,"De�tn� v Orlic. hor�ch, okres: Rychnov nad Kn�nou","DetnvOrlic.horch,okres:RychnovnadKnnou",H2DEST01
+108,Kralovehradecky,"Rokytnice v Orlic.hor�ch, okres: Rychnov nad Kn�nou","RokytnicevOrlic.horch,okres:RychnovnadKnnou",H2ROKY01
+109,Kralovehradecky,"Rychnov nad Kn�nou, okres: Rychnov nad Kn�nou","RychnovnadKnnou,okres:RychnovnadKnnou",H2RYCH01
+110,Kralovehradecky,"Labsk� bouda, okres: Trutnov","Labskbouda,okres:Trutnov",H1LBOU01
+111,Kralovehradecky,"Lu�n� bouda, okres: Trutnov","Lunbouda,okres:Trutnov",H1LUCB01
+112,Kralovehradecky,"Pec pod Sn�kou, okres: Trutnov","PecpodSnkou,okres:Trutnov",H1PECS01
+113,Kralovehradecky,"�pice, okres: Trutnov","pice,okres:Trutnov",H1UPIC01
+114,Kralovehradecky,"Vrchlab�, okres: Trutnov","Vrchlab,okres:Trutnov",H1VRCH01
+115,Kralovehradecky,"�acl��, okres: Trutnov","acl,okres:Trutnov",H1ZACL01
+116,Pardubicky,"Se�, okres: Chrudim","Se,okres:Chrudim",H3SECA01
+117,Pardubicky,"Skute�, okres: Chrudim","Skute,okres:Chrudim",H3SKUT01
+118,Pardubicky,"Svratouch, okres: Chrudim","Svratouch,okres:Chrudim",H3SVRA01
+119,Pardubicky,"Moko��n, okres: Pardubice","Mokon,okres:Pardubice",H3MOKO01
+120,Pardubicky,"Gajer, Janov, okres: Svitavy","Gajer,Janov,okres:Svitavy",H3GAJE01
+121,Pardubicky,"Jev��ko, okres: Svitavy","Jevko,okres:Svitavy",O2JEVI01
+122,Pardubicky,"Nedv�z�, okres: Svitavy","Nedvz,okres:Svitavy",B2NEDV01
+123,Pardubicky,"Star� M�sto, okres: Svitavy","StarMsto,okres:Svitavy",O7STME01
+124,Pardubicky,"T�eba�ov, okres: Svitavy","Tebaov,okres:Svitavy",O2TREB01
+125,Pardubicky,"Kr�l�ky, okres: �st� nad Orlic�","Krlky,okres:stnadOrlic",H2KRAL01
+126,Pardubicky,"�st� nad Orlic�, okres: �st� nad Orlic�","stnadOrlic,okres:stnadOrlic",H2USTI01
+127,Pardubicky,"�amberk, okres: �st� nad Orlic�","amberk,okres:stnadOrlic",H2ZAMB01
+128,Vysocina,"Havl��k�v Brod, okres: Havl��k�v Brod","HavlkvBrod,okres:HavlkvBrod",P3HAVL01
+129,Vysocina,"Libice nad Doubravou, okres: Havl��k�v Brod","LibicenadDoubravou,okres:HavlkvBrod",H3LIBC01
+130,Vysocina,"P�ibyslav, H�i�t�, okres: Havl��k�v Brod","Pibyslav,Hit,okres:HavlkvBrod",P3PRIB01
+131,Vysocina,"Hubenov, okres: Jihlava","Hubenov,okres:Jihlava",B2HUBE01
+132,Vysocina,"Kosteln� Myslov�, okres: Jihlava","KostelnMyslov,okres:Jihlava",B2KMYS01
+133,Vysocina,"�ernovice, Dobe�ov, okres: Pelh�imov","ernovice,Dobeov,okres:Pelhimov",C2CERN01
+134,Vysocina,"Ko�etice, K�e��n, Kramol�n, okres: Pelh�imov","Koetice,Ken,Kramoln,okres:Pelhimov",P3KOSE01
+135,Vysocina,"Nov� Rychnov, okres: Pelh�imov","NovRychnov,okres:Pelhimov",P3NRYC01
+136,Vysocina,"Po��tky, okres: Pelh�imov","Potky,okres:Pelhimov",C2POCA01
+137,Vysocina,"Dukovany, okres: T�eb��","Dukovany,okres:Teb",B2DUKO01
+138,Vysocina,"Moravsk� Bud�jovice, okres: T�eb��","MoravskBudjovice,okres:Teb",B2MBUD01
+139,Vysocina,"Byst�ice nad Pern�tejnem, okres: ���r nad S�zavou","BysticenadPerntejnem,okres:rnadSzavou",B2BYSP01
+140,Vysocina,"Vat�n, okres: ���r nad S�zavou","Vatn,okres:rnadSzavou",B2VATI01
+141,Vysocina,"Velk� Mezi����, okres: ���r nad S�zavou","VelkMezi,okres:rnadSzavou",B2VMEZ01
+142,Jihomoravsky,"Brno, Tu�any, okres: Brno-m�sto","Brno,Tuany,okres:Brno-msto",B2BTUR01
+143,Jihomoravsky,"Brno, �abov�esky, okres: Brno-m�sto","Brno,abovesky,okres:Brno-msto",B2BZAB01
+144,Jihomoravsky,"Ti�nov, H�jek, okres: Brno-venkov","Tinov,Hjek,okres:Brno-venkov",B2HAJE01
+145,Jihomoravsky,"Troubsko, okres: Brno-venkov","Troubsko,okres:Brno-venkov",B2TROU01
+146,Jihomoravsky,"Brod nad Dyj�, okres: B�eclav","BrodnadDyj,okres:Beclav",B2BROD01
+147,Jihomoravsky,"Doln� V�stonice, okres: B�eclav","DolnVstonice,okres:Beclav",B2DVES02
+148,Jihomoravsky,"Kobyl�, okres: B�eclav","Kobyl,okres:Beclav",B2KOBY01
+149,Jihomoravsky,"Lednice, okres: B�eclav","Lednice,okres:Beclav",B2LEDN01
+150,Jihomoravsky,"Poho�elice, okres: B�eclav","Pohoelice,okres:Beclav",B2POHO01
+151,Jihomoravsky,"Velk� Pavlovice, okres: B�eclav","VelkPavlovice,okres:Beclav",B2VPAV01
+152,Jihomoravsky,"Str�nice, okres: Hodon�n","Strnice,okres:Hodonn",B1STRZ01
+153,Jihomoravsky,"Ivanovice na Han�, okres: Vy�kov","IvanovicenaHan,okres:Vykov",B1IVAN01
+154,Jihomoravsky,"Nemochovice, okres: Vy�kov","Nemochovice,okres:Vykov",B2NEMO01
+155,Jihomoravsky,"Dyj�kovice, okres: Znojmo","Dyjkovice,okres:Znojmo",B2DYJA01
+156,Jihomoravsky,"Kucha�ovice, okres: Znojmo","Kuchaovice,okres:Znojmo",B2KUCH01
+157,Olomoucky,"Javorn�k, okres: Jesen�k","Javornk,okres:Jesenk",O1JAVO01
+158,Olomoucky,"�er�k, okres: Jesen�k","erk,okres:Jesenk",O1SERA01
+159,Olomoucky,"Luk�, okres: Olomouc","Luk,okres:Olomouc",O2LUKA01
+160,Olomoucky,"Olomouc, Holice, okres: Olomouc","Olomouc,Holice,okres:Olomouc",O2OLOM01
+161,Olomoucky,"Olomouc, Slavon�n, okres: Olomouc","Olomouc,Slavonn,okres:Olomouc",O2OLOM01
+162,Olomoucky,"B�lot�n, okres: P�erov","Blotn,okres:Perov",O1BELO01
+163,Olomoucky,"P�erov, okres: P�erov","Perov,okres:Perov",O3PRER01
+164,Olomoucky,"P�erov, Hen�lov, okres: P�erov","Perov,Henlov,okres:Perov",O3PRER01
+165,Moravskoslezsky,"Prad�d, okres: Brunt�l","Pradd,okres:Bruntl",O1PRAD01
+166,Moravskoslezsky,"R�ma�ov, okres: Brunt�l","Rmaov,okres:Bruntl",O1RYMA01
+167,Moravskoslezsky,"Sv�tl� Hora, okres: Brunt�l","SvtlHora,okres:Bruntl",O1SVET01
+168,Moravskoslezsky,"B�l�, Kone�n�, okres: Fr�dek-M�stek","Bl,Konen,okres:Frdek-Mstek",O1BILA01
+169,Moravskoslezsky,"Fr�dek-M�stek, M�stek, okres: Fr�dek-M�stek","Frdek-Mstek,Mstek,okres:Frdek-Mstek",O1FMOL01
+170,Moravskoslezsky,"Jablunkov, N�vs�, okres: Fr�dek-M�stek","Jablunkov,Nvs,okres:Frdek-Mstek",O1JABL01
+171,Moravskoslezsky,"Lu�ina, okres: Fr�dek-M�stek","Luina,okres:Frdek-Mstek",O1LUCI01
+172,Moravskoslezsky,"Lys� hora, okres: Fr�dek-M�stek","Lyshora,okres:Frdek-Mstek",O1LYSA01
+173,Moravskoslezsky,"T�inec, Old�ichovice, Javorov� , okres: Fr�dek-M�stek","Tinec,Oldichovice,Javorov,okres:Frdek-Mstek",O1JAVR01
+174,Moravskoslezsky,"T�inec, Old�ichovice,Javorov� vrch, okres: Fr�dek-M�stek","Tinec,Oldichovice,Javorovvrch,okres:Frdek-Mstek",O1JAVR01
+175,Moravskoslezsky,"Karvin�, okres: Karvin�","Karvin,okres:Karvin",O1KARV01
+176,Moravskoslezsky,"Karvin�, Star� M�sto, okres: Karvin�","Karvin,StarMsto,okres:Karvin",O1KARV01
+177,Moravskoslezsky,"Mo�nov, okres: Nov� Ji��n","Monov,okres:NovJin",O1MOSN01
+178,Moravskoslezsky,"�erven�, okres: Opava","erven,okres:Opava",O1CERV01
+179,Moravskoslezsky,"Opava, Otice, okres: Opava","Opava,Otice,okres:Opava",O1OPAV01
+180,Moravskoslezsky,"Ostrava, Poruba, okres: Ostrava-m�sto","Ostrava,Poruba,okres:Ostrava-msto",O1PORU01
+181,Zlinsky,"Byst�ice pod Host�nem, okres: Krom���","BysticepodHostnem,okres:Krom",B1BYSH01
+182,Zlinsky,"Hole�ov, okres: Krom���","Holeov,okres:Krom",B1HOLE01
+183,Zlinsky,"Krom���, okres: Krom���","Krom,okres:Krom",B1KROM01
+184,Zlinsky,"Star� M�sto, okres: Uhersk� Hradi�t�","StarMsto,okres:UherskHradit",B1STME01
+185,Zlinsky,"Str�n�, okres: Uhersk� Hradi�t�","Strn,okres:UherskHradit",B1STRN01
+186,Zlinsky,"Horn� Be�va, okres: Vset�n","HornBeva,okres:Vsetn",O3BECV01
+187,Zlinsky,"Ho���lkov�, okres: Vset�n","Holkov,okres:Vsetn",O3HOST01
+188,Zlinsky,"Ho���lkov�, Maru�ka, okres: Vset�n","Holkov,Maruka,okres:Vsetn",O3MARU01
+189,Zlinsky,"Vala�sk� Senice, okres: Vset�n","ValaskSenice,okres:Vsetn",O3VASE01
+190,Zlinsky,"Vala�sk� Mezi����, okres: Vset�n","ValaskMezi,okres:Vsetn",O3VALM01
+191,Zlinsky,"Vset�n, okres: Vset�n","Vsetn,okres:Vsetn",O3VSET01
+192,Zlinsky,"Luha�ovice, Kladn�-�il�n, okres: Zl�n","Luhaovice,Kladn-iln,okres:Zln",B1KLZI01
+193,Zlinsky,"�t�tn� nad Vl��� - Popov, okres: Zl�n","ttnnadVl-Popov,okres:Zln",B1STIT01
+194,Zlinsky,"Vizovice, okres: Zl�n","Vizovice,okres:Zln",B1VIZO01

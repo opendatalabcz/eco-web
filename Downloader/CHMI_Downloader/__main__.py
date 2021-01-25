@@ -114,39 +114,70 @@ if __name__ == "__main__":
             if args.debug:
                 print('DEBUG: Creating data type directory.')
             os.mkdir(outputDest + '\\' + dataType)
+
         df = None
         # for each data type read corresponding file with stations
         if dataType == h.dataTypes['Average_temperature']:
-            pass
-        elif dataType == h.dataTypes['Minimal_temperature']:
-            pass
-        elif dataType == h.dataTypes['Maximal_temperature']:
-            pass
-        elif dataType == h.dataTypes['Daily_total_precipitation']:
-            pass
-        elif dataType == h.dataTypes['Average_daily_relative_humidity']:
-            pass
-        elif dataType == h.dataTypes['Height_of_newly_fallen_snow']:
-            pass
-        elif dataType == h.dataTypes['The_total_height_of_the_snow_cover']:
-            pass
-        elif dataType == h.dataTypes['Dailytotal_duration_of_sunshine']:
-            pass
-        elif dataType == h.dataTypes['Average_pressure']:
-            pass
-        elif dataType == h.dataTypes['Average_daily_wind_speed']:
-            pass
-        elif dataType == h.dataTypes['Maximum_wind_speed']:
-            pass
-        else:
-            if args.debug:
-                print('DEBUG: Reading W_AVG_Stations.csv.')
-            # Read W_AVG_Stations.csv if exists and skip that data type if doesn't exists
-            if not os.path.exists('.\\InputData\\W_AVG_Stations.csv'):
-                if not args.silent:
-                    print('WARNING! Skipping Average_daily_water_flow, because W_AVG_Stations.csv in input data missing.')
+            # Read T_AVG_Stations.csv if exists and skip that data type if doesn't exists
+            df = h.readInputData('Average_temperature', args.debug, args.silent)
+            if df is None:
                 continue
-            df = pd.read_csv('.\\InputData\\W_AVG_Stations.csv')
+        elif dataType == h.dataTypes['Minimal_temperature']:
+            # Read TMI_Stations.csv if exists and skip that data type if doesn't exists
+            df = h.readInputData('Minimal_temperature', args.debug, args.silent)
+            if df is None:
+                continue
+        elif dataType == h.dataTypes['Maximal_temperature']:
+            # Read TMA_Stations.csv if exists and skip that data type if doesn't exists
+            df = h.readInputData('Maximal_temperature', args.debug, args.silent)
+            if df is None:
+                continue
+        elif dataType == h.dataTypes['Daily_total_precipitation']:
+            # Read SRA_Stations.csv if exists and skip that data type if doesn't exists
+            df = h.readInputData('Daily_total_precipitation', args.debug, args.silent)
+            if df is None:
+                continue
+        elif dataType == h.dataTypes['Average_daily_relative_humidity']:
+            # Read H_AVG_Stations.csv if exists and skip that data type if doesn't exists
+            df = h.readInputData('Average_daily_relative_humidity', args.debug, args.silent)
+            if df is None:
+                continue
+        elif dataType == h.dataTypes['Height_of_newly_fallen_snow']:
+            # Read SNO_Stations.csv if exists and skip that data type if doesn't exists
+            df = h.readInputData('Height_of_newly_fallen_snow', args.debug, args.silent)
+            if df is None:
+                continue
+        elif dataType == h.dataTypes['The_total_height_of_the_snow_cover']:
+            # Read SCE_Stations.csv if exists and skip that data type if doesn't exists
+            df = h.readInputData('The_total_height_of_the_snow_cover', args.debug, args.silent)
+            if df is None:
+                continue
+        elif dataType == h.dataTypes['Dailytotal_duration_of_sunshine']:
+            # Read SSV_Stations.csv if exists and skip that data type if doesn't exists
+            df = h.readInputData('Dailytotal_duration_of_sunshine', args.debug, args.silent)
+            if df is None:
+                continue
+        elif dataType == h.dataTypes['Average_pressure']:
+            # Read P_AVG_Stations.csv if exists and skip that data type if doesn't exists
+            df = h.readInputData('Average_pressure', args.debug, args.silent)
+            if df is None:
+                continue
+        elif dataType == h.dataTypes['Average_daily_wind_speed']:
+            # Read F_AVG_Stations.csv if exists and skip that data type if doesn't exists
+            df = h.readInputData('Average_daily_wind_speed', args.debug, args.silent)
+            if df is None:
+                continue
+        elif dataType == h.dataTypes['Maximum_wind_speed']:
+            # Read Fmax_Stations.csv if exists and skip that data type if doesn't exists
+            df = h.readInputData('Maximum_wind_speed', args.debug, args.silent)
+            if df is None:
+                continue
+        else:
+            # Read W_AVG_Stations.csv if exists and skip that data type if doesn't exists
+            df = h.readInputData('Average_daily_water_flow', args.debug, args.silent)
+            if df is None:
+                continue
+
         if args.debug:
             print('DEBUG: Starting to process selected regions.')
         # For each region select stations from it, download and process corresponding data
@@ -160,58 +191,58 @@ if __name__ == "__main__":
                 if args.debug:
                     print('DEBUG: Creating region directory.')
                 os.mkdir(outputDest + '\\' + dataType + '\\' + h.regions[region])
-            # If data type is W-AVG, process differently
-            if dataType == h.dataTypes['Average_daily_water_flow']:
+            if args.debug:
+                print('DEBUG: Selecting stations from region' + h.regions[region] + '.')
+            # Filter stations so it contains only stations from given region
+            stations = df[df['region'] == h.regions[region]]
+            stationList = stations['file_name'].tolist()
+            # For each station, generate corresponding filename, URL. Then download that file from it and process it.
+            for station in stationList:
+                if not args.silent and not args.debug:
+                    print('Downloading data for station ' + str(station) + '.')
                 if args.debug:
-                    print('DEBUG: Selecting stations from region' + h.regions[region] + '.')
-                # Filter stations so it contains only stations from given region
-                stations = df[df['region'] == h.regions[region]]
-                stationList = stations['file_name'].tolist()
-                # For each station, generate corresponding filename, URL. Then download that file from it and process it.
-                for station in stationList:
-                    if not args.silent and not args.debug:
-                        print('Downloading data for station ' + str(station) + '.')
+                    print('DEBUG: Starting to process stations in region' + h.regions[region] + '.')
+                # Process station if directory doesn't exist, else skip
+                if not os.path.isdir(outputDest + '\\' + dataType + '\\' + h.regions[region] + '\\' + str(station)):
                     if args.debug:
-                        print('DEBUG: Starting to process stations in region' + h.regions[region] + '.')
-                    # Process station if directory doesn't exist, else skip
-                    if not os.path.isdir(outputDest + '\\' + dataType + '\\' + h.regions[region] + '\\' + str(station)):
-                        if args.debug:
-                            print('DEBUG: Creating directory for station ' + str(station) + '.')
-                        # Create directory for the station
-                        os.mkdir(outputDest + '\\' + dataType + '\\' + h.regions[region] + '\\' + str(station))
-                        if args.debug:
-                            print('DEBUG: Preparing file name for station ' + str(station) + '.')
-                        # Generate name and URL for given station
-                        fileName = h.generateFileName(str(station), dataType)
-                        if args.debug:
-                            print('DEBUG: Creating URL for station ' + str(station) + '.')
-                        url = h.generateURL(h.regions[region], dataType, fileName)
-                        # Set up path to store downloaded file and where to put processed output
-                        dest = outputDest + '\\' + dataType + '\\' + h.regions[region] + '\\' + str(station)
-                        path = dest + '\\' + fileName
-                        # Downloading and processing file
-                        if args.debug:
-                            print('DEBUG: Downloading data for station ' + str(station) + '.')
-                        h.downloadFromURL(url=url, path=path)
-                        if args.debug:
-                            print('DEBUG: Processing data for station ' + str(station) + '.')
+                        print('DEBUG: Creating directory for station ' + str(station) + '.')
+                    # Create directory for the station
+                    os.mkdir(outputDest + '\\' + dataType + '\\' + h.regions[region] + '\\' + str(station))
+                    if args.debug:
+                        print('DEBUG: Preparing file name for station ' + str(station) + '.')
+                    # Generate name and URL for given station
+                    fileName = h.generateFileName(str(station), dataType)
+                    if args.debug:
+                        print('DEBUG: Creating URL for station ' + str(station) + '.')
+                    url = h.generateURL(h.regions[region], dataType, fileName)
+                    # Set up path to store downloaded file and where to put processed output
+                    dest = outputDest + '\\' + dataType + '\\' + h.regions[region] + '\\' + str(station)
+                    path = dest + '\\' + fileName
+                    # Downloading and processing file
+                    if args.debug:
+                        print('DEBUG: Downloading data for station ' + str(station) + '.')
+                    h.downloadFromURL(url=url, path=path)
+                    if args.debug:
+                        print('DEBUG: Processing data for station ' + str(station) + '.')
+                    # If data type is W-AVG, process differently
+                    if dataType == h.dataTypes['Average_daily_water_flow']:
                         h.processHydroDataFromZIPFile(path, dest)
-                        if args.debug:
-                            print('DEBUG: Completed data processing for statation ' + str(station) + '.')
-                        if not args.silent and not args.debug:
-                            print('Data download for station ' + str(station) + ' completed.\n')
-                        # Waiting some time before sending another request to reduce server load
-                        delay = h.generateDelay()
-                        if args.debug:
-                            print('DEBUG: Due to server load reduction, waits ' + str(delay) + ' seconds before continuing.')
-                        time.sleep(delay)
                     else:
-                        if args.debug:
-                            print('DEBUG: Skipping station ' + str(station) + ', because data already exists.')
-                        if not args.silent and not args.debug:
-                            print('WARNING! Skipping station ' + str(station) + ', because data already exists.\n')
-            else:
-                print(dataType + ' is not supported yet.')
+                        h.processMeteoDataFromZIPFile(path, dest)
+                    if args.debug:
+                        print('DEBUG: Completed data processing for statation ' + str(station) + '.')
+                    if not args.silent and not args.debug:
+                        print('Data download for station ' + str(station) + ' completed.\n')
+                    # Waiting some time before sending another request to reduce server load
+                    delay = h.generateDelay()
+                    if args.debug:
+                        print('DEBUG: Due to server load reduction, waits ' + str(delay) + ' seconds before continuing.')
+                    time.sleep(delay)
+                else:
+                    if args.debug:
+                        print('DEBUG: Skipping station ' + str(station) + ', because data already exists.')
+                    if not args.silent and not args.debug:
+                        print('WARNING! Skipping station ' + str(station) + ', because data already exists.\n')
             if not args.silent and not args.debug:
                 print('Data download for region ' + h.regions[region] + ' finished!\n')
         if not args.silent and not args.debug:
@@ -220,21 +251,3 @@ if __name__ == "__main__":
         print('DEBUG: Processing of data finished.')
     if not args.silent and not args.debug:
         print('\nDownloading finished! All requested data downloaded.')
-
-    # testZip = args.output + '\\Tests\\QD_169000.zip'
-    # outputDirPath = args.output + '\\Tests\\Output'
-    # outputPath = outputDirPath + '\\QD_169000'
-    # if not os.path.isdir(outputDirPath):
-    #     os.mkdir(outputDirPath)
-    # if not os.path.isdir(outputPath):
-    #     os.mkdir(outputPath)
-    # h.processHydroDataFromZIPFile(testZip, outputPath)
-
-    # testZip = args.output + '\\Tests\\P1PKAR01_T_N.csv.zip'
-    # outputDirPath = args.output + '\\Tests\\Output'
-    # outputPath = outputDirPath + '\\P1PKAR01_T_N'
-    # if not os.path.isdir(outputDirPath):
-    #     os.mkdir(outputDirPath)
-    # if not os.path.isdir(outputPath):
-    #     os.mkdir(outputPath)
-    # h.processMeteoDataFromZIPFile(testZip, outputPath)

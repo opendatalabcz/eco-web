@@ -3,6 +3,7 @@ import re
 import random
 import zipfile
 import requests
+import pandas as pd
 
 
 MIN_DELAY = 3
@@ -43,22 +44,47 @@ dataTypes = {
 }
 
 
+def readInputData(dataType: str, debug: bool, silent: bool):
+    """Function to read station file for given data type.
+
+        Arguments:
+            dataType -- specify for which data type stations will be readed
+            debug -- sets flag to output debug notification to the console
+            silent -- sets flag to output nothing to the console
+        Returns Pandas DataFrame or None if file doesn't exists
+    """
+    # Validate requested dataType
+    if dataType not in dataTypes:
+        return None
+    selectedType = re.sub(r'-', '_', dataTypes[dataType])
+    if debug:
+        print('DEBUG: Reading ' + selectedType + '_Stations.csv.')
+    # Read Stations.csv if exists and return none if doesn't exists
+    if not os.path.exists('.\\InputData\\' + selectedType + '_Stations.csv'):
+        if not silent:
+            print('WARNING! Skipping ' + dataType + ', because ' + selectedType + '_Stations.csv in input data is missing.')
+        return None
+    return pd.read_csv('.\\InputData\\' + selectedType + '_Stations.csv')
+
+
 def generateDelay() -> int:
     """Function to generate delay based in MIN and MAX constants.
 
         Arguments:
         Returns delay in seconds
-        """
+    """
     return random.randint(MIN_DELAY, MAX_DELAY)
 
 
 def downloadFromURL(url: str, path: str, chunkSize: int = 128):
-    """Function to start scraping given URL.
+    """Function to download file from given URL and stores it on given location.
 
         Arguments:
-            self -- instance of the class
-        Yields parsed requests
-        """
+            url -- URL from which data should be downloaded
+            path -- location where downloaded  file should be stored
+            chunkSize -- specify how big parts of file will be durring downloading, 128 is default
+        Returns None
+    """
     r = requests.get(url, stream=True)
     with open(path, mode='wb') as file:
         for chunk in r.iter_content(chunk_size=chunkSize):
@@ -72,7 +98,7 @@ def processMeteoDataFromZIPFile(zipPath: str, destinationPath: str):
             zipPath -- path to downloaded zip file
             destinationPath -- path where the output should be stored
         Returns none
-        """
+    """
     # Check if file exists
     if not os.path.exists(zipPath):
         return None
@@ -115,7 +141,7 @@ def processHydroDataFromZIPFile(zipPath: str, destinationPath: str):
             zipPath -- path to downloaded zip file
             destinationPath -- path where the output should be stored
         Returns none
-        """
+    """
     # Check if file exists
     if not os.path.exists(zipPath):
         return None
@@ -149,7 +175,7 @@ def generateFileName(stationCode: str, dataType: str) -> str:
             stationCode -- code of the station, from which data will be downloaded
             dataType -- specify data type to generate right name for
         Returns filename of desired file
-        """
+    """
     # Datatype validation
     if dataType not in dataTypes and dataType not in dataTypes.values():
         return None
@@ -171,7 +197,7 @@ def generateURL(region: str, dataType: str, fileName: str) -> str:
             dataType -- specify for which data type URL will be generated
             filename -- filename of desired file
         Returns URL
-        """
+    """
     # Region validation
     if region not in regions:
         return None

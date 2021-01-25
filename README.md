@@ -34,5 +34,5 @@ in terminal.\
 **1.)** First step is to install Python and Conda on your machine, if not already done. You can use this link for **[Miniconda](https://docs.conda.io/en/latest/miniconda.html)**.\
 **2.)** Open CMD on Windows or Terminal on Linux and macOS and in eco-web/Downloader directory run this command **conda env update** if not already done *(Scraper and Downloader uses the same environment)*.\
 **3.)** Run command **conda activate eco-web** to start environment which contains all needed libraries and plugins for Python.\
-**4.)** *Optional* - Run command **python CHMU_Downloader -h** from Downloader directory to get help  *(recommended if using first time)* and to list all the options you can use.\
-**5.)** Run command **python CHMU_Downloader** or **python CHMU_Downloader [your_chosen_options]** from the Downloader directory to use the downloader.
+**4.)** *Optional* - Run command **python CHMI_Downloader -h** from Downloader directory to get help  *(recommended if using first time)* and to list all the options you can use.\
+**5.)** Run command **python CHMI_Downloader** or **python CHMU_Downloader [your_chosen_options]** from the Downloader directory to use the downloader.
