@@ -1,11 +1,15 @@
 import os
 import re
+import random
 import zipfile
 import requests
 
 
+MIN_DELAY = 3
+MAX_DELAY = 10
+
 # List of all regions available
-regions = {
+regions = [
     'Praha',
     'Jihocesky',
     'Jihomoravsky',
@@ -20,7 +24,7 @@ regions = {
     'Stredocesky',
     'Ustecky',
     'Zlinsky',
-}
+]
 
 # List of all datatypes available
 dataTypes = {
@@ -39,22 +43,13 @@ dataTypes = {
 }
 
 
-def downoadFiles():
-    """Function to start scraping given URL.
+def generateDelay() -> int:
+    """Function to generate delay based in MIN and MAX constants.
 
         Arguments:
-            self -- instance of the class
-        Yields parsed requests
+        Returns delay in seconds
         """
-
-
-def loadHydroFile():
-    """Function to start scraping given URL.
-
-        Arguments:
-            self -- instance of the class
-        Yields parsed requests
-        """
+    return random.randint(MIN_DELAY, MAX_DELAY)
 
 
 def downloadFromURL(url: str, path: str, chunkSize: int = 128):
@@ -78,10 +73,14 @@ def processMeteoDataFromZIPFile(zipPath: str, destinationPath: str):
             destinationPath -- path where the output should be stored
         Returns none
         """
-    # TODO Add path exist test and zip content check - if there is not exactly 1 file return
-
+    # Check if file exists
+    if not os.path.exists(zipPath):
+        return None
     # Opens zipfile, extracts file as tmp file
     zipFile = zipfile.ZipFile(zipPath, 'r')
+    # Check if the zipfile contains right count of files - if not, propably not the file we want
+    if len(zipFile.namelist()) != 1:
+        return None
     f = open(destinationPath + '\\tmp.csv', 'w+b')
     for fileName in zipFile.namelist():
         with zipFile.open(fileName) as dataFile:
@@ -117,11 +116,14 @@ def processHydroDataFromZIPFile(zipPath: str, destinationPath: str):
             destinationPath -- path where the output should be stored
         Returns none
         """
-
-    # TODO Add path exist test and zip content check - if there is not exactly 3 files return
-
+    # Check if file exists
+    if not os.path.exists(zipPath):
+        return None
     # Opening zip file for reading
     zipFile = zipfile.ZipFile(zipPath, 'r')
+    # Check if the zipfile contains right count of files - if not, propably not the file we want
+    if len(zipFile.namelist()) != 3:
+        return None
     for fileName in zipFile.namelist():
         # If data file is found, read it line by line in binary and write it to the new data file
         if re.search('Data', fileName):
@@ -150,7 +152,7 @@ def generateFileName(stationCode: str, dataType: str) -> str:
         """
     # Datatype validation
     if dataType not in dataTypes and dataType not in dataTypes.values():
-        return ''
+        return None
     # Create filename for Average daily water flow
     if dataType == dataTypes['Average_daily_water_flow']:
         return 'QD_' + stationCode + '.zip'
@@ -172,10 +174,10 @@ def generateURL(region: str, dataType: str, fileName: str) -> str:
         """
     # Region validation
     if region not in regions:
-        return ''
+        return None
     # Datatype validation
     if dataType not in dataTypes and dataType not in dataTypes.values():
-        return ''
+        return None
     # Modifying datatype to reflect data types in urls
     if re.search(r'^TM', dataType):
         dataType += '-21.00'
@@ -183,8 +185,6 @@ def generateURL(region: str, dataType: str, fileName: str) -> str:
         dataType += '-07.00'
     if dataType == dataTypes['Dailytotal_duration_of_sunshine'] or dataType == dataTypes['Maximum_wind_speed']:
         dataType += '-00.00'
-    # https://www.chmi.cz/files/portal/docs/meteo/ok/denni_data/T-AVG/Praha/P1PKAR01_T_N.csv.zip
-    # https://www.chmi.cz/files/portal/docs/hydro/denni_data/QD/Praha/QD_169000.zip
     url = 'https://www.chmi.cz/files/portal/docs/'
     # If data type is Average daily water flow, return url for it. If not, return url for meteo data
     if dataType == dataTypes['Average_daily_water_flow']:

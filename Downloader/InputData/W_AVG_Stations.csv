@@ -1,0 +1,522 @@
+id,region,station_name,normalized_name,file_name
+0,Praha,"Vltava, Praha-Zbraslav","Vltava,Praha-Zbraslav",169000
+1,Praha,"Berounka, Praha-Radotín","Berounka,Praha-Radotin",199200
+2,Praha,"Radotínský potok, Praha-Radotín","Radotinskypotok,Praha-Radotin",199600
+3,Praha,"Vltava, Praha-Chuchle","Vltava,Praha-Chuchle",200100
+4,Praha,"Botič, Praha-Petrovice","Botic,Praha-Petrovice",200580
+5,Praha,"Botič, Praha-Hostivař","Botic,Praha-Hostivar",200590
+6,Praha,"Botič, Praha-Nusle","Botic,Praha-Nusle",200600
+7,Praha,"Vltava, Praha-Výtoň","Vltava,Praha-Vyton",200700
+8,Praha,"Vltava, Praha-Na Františku","Vltava,Praha-NaFrantisku",200900
+9,Praha,"Rokytka, Praha-Kyjský rybník","Rokytka,Praha-Kyjskyrybnik",200980
+10,Praha,"Rokytka, Praha-Vysočany","Rokytka,Praha-Vysocany",200990
+11,Praha,"Litovický potok, Praha-Jiviny","Litovickypotok,Praha-Jiviny",201990
+12,Stredocesky,"Doubrava, Žleby","Doubrava,Zleby",066000
+13,Stredocesky,"Klejnárka, Chedrbí","Klejnarka,Chedrbi",066200
+14,Stredocesky,"Vrchlice, Vrchlice","Vrchlice,Vrchlice",066500
+15,Stredocesky,"Cidlina, Sány","Cidlina,Sany",075000
+16,Stredocesky,"Štítarský potok, Svídnice","Stitarskypotok,Svidnice",075500
+17,Stredocesky,"Mrlina, Vestec","Mrlina,Vestec",077000
+18,Stredocesky,"Sánský kanál, Opolánky","Sanskykanal,Opolanky",078500
+19,Stredocesky,"Labe, Nymburk","Labe,Nymburk",080000
+20,Stredocesky,"Výrovka, Plaňany","Vyrovka,Planany",082000
+21,Stredocesky,"Žehrovka, Březina","Zehrovka,Brezina",092900
+22,Stredocesky,"Jizera, Sovenice","Jizera,Sovenice",093100
+23,Stredocesky,"Mohelka, Chocnějovice","Mohelka,Chocnejovice",094000
+24,Stredocesky,"Zábrdka, Dolní Bukovina","Zabrdka,DolniBukovina",096000
+25,Stredocesky,"Bělá, Velký Rečkov","Bela,VelkyReckov",097000
+26,Stredocesky,"Jizera, Bakov nad Jizerou","Jizera,BakovnadJizerou",098000
+27,Stredocesky,"Klenice, Mladá Boleslav","Klenice,MladaBoleslav",100000
+28,Stredocesky,"Jizera, Tuřice-Předměřice","Jizera,Turice-Predmerice",101800
+29,Stredocesky,"Labe, Kostelec nad Labem","Labe,KostelecnadLabem",104400
+30,Stredocesky,"Košátecký potok, Košátky","Kosateckypotok,Kosatky",105000
+31,Stredocesky,"Brzina, Hrachov","Brzina,Hrachov",153800
+32,Stredocesky,"Mastník, Radíč","Mastnik,Radic",153900
+33,Stredocesky,"Kocába, Štěchovice","Kocaba,Stechovice",154600
+34,Stredocesky,"Sázava, Zruč nad Sázavou","Sazava,ZrucnadSazavou",161000
+35,Stredocesky,"Sedlický potok, Leský Mlýn","Sedlickypotok,LeskyMlyn",163100
+36,Stredocesky,"Želivka, Nesměřice","Zelivka,Nesmerice",163300
+37,Stredocesky,"Sázava, Kácov","Sazava,Kacov",165000
+38,Stredocesky,"Blanice, Louňovice pod Blaníkem","Blanice,LounovicepodBlanikem",165600
+39,Stredocesky,"Chotýšanka, Slověnice","Chotysanka,Slovenice",165800
+40,Stredocesky,"Blanice, Radonice","Blanice,Radonice",166200
+41,Stredocesky,"Konopišťský potok, Poříčí nad Sázavou","Konopistskypotok,PoricinadSazavou",166900
+42,Stredocesky,"Sázava, Nespeky","Sazava,Nespeky",167200
+43,Stredocesky,"Zbirožský potok, Podmokly","Zbirozskypotok,Podmokly",191400
+44,Stredocesky,"Rakovnický potok, Rakovník","Rakovnickypotok,Rakovnik",191800
+45,Stredocesky,"Klíčava, Lány-Městečko","Klicava,Lany-Mestecko",193000
+46,Stredocesky,"Lánský potok, Lány-Běleč","Lanskypotok,Lany-Belec",194000
+47,Stredocesky,"Berounka, Zbečno","Berounka,Zbecno",194500
+48,Stredocesky,"Obecnický potok, Obecnice","Obecnickypotok,Obecnice",195900
+49,Stredocesky,"Litavka, Čenkov","Litavka,Cenkov",196000
+50,Stredocesky,"Červený potok, Hořovice","Cervenypotok,Horovice",196400
+51,Stredocesky,"Stroupínský potok, Hředle","Stroupinskypotok,Hredle",196700
+52,Stredocesky,"Litavka, Beroun","Litavka,Beroun",197300
+53,Stredocesky,"Berounka, Beroun","Berounka,Beroun",198000
+54,Stredocesky,"Loděnice, Loděnice","Lodenice,Lodenice",198400
+55,Stredocesky,"Botič, Kocanda","Botic,Kocanda",200480
+56,Stredocesky,"Dobřejovický potok, Průhonice","Dobrejovickypotok,Pruhonice",200500
+57,Stredocesky,"Botič, Průhonice","Botic,Pruhonice",200550
+58,Stredocesky,"Pitkovický potok, Kuří","Pitkovickypotok,Kuri",200560
+59,Stredocesky,"Bakovský potok, Velvary","Bakovskypotok,Velvary",202300
+60,Stredocesky,"Vltava, Vraňany","Vltava,Vranany",203000
+61,Stredocesky,"Labe, Mělník","Labe,Melnik",204000
+62,Stredocesky,"Liběchovka, Želízy","Libechovka,Zelizy",204500
+63,Jihocesky,"Teplá Vltava, Lenora","TeplaVltava,Lenora",106000
+64,Jihocesky,"Teplá Vltava, Chlum","TeplaVltava,Chlum",107000
+65,Jihocesky,"Studená Vltava, Černý Kříž","StudenaVltava,CernyKriz",108000
+66,Jihocesky,"Vltava, Vyšší Brod","Vltava,VyssiBrod",109000
+67,Jihocesky,"Vltava, Zátoň","Vltava,Zaton",109500
+68,Jihocesky,"Polečnice (Kájovský potok), Český Krumlov","Polecnice(Kajovskypotok),CeskyKrumlov",110200
+69,Jihocesky,"Vltava, Březí","Vltava,Brezi",111000
+70,Jihocesky,"Malše, Kaplice","Malse,Kaplice",112000
+71,Jihocesky,"Černá, Ličov","Cerna,Licov",112500
+72,Jihocesky,"Malše, Pořešín","Malse,Poresin",112600
+73,Jihocesky,"Malše, Římov","Malse,Rimov",113000
+74,Jihocesky,"Stropnice, Horní Stropnice","Stropnice,HorniStropnice",113200
+75,Jihocesky,"Stropnice, Pašinovice","Stropnice,Pasinovice",114000
+76,Jihocesky,"Malše, Roudné","Malse,Roudne",115000
+77,Jihocesky,"Vltava, České Budějovice","Vltava,CeskeBudejovice",115100
+78,Jihocesky,"Bezdrevský potok, Lékařova Lhota","Bezdrevskypotok,LekarovaLhota",116500
+79,Jihocesky,"Lužnice, Pilař","Luznice,Pilar",119000
+80,Jihocesky,"Koštěnický potok, Kosky-Hamr","Kostenickypotok,Kosky-Hamr",121000
+81,Jihocesky,"Lužnice, Kazdovna","Luznice,Kazdovna",122000
+82,Jihocesky,"Lužnice, Frahelž","Luznice,Frahelz",123000
+83,Jihocesky,"Zlatá stoka, Pilař-Majdaléna","Zlatastoka,Pilar-Majdalena",123500
+84,Jihocesky,"Nežárka, Rodvínov","Nezarka,Rodvinov",124000
+85,Jihocesky,"Hamerský potok, Oldřiš","Hamerskypotok,Oldris",126000
+86,Jihocesky,"Nežárka, Lásenice","Nezarka,Lasenice",127000
+87,Jihocesky,"Nová řeka, Mláka","Novareka,Mlaka",128000
+88,Jihocesky,"Nežárka, Hamr","Nezarka,Hamr",129000
+89,Jihocesky,"Lužnice, Klenovice","Luznice,Klenovice",131000
+90,Jihocesky,"Smutná, Rataje","Smutna,Rataje",132500
+91,Jihocesky,"Lužnice, Bechyně","Luznice,Bechyne",133000
+92,Jihocesky,"Otava, Katovice","Otava,Katovice",141000
+93,Jihocesky,"Volyňka, Sudslavice","Volynka,Sudslavice",141300
+94,Jihocesky,"Spůlka, Nový Dvůr","Spulka,NovyDvur",141400
+95,Jihocesky,"Spůlka, Bohumilice","Spulka,Bohumilice",141700
+96,Jihocesky,"Volyňka, Němětice","Volynka,Nemetice",143000
+97,Jihocesky,"Blanice, Blanický Mlýn","Blanice,BlanickyMlyn",145000
+98,Jihocesky,"Blanice, Podedvorský Mlýn","Blanice,PodedvorskyMlyn",147000
+99,Jihocesky,"Blanice, Husinec","Blanice,Husinec",148000
+100,Jihocesky,"Zlatý potok, Hracholusky","Zlatypotok,Hracholusky",148500
+101,Jihocesky,"Blanice, Heřmaň","Blanice,Herman",150000
+102,Jihocesky,"Otava, Písek","Otava,Pisek",151000
+103,Jihocesky,"Lomnice, Dolní Ostrovec","Lomnice,DolniOstrovec",152000
+104,Jihocesky,"Skalice, Varvažov","Skalice,Varvazov",153000
+105,Jihocesky,"Moravská Dyje, Janov","MoravskaDyje,Janov",429000
+106,Jihocesky,"Pstruhovec, Landštejn nad nádrží","Pstruhovec,Landstejnnadnadrzi",429500
+107,Jihocesky,"Pstruhovec, VD Landštejn","Pstruhovec,VDLandstejn",429600
+108,Jihocesky,"Pstruhovec, Staré Město pod Landštejnem","Pstruhovec,StareMestopodLandstejnem",429700
+109,Plzensky,"Vydra, Modrava","Vydra,Modrava",135000
+110,Plzensky,"Hamerský potok, Modrava-Antýgl","Hamerskypotok,Modrava-Antygl",136000
+111,Plzensky,"Křemelná, Stodůlky","Kremelna,Stodulky",136500
+112,Plzensky,"Otava, Rejštejn","Otava,Rejstejn",137000
+113,Plzensky,"Otava, Sušice","Otava,Susice",138000
+114,Plzensky,"Ostružná, Kolinec","Ostruzna,Kolinec",139000
+115,Plzensky,"Mže, VD Lučina","Mze,VDLucina",169500
+116,Plzensky,"Hamerský potok, Planá","Hamerskypotok,Plana",171000
+117,Plzensky,"Kosový potok, Třebel","Kosovypotok,Trebel",172000
+118,Plzensky,"Úhlavka, Stříbro","Uhlavka,Stribro",173000
+119,Plzensky,"Mže, Stříbro","Mze,Stribro",174000
+120,Plzensky,"Úterský potok, Trpísty","Uterskypotok,Trpisty",175000
+121,Plzensky,"Mže, VD Hracholusky","Mze,VDHracholusky",176100
+122,Plzensky,"Vejprnický potok, Plzeň-Skvrňany","Vejprnickypotok,Plzen-Skvrnany",176800
+123,Plzensky,"Radbuza, Tasnovice","Radbuza,Tasnovice",178500
+124,Plzensky,"Radbuza, Staňkov","Radbuza,Stankov",179000
+125,Plzensky,"Radbuza, Lhota","Radbuza,Lhota",179900
+126,Plzensky,"Radbuza, VD České Údolí","Radbuza,VDCeskeUdoli",180100
+127,Plzensky,"Úhlava, VD Nýrsko","Uhlava,VDNyrsko",180900
+128,Plzensky,"Úhlava, Klatovy","Uhlava,Klatovy",182000
+129,Plzensky,"Mochtínský potok, Sobětice","Mochtinskypotok,Sobetice",182200
+130,Plzensky,"Úhlava, Štěnovice","Uhlava,Stenovice",183000
+131,Plzensky,"Berounka, Plzeň-Bílá Hora","Berounka,Plzen-BilaHora",186000
+132,Plzensky,"Úslava, Prádlo","Uslava,Pradlo",186500
+133,Plzensky,"Úslava, Ždírec","Uslava,Zdirec",186800
+134,Plzensky,"Bradava, Žákava","Bradava,Zakava",186900
+135,Plzensky,"Úslava, Plzeň-Koterov","Uslava,Plzen-Koterov",187000
+136,Plzensky,"Klabava, Hrádek","Klabava,Hradek",187500
+137,Plzensky,"Klabava, Nová Huť","Klabava,NovaHut",188000
+138,Plzensky,"Třemošná, Kaceřov","Tremosna,Kacerov",188200
+139,Plzensky,"Střela, Plasy","Strela,Plasy",190000
+140,Plzensky,"Berounka, Liblín","Berounka,Liblin",191000
+141,Plzensky,"Řezná, Alžbětín","Rezna,Alzbetin",330000
+142,Karlovarsky,"Střela, VD Žlutice","Strela,VDZlutice",188900
+143,Karlovarsky,"Střela, Čichořice","Strela,Cichorice",189000
+144,Karlovarsky,"Ohře, VD Skalka","Ohre,VDSkalka",206000
+145,Karlovarsky,"Odrava, Slapany-lom","Odrava,Slapany-lom",206210
+146,Karlovarsky,"Mohelnský potok, Hrozňatov","Mohelnskypotok,Hroznatov",206300
+147,Karlovarsky,"Odrava, VD Jesenice","Odrava,VDJesenice",206500
+148,Karlovarsky,"Libocký potok, Leopoldovy Hamry","Libockypotok,LeopoldovyHamry",206900
+149,Karlovarsky,"Velká Libava, Libavské Údolí","VelkaLibava,LibavskeUdoli",207000
+150,Karlovarsky,"Ohře, Citice","Ohre,Citice",207300
+151,Karlovarsky,"Svatava, Kraslice","Svatava,Kraslice",207600
+152,Karlovarsky,"Rotava, Šindelová","Rotava,Sindelova",207700
+153,Karlovarsky,"Skřiváň, Rotava","Skrivan,Rotava",207920
+154,Karlovarsky,"Svatava, Svatava","Svatava,Svatava",208200
+155,Karlovarsky,"Chodovský potok, Karlovy Vary-Dvory","Chodovskypotok,KarlovyVary-Dvory",208600
+156,Karlovarsky,"Rolava, Chaloupky","Rolava,Chaloupky",209100
+157,Karlovarsky,"Rolava, Stará Role","Rolava,StaraRole",210100
+158,Karlovarsky,"Teplá, VD Podhora","Tepla,VDPodhora",210500
+159,Karlovarsky,"Pramenský potok, Mnichov","Pramenskypotok,Mnichov",210600
+160,Karlovarsky,"Teplá, Teplička","Tepla,Teplicka",210900
+161,Karlovarsky,"Teplá, VD Březová","Tepla,VDBrezova",212000
+162,Karlovarsky,"Lomnický potok, Pila","Lomnickypotok,Pila",212600
+163,Karlovarsky,"Ohře, Karlovy Vary-Drahovice","Ohre,KarlovyVary-Drahovice",214000
+164,Karlovarsky,"Bystřice, Ostrov","Bystrice,Ostrov",214500
+165,Ustecky,"Úštěcký potok, Vědlice","Usteckypotok,Vedlice",205020
+166,Ustecky,"Ohře, Kadaň","Ohre,Kadan",215100
+167,Ustecky,"Ohře, Žatec","Ohre,Zatec",216000
+168,Ustecky,"Blšanka, Stránky","Blsanka,Stranky",217500
+169,Ustecky,"Chomutovka, Třetí Mlýn","Chomutovka,TretiMlyn",218000
+170,Ustecky,"Chomutovka, Postoloprty","Chomutovka,Postoloprty",218700
+171,Ustecky,"Ohře, Louny","Ohre,Louny",219000
+172,Ustecky,"Labe, Ústí nad Labem","Labe,UstinadLabem",221000
+173,Ustecky,"Bílina, Bílina","Bilina,Bilina",222900
+174,Ustecky,"Bílina, Trmice","Bilina,Trmice",226000
+175,Ustecky,"Klíšský potok, Ústí nad Labem","Klisskypotok,UstinadLabem",226700
+176,Ustecky,"Jílovský potok, Jílové","Jilovskypotok,Jilove",228900
+177,Ustecky,"Ploučnice, Benešov nad Ploučnicí","Ploucnice,BenesovnadPloucnici",239000
+178,Ustecky,"Ploučnice, Děčín-Březiny","Ploucnice,Decin-Breziny",239500
+179,Ustecky,"Labe, Děčín","Labe,Decin",240000
+180,Ustecky,"Kamenice, Srbská Kamenice","Kamenice,SrbskaKamenice",241000
+181,Ustecky,"Chřibská Kamenice, Všemily","ChribskaKamenice,Vsemily",243000
+182,Ustecky,"Kamenice, Hřensko","Kamenice,Hrensko",244000
+183,Ustecky,"Labe, Hřensko","Labe,Hrensko",245000
+184,Ustecky,"Přísečnice, Kryštofovy Hamry","Prisecnice,KrystofovyHamry",246500
+185,Ustecky,"Černá voda, Černý Potok","Cernavoda,CernyPotok",246600
+186,Ustecky,"Flájský potok, Český Jiřetín","Flajskypotok,CeskyJiretin",246700
+187,Ustecky,"Mandava, Rumburk","Mandava,Rumburk",320800
+188,Ustecky,"Mandava, Varnsdorf","Mandava,Varnsdorf",321000
+189,Liberecky,"Jizerka, Jizerka","Jizerka,Jizerka",082700
+190,Liberecky,"Velká Mumlava, Janov-Harrachov","VelkaMumlava,Janov-Harrachov",083000
+191,Liberecky,"Jizera, Jablonec nad Jizerou","Jizera,JablonecnadJizerou",084500
+192,Liberecky,"Jizerka, Dolní Štěpanice","Jizerka,DolniStepanice",085000
+193,Liberecky,"Jizera, Dolní Sytová","Jizera,DolniSytova",086000
+194,Liberecky,"Oleška, Slaná","Oleska,Slana",087000
+195,Liberecky,"Kamenice, Kristiánov","Kamenice,Kristianov",087930
+196,Liberecky,"Blatný potok, Blatný rybník","Blatnypotok,Blatnyrybnik",087960
+197,Liberecky,"Kamenice, Josefův Důl","Kamenice,JosefuvDul",088000
+198,Liberecky,"Černá Desná, Jezdecká","CernaDesna,Jezdecka",089500
+199,Liberecky,"Kamenice, Bohuňovsko-Jesenný","Kamenice,Bohunovsko-Jesenny",090000
+200,Liberecky,"Jizera, Železný Brod","Jizera,ZeleznyBrod",091000
+201,Liberecky,"Libuňka, Pelešany","Libunka,Pelesany",092000
+202,Liberecky,"Ještědský potok, Stráž pod Ralskem","Jestedskypotok,StrazpodRalskem",230000
+203,Liberecky,"Ploučnice, Stráž pod Ralskem","Ploucnice,StrazpodRalskem",231000
+204,Liberecky,"Panenský potok, Pertoltice","Panenskypotok,Pertoltice",232000
+205,Liberecky,"Ploučnice, Mimoň","Ploucnice,Mimon",232200
+206,Liberecky,"Boberský potok, Cvikov","Boberskypotok,Cvikov",233800
+207,Liberecky,"Svitavka, Zákupy","Svitavka,Zakupy",234000
+208,Liberecky,"Ploučnice, Česká Lípa","Ploucnice,CeskaLipa",235000
+209,Liberecky,"Šporka, Dolní Libchava","Sporka,DolniLibchava",236000
+210,Liberecky,"Ploučnice, Stružnice","Ploucnice,Struznice",238000
+211,Liberecky,"Lužická Nisa, Proseč nad Nisou","LuzickaNisa,ProsecnadNisou",314000
+212,Liberecky,"Lužická Nisa, Liberec","LuzickaNisa,Liberec",316000
+213,Liberecky,"Černá Nisa, Uhlířská","CernaNisa,Uhlirska",316500
+214,Liberecky,"Černá Nisa, Stráž nad Nisou","CernaNisa,StraznadNisou",317000
+215,Liberecky,"Jeřice, Chrastava","Jerice,Chrastava",319000
+216,Liberecky,"Lužická Nisa, Hrádek nad Nisou","LuzickaNisa,HradeknadNisou",320000
+217,Liberecky,"Smědá, Smědava II.","Smeda,SmedavaII.",321610
+218,Liberecky,"Bílá Smědá, Smědava I.","BilaSmeda,SmedavaI.",321620
+219,Liberecky,"Smědá, Bílý Potok","Smeda,BilyPotok",322000
+220,Liberecky,"Smědá, Frýdlant","Smeda,Frydlant",323000
+221,Liberecky,"Řasnice, Frýdlant-Fugnerova","Rasnice,Frydlant-Fugnerova",323100
+222,Liberecky,"Smědá, Višňová","Smeda,Visnova",324000
+223,Liberecky,"Bulovský potok, Předlánce","Bulovskypotok,Predlance",325000
+224,Liberecky,"Smědá, Předlánce","Smeda,Predlance",326000
+225,Kralovehradecky,"Labe, Špindlerův Mlýn","Labe,SpindleruvMlyn",001000
+226,Kralovehradecky,"Labe, Labská","Labe,Labska",002000
+227,Kralovehradecky,"Malé Labe, Prosečné","MaleLabe,Prosecne",003000
+228,Kralovehradecky,"Čistá, Černý Důl","Cista,CernyDul",003100
+229,Kralovehradecky,"Čistá, Hostinné","Cista,Hostinne",004000
+230,Kralovehradecky,"Labe, Vestřev","Labe,Vestrev",004200
+231,Kralovehradecky,"Pilníkovský potok, Chotěvice","Pilnikovskypotok,Chotevice",004300
+232,Kralovehradecky,"Kalenský potok, Dolní Olešnice","Kalenskypotok,DolniOlesnice",004500
+233,Kralovehradecky,"Labe, Les Království","Labe,LesKralovstvi",006000
+234,Kralovehradecky,"Modrý potok, Modrý důl","Modrypotok,Modrydul",008000
+235,Kralovehradecky,"Úpa, Obří Důl","Upa,ObriDul",009000
+236,Kralovehradecky,"Úpa, Horní Maršov","Upa,HorniMarsov",013000
+237,Kralovehradecky,"Úpa, Horní Staré Město","Upa,HorniStareMesto",014000
+238,Kralovehradecky,"Úpa, Slatina nad Úpou","Upa,SlatinanadUpou",014100
+239,Kralovehradecky,"Úpa, Zlíč","Upa,Zlic",014800
+240,Kralovehradecky,"Labe, Jaroměř","Labe,Jaromer",016000
+241,Kralovehradecky,"Metuje, Maršov nad Metují","Metuje,MarsovnadMetuji",017000
+242,Kralovehradecky,"Dunajka, Velké Petrovice","Dunajka,VelkePetrovice",017400
+243,Kralovehradecky,"Ledhuje, Velké Petrovice","Ledhuje,VelkePetrovice",017500
+244,Kralovehradecky,"Židovka, Bezděkov","Zidovka,Bezdekov",017700
+245,Kralovehradecky,"Dřevíč, Velký Dřevíč","Drevic,VelkyDrevic",017800
+246,Kralovehradecky,"Metuje, Hronov","Metuje,Hronov",018000
+247,Kralovehradecky,"Metuje, Krčín","Metuje,Krcin",020000
+248,Kralovehradecky,"Metuje, Jaroměř","Metuje,Jaromer",021000
+249,Kralovehradecky,"Trotina, Sendražice","Trotina,Sendrazice",023000
+250,Kralovehradecky,"Piletický potok, Pouchov","Piletickypotok,Pouchov",023200
+251,Kralovehradecky,"Divoká Orlice, Orlické Záhoří","DivokaOrlice,OrlickeZahori",023500
+252,Kralovehradecky,"Zdobnice, Slatina nad Zdobnicí","Zdobnice,SlatinanadZdobnici",027000
+253,Kralovehradecky,"Divoká Orlice, Kostelec nad Orlicí","DivokaOrlice,KostelecnadOrlici",028000
+254,Kralovehradecky,"Bělá, Skuhrov","Bela,Skuhrov",028800
+255,Kralovehradecky,"Kněžná, Rychnov nad Kněžnou","Knezna,RychnovnadKneznou",030000
+256,Kralovehradecky,"Bělá, Častolovice","Bela,Castolovice",031000
+257,Kralovehradecky,"Tichá Orlice, Čermná nad Orlicí","TichaOrlice,CermnanadOrlici",036000
+258,Kralovehradecky,"Orlice, Týniště nad Orlicí","Orlice,TynistenadOrlici",037000
+259,Kralovehradecky,"Dědina, Chábory","Dedina,Chabory",038000
+260,Kralovehradecky,"Dědina, Mitrov","Dedina,Mitrov",039000
+261,Kralovehradecky,"Náhon Alba, Častolovice","NahonAlba,Castolovice",039500
+262,Kralovehradecky,"Cidlina, Jičín","Cidlina,Jicin",068000
+263,Kralovehradecky,"Javorka, Lázně Bělohrad","Javorka,LazneBelohrad",069000
+264,Kralovehradecky,"Cidlina, Nový Bydžov","Cidlina,NovyBydzov",070000
+265,Kralovehradecky,"Bystřice, Rohoznice","Bystrice,Rohoznice",071000
+266,Kralovehradecky,"Stěnava, Meziměstí","Stenava,Mezimesti",304500
+267,Kralovehradecky,"Stěnava, Otovice","Stenava,Otovice",306000
+268,Pardubicky,"Divoká Orlice, Klášterec nad Orlicí","DivokaOrlice,KlasterecnadOrlici",024000
+269,Pardubicky,"Divoká Orlice, Nekoř","DivokaOrlice,Nekor",025000
+270,Pardubicky,"Rokytenka, Žamberk","Rokytenka,Zamberk",025500
+271,Pardubicky,"Tichá Orlice, Sobkovice","TichaOrlice,Sobkovice",032000
+272,Pardubicky,"Tichá Orlice, Dolní Libchavy","TichaOrlice,DolniLibchavy",034000
+273,Pardubicky,"Třebovka, Ústí nad Orlicí","Trebovka,UstinadOrlici",035000
+274,Pardubicky,"Labe, Němčice","Labe,Nemcice",042000
+275,Pardubicky,"Loučná, Litomyšl","Loucna,Litomysl",043000
+276,Pardubicky,"Loučná, Cerekvice nad Loučnou","Loucna,CerekvicenadLoucnou",045000
+277,Pardubicky,"Loučná, Zámrsk","Loucna,Zamrsk",046000
+278,Pardubicky,"Loučná, Dašice","Loucna,Dasice",047000
+279,Pardubicky,"Chrudimka, Hamry","Chrudimka,Hamry",048000
+280,Pardubicky,"Chrudimka, Svídnice","Chrudimka,Svidnice",052000
+281,Pardubicky,"Novohradka, Luže","Novohradka,Luze",055500
+282,Pardubicky,"Žejbro, Vrbatův Kostelec","Zejbro,VrbatuvKostelec",056000
+283,Pardubicky,"Žejbro, Rosice","Zejbro,Rosice",057200
+284,Pardubicky,"Novohradka, Úhřetice","Novohradka,Uhretice",058000
+285,Pardubicky,"Chrudimka, Nemošice","Chrudimka,Nemosice",059000
+286,Pardubicky,"Podolský potok, Barchov","Podolskypotok,Barchov",060500
+287,Pardubicky,"Labe, Přelouč","Labe,Prelouc",061000
+288,Pardubicky,"Doubrava, Spačice","Doubrava,Spacice",064000
+289,Pardubicky,"Doubrava, Pařížov","Doubrava,Parizov",065000
+290,Pardubicky,"Třebůvka, Mezihoří","Trebuvka,Mezihori",356000
+291,Pardubicky,"Úsobrnský potok, Jaroměřice","Usobrnskypotok,Jaromerice",357000
+292,Pardubicky,"Jevíčka, Chornice","Jevicka,Chornice",359000
+293,Pardubicky,"Třebůvka, Hraničky","Trebuvka,Hranicky",360000
+294,Pardubicky,"Svratka, Borovnice","Svratka,Borovnice",441000
+295,Pardubicky,"Svitava, Hradec nad Svitavou","Svitava,HradecnadSvitavou",450500
+296,Pardubicky,"Svitava, Rozhraní","Svitava,Rozhrani",452000
+297,Vysocina,"Chrudimka, Přemilov","Chrudimka,Premilov",049000
+298,Vysocina,"Doubrava, Bílek","Doubrava,Bilek",063000
+299,Vysocina,"Sázava, Žďár nad Sázavou","Sazava,ZdarnadSazavou",154900
+300,Vysocina,"Sázava, Sázava u Žďáru","Sazava,SazavauZdaru",155000
+301,Vysocina,"Borovský potok, Stříbrné Hory","Borovskypotok,StribrneHory",155500
+302,Vysocina,"Sázava, Havlíčkův Brod-Pohledští Dvořáci","Sazava,HavlickuvBrod-PohledstiDvoraci",155800
+303,Vysocina,"Šlapanka, Mírovka","Slapanka,Mirovka",156000
+304,Vysocina,"Sázava, Chlístov","Sazava,Chlistov",158000
+305,Vysocina,"Sázavka, Josefodol","Sazavka,Josefodol",158500
+306,Vysocina,"Sázava, Světlá nad Sázavou","Sazava,SvetlanadSazavou",159000
+307,Vysocina,"Želivka, Čakovice","Zelivka,Cakovice",161400
+308,Vysocina,"Bělá, Radětín","Bela,Radetin",161600
+309,Vysocina,"Želivka, Kojčice","Zelivka,Kojcice",161700
+310,Vysocina,"Jankovský potok, Milotice","Jankovskypotok,Milotice",161900
+311,Vysocina,"Želivka, Želiv-VD Vřesník","Zelivka,Zeliv-VDVresnik",162000
+312,Vysocina,"Trnava, Červená Řečice","Trnava,CervenaRecice",162200
+313,Vysocina,"Trnava, Želiv-VD Trnávka","Trnava,Zeliv-VDTrnavka",162300
+314,Vysocina,"Želivka, Tukleky","Zelivka,Tukleky",162520
+315,Vysocina,"Martinický potok, Senožaty","Martinickypotok,Senozaty",162600
+316,Vysocina,"Blažejovický potok, Blažejovice","Blazejovickypotok,Blazejovice",162700
+317,Vysocina,"Řečice (Olšanský potok), Nová Říše nad nádrží","Recice(Olsanskypotok),NovaRisenadnadrzi",427500
+318,Vysocina,"Řečice (Olšanský potok), VD Nová Říše","Recice(Olsanskypotok),VDNovaRise",427600
+319,Vysocina,"Želetavka, Jemnice","Zeletavka,Jemnice",431000
+320,Vysocina,"Fryšávka, Kadov","Frysavka,Kadov",441400
+321,Vysocina,"Fryšávka, Jimramov","Frysavka,Jimramov",441500
+322,Vysocina,"Svratka, Dalečín","Svratka,Dalecin",442000
+323,Vysocina,"Bystřice, Domanín","Bystrice,Domanin",444000
+324,Vysocina,"Svratka, VD Vír pod vyrovnávací nádrží","Svratka,VDVirpodvyrovnavacinadrzi",445000
+325,Vysocina,"Nedvědička, Rožná","Nedvedicka,Rozna",445100
+326,Vysocina,"Jihlava, Batelov","Jihlava,Batelov",463000
+327,Vysocina,"Jedlovský potok, Boršov","Jedlovskypotok,Borsov",463800
+328,Vysocina,"Jihlava, Dvorce","Jihlava,Dvorce",465000
+329,Vysocina,"Maršovský potok, Hubenov nad nádrží","Marsovskypotok,Hubenovnadnadrzi",465100
+330,Vysocina,"Maršovský potok, VD Hubenov","Marsovskypotok,VDHubenov",466000
+331,Vysocina,"Brtnice, Brtnice","Brtnice,Brtnice",468000
+332,Vysocina,"Jihlava, Třebíč-Ptáčov","Jihlava,Trebic-Ptacov",469000
+333,Vysocina,"Jihlava, VD Mohelno","Jihlava,VDMohelno",469500
+334,Vysocina,"Oslava, Dolní Bory","Oslava,DolniBory",470000
+335,Vysocina,"Oslava, VD Mostiště","Oslava,VDMostiste",471000
+336,Vysocina,"Balinka, Baliny","Balinka,Baliny",472000
+337,Vysocina,"Oslava, Nesměř","Oslava,Nesmer",473000
+338,Vysocina,"Rokytná, Příštpo","Rokytna,Pristpo",476000
+339,Jihomoravsky,"Malá Haná, Opatovice nad nádrží","MalaHana,Opatovicenadnadrzi",397500
+340,Jihomoravsky,"Malá Haná, VD Opatovice","MalaHana,VDOpatovice",398000
+341,Jihomoravsky,"Haná, Vyškov","Hana,Vyskov",400000
+342,Jihomoravsky,"Morava, Strážnice","Morava,Straznice",421500
+343,Jihomoravsky,"Velička, Velká nad Veličkou","Velicka,VelkanadVelickou",421800
+344,Jihomoravsky,"Velička, Strážnice","Velicka,Straznice",422000
+345,Jihomoravsky,"Radějovka, Petrov","Radejovka,Petrov",423000
+346,Jihomoravsky,"Morava, Lanžhot","Morava,Lanzhot",426000
+347,Jihomoravsky,"Dyje, Podhradí nad Dyjí","Dyje,PodhradinadDyji",430000
+348,Jihomoravsky,"Želetavka, Vysočany","Zeletavka,Vysocany",432000
+349,Jihomoravsky,"Dyje, Vranov-Hamry","Dyje,Vranov-Hamry",434000
+350,Jihomoravsky,"Dyje, VD Znojmo","Dyje,VDZnojmo",435000
+351,Jihomoravsky,"Mlýnská strouha (Dyjskomlýnský náhon), Dyjákovice","Mlynskastrouha(Dyjskomlynskynahon),Dyjakovice",436500
+352,Jihomoravsky,"Dyje, Trávní Dvůr","Dyje,TravniDvur",437000
+353,Jihomoravsky,"Jevišovka, Jevišovice nad nádrží","Jevisovka,Jevisovicenadnadrzi",437600
+354,Jihomoravsky,"Jevišovka, VD Jevišovice","Jevisovka,VDJevisovice",438000
+355,Jihomoravsky,"Jevišovka, Výrovice","Jevisovka,Vyrovice",439000
+356,Jihomoravsky,"Jevišovka, Božice","Jevisovka,Bozice",440000
+357,Jihomoravsky,"Bobrůvka, Skryje","Bobruvka,Skryje",446000
+358,Jihomoravsky,"Bobrůvka, Dolní Loučky","Bobruvka,DolniLoucky",447000
+359,Jihomoravsky,"Besének, Lomnička","Besenek,Lomnicka",447300
+360,Jihomoravsky,"Svratka, Veverská Bítýška","Svratka,VeverskaBityska",448000
+361,Jihomoravsky,"Vrbovec, Bystrc","Vrbovec,Bystrc",448500
+362,Jihomoravsky,"Svratka, Brno-Poříčí","Svratka,Brno-Porici",449000
+363,Jihomoravsky,"Křetínka, Prostřední Poříčí","Kretinka,ProstredniPorici",452500
+364,Jihomoravsky,"Křetínka, VD Letovice","Kretinka,VDLetovice",453000
+365,Jihomoravsky,"Svitava, Letovice","Svitava,Letovice",454000
+366,Jihomoravsky,"Bělá, VD Boskovice","Bela,VDBoskovice",455000
+367,Jihomoravsky,"Punkva, Sloup-Vlčí skála","Punkva,Sloup-Vlciskala",455090
+368,Jihomoravsky,"Punkva, Sloup","Punkva,Sloup",455100
+369,Jihomoravsky,"Bílá voda, Holštejn","Bilavoda,Holstejn",455200
+370,Jihomoravsky,"Punkva, Skalní Mlýn","Punkva,SkalniMlyn",456000
+371,Jihomoravsky,"Křtinský potok, Křtiny","Krtinskypotok,Krtiny",456100
+372,Jihomoravsky,"Křtinský potok, Josefov","Krtinskypotok,Josefov",456600
+373,Jihomoravsky,"Svitava, Bílovice nad Svitavou","Svitava,BilovicenadSvitavou",457000
+374,Jihomoravsky,"Bobrava, Želešice","Bobrava,Zelesice",458000
+375,Jihomoravsky,"Litava, Brankovice","Litava,Brankovice",459000
+376,Jihomoravsky,"Litava, Rychmanov","Litava,Rychmanov",461000
+377,Jihomoravsky,"Říčka (Zlatý potok), Ochoz","Ricka(Zlatypotok),Ochoz",461500
+378,Jihomoravsky,"Svratka, Židlochovice","Svratka,Zidlochovice",462000
+379,Jihomoravsky,"Oslava, Oslavany","Oslava,Oslavany",474000
+380,Jihomoravsky,"Rokytná, Moravský Krumlov","Rokytna,MoravskyKrumlov",477000
+381,Jihomoravsky,"Jihlava, Ivančice","Jihlava,Ivancice",478000
+382,Jihomoravsky,"Trkmanka, Velké Pavlovice","Trkmanka,VelkePavlovice",480300
+383,Jihomoravsky,"Dyje, Ladná","Dyje,Ladna",480500
+384,Jihomoravsky,"Kyjovka, Kyjov","Kyjovka,Kyjov",486000
+385,Olomoucky,"Zlatý potok, Zlaté Hory","Zlatypotok,ZlateHory",304400
+386,Olomoucky,"Stříbrný potok, Žulová","Stribrnypotok,Zulova",307000
+387,Olomoucky,"Černý potok, Velká Kraš","Cernypotok,VelkaKras",308000
+388,Olomoucky,"Vidnavka, Vidnava","Vidnavka,Vidnava",309000
+389,Olomoucky,"Bělá, Jeseník","Bela,Jesenik",311000
+390,Olomoucky,"Staříč, Lipová-lázně","Staric,Lipova-lazne",312000
+391,Olomoucky,"Bělá, Mikulovice","Bela,Mikulovice",313000
+392,Olomoucky,"Morava, Vlaské","Morava,Vlaske",341000
+393,Olomoucky,"Vrbenský potok, Staré Město pod Sněžníkem","Vrbenskypotok,StareMestopodSneznikem",342000
+394,Olomoucky,"Krupá, Habartice","Krupa,Habartice",343000
+395,Olomoucky,"Branná, Jindřichov","Branna,Jindrichov",344000
+396,Olomoucky,"Morava, Raškov","Morava,Raskov",345000
+397,Olomoucky,"Desná, Kouty nad Desnou","Desna,KoutynadDesnou",346000
+398,Olomoucky,"Merta, Sobotín","Merta,Sobotin",348000
+399,Olomoucky,"Holubí potok, Šumperk náhon","Holubipotok,Sumperknahon",351000
+400,Olomoucky,"Desná, Šumperk","Desna,Sumperk",351100
+401,Olomoucky,"Březná, Hoštejn","Brezna,Hostejn",353000
+402,Olomoucky,"Moravská Sázava, Lupěné","MoravskaSazava,Lupene",354000
+403,Olomoucky,"Morava, Moravičany","Morava,Moravicany",355000
+404,Olomoucky,"Třebůvka, Loštice","Trebuvka,Lostice",360900
+405,Olomoucky,"Oslava, Dlouhá Loučka","Oslava,DlouhaLoucka",362000
+406,Olomoucky,"Oskava, Uničov","Oskava,Unicov",363000
+407,Olomoucky,"Sitka, Šternberk","Sitka,Sternberk",364000
+408,Olomoucky,"Bystřice, Velká Bystřice","Bystrice,VelkaBystrice",366000
+409,Olomoucky,"Morava, Olomouc-Nové Sady","Morava,Olomouc-NoveSady",367000
+410,Olomoucky,"Hamerský náhon, Holice svod","Hamerskynahon,Holicesvod",368000
+411,Olomoucky,"Morava, Olomouc-Nové Sady+svod","Morava,Olomouc-NoveSady+svod",358100
+412,Olomoucky,"Olešnice (Kokorka), Kokory","Olesnice(Kokorka),Kokory",368800
+413,Olomoucky,"Bečva, Teplice nad Bečvou","Becva,TeplicenadBecvou",389000
+414,Olomoucky,"Velička, Hranice","Velicka,Hranice",389500
+415,Olomoucky,"Bečva, Dluhonice","Becva,Dluhonice",390000
+416,Olomoucky,"Blata, Klopotovice","Blata,Klopotovice",393000
+417,Olomoucky,"Romže, Stražisko","Romze,Strazisko",394000
+418,Olomoucky,"Hloučela, Soběsuky","Hloucela,Sobesuky",394500
+419,Olomoucky,"Hloučela, VD Plumlov","Hloucela,VDPlumlov",396000
+420,Olomoucky,"Romže, Polkovice","Romze,Polkovice",397000
+421,Olomoucky,"Brodečka, Otaslavice","Brodecka,Otaslavice",401000
+422,Olomoucky,"Moštěnka, Prusy","Mostenka,Prusy",402000
+423,Moravskoslezsky,"Budišovka, Budišov nad Budišovkou","Budisovka,BudisovnadBudisovkou",247100
+424,Moravskoslezsky,"Odra, Odry","Odra,Odry",247800
+425,Moravskoslezsky,"náhon z Odry, Odry náhon","nahonzOdry,Odrynahon",247900
+426,Moravskoslezsky,"Odra, Odry+náhon","Odra,Odry+nahon",248000
+427,Moravskoslezsky,"Jičínka, Nový Jičín","Jicinka,NovyJicin",249800
+428,Moravskoslezsky,"Husí potok, Fulnek","Husipotok,Fulnek",251100
+429,Moravskoslezsky,"Odra, Bartošovice","Odra,Bartosovice",252000
+430,Moravskoslezsky,"Bílovka, Velké Albrechtice","Bilovka,VelkeAlbrechtice",252700
+431,Moravskoslezsky,"Lubina, Petřvald","Lubina,Petrvald",254000
+432,Moravskoslezsky,"Ondřejnice, Rychaltice","Ondrejnice,Rychaltice",255000
+433,Moravskoslezsky,"Porubka, Vřesina","Porubka,Vresina",256000
+434,Moravskoslezsky,"Odra, Svinov","Odra,Svinov",257000
+435,Moravskoslezsky,"Černá Opava, Mnichov","CernaOpava,Mnichov",258100
+436,Moravskoslezsky,"Opava, Karlovice","Opava,Karlovice",261200
+437,Moravskoslezsky,"Krasovka, Radim","Krasovka,Radim",262090
+438,Moravskoslezsky,"Opava, Krnov","Opava,Krnov",263000
+439,Moravskoslezsky,"Opavice, Krnov","Opavice,Krnov",265000
+440,Moravskoslezsky,"Opava, Opava","Opava,Opava",266000
+441,Moravskoslezsky,"Bělokamenný potok, Malá Morávka","Belokamennypotok,MalaMoravka",268200
+442,Moravskoslezsky,"Podolský potok, Rýmařov","Podolskypotok,Rymarov",269000
+443,Moravskoslezsky,"Moravice, Velká Štáhle","Moravice,VelkaStahle",270000
+444,Moravskoslezsky,"Moravice, Valšov","Moravice,Valsov",270100
+445,Moravskoslezsky,"Kočovský potok, Valšov","Kocovskypotok,Valsov",270200
+446,Moravskoslezsky,"Černý potok, Mezina","Cernypotok,Mezina",271100
+447,Moravskoslezsky,"Moravice, VD Slezská Harta","Moravice,VDSlezskaHarta",272300
+448,Moravskoslezsky,"Moravice, VD Kružberk","Moravice,VDKruzberk",273000
+449,Moravskoslezsky,"Moravice, Branka u Opavy","Moravice,BrankauOpavy",274000
+450,Moravskoslezsky,"Hvozdnice, Jakartovice","Hvozdnice,Jakartovice",274100
+451,Moravskoslezsky,"Opava, Děhylov","Opava,Dehylov",275000
+452,Moravskoslezsky,"Ostravice, Staré Hamry","Ostravice,StareHamry",275300
+453,Moravskoslezsky,"Ostravice, VD Šance","Ostravice,VDSance",277000
+454,Moravskoslezsky,"Čeladenka, Čeladná","Celadenka,Celadna",279000
+455,Moravskoslezsky,"Morávka, Morávka","Moravka,Moravka",281000
+456,Moravskoslezsky,"Skalka, Morávka","Skalka,Moravka",282000
+457,Moravskoslezsky,"Slavíč, Slavíč","Slavic,Slavic",283000
+458,Moravskoslezsky,"Morávka, VD Morávka","Moravka,VDMoravka",284000
+459,Moravskoslezsky,"Mohelnice, Raškovice","Mohelnice,Raskovice",285000
+460,Moravskoslezsky,"Morávka, Vyšní Lhoty","Moravka,VysniLhoty",285900
+461,Moravskoslezsky,"Morávka, Vyšní Lhoty+přivaděč","Moravka,VysniLhoty+privadec",286000
+462,Moravskoslezsky,"Ostravice, Frýdek-Místek","Ostravice,Frydek-Mistek",286600
+463,Moravskoslezsky,"Ostravice, Frýdek-Místek+náhon","Ostravice,Frydek-Mistek+nahon",286700
+464,Moravskoslezsky,"Olešná, Palkovice","Olesna,Palkovice",290100
+465,Moravskoslezsky,"Hodoňovický náhon, Místek","Hodonovickynahon,Mistek",290110
+466,Moravskoslezsky,"Olešná, Olešná rozdělovací objekt","Olesna,Olesnarozdelovaciobjekt",290120
+467,Moravskoslezsky,"Přivaděč Morávka-Žermanice, Vyšní Lhoty přivaděč","PrivadecMoravka-Zermanice,VysniLhotyprivadec",290700
+468,Moravskoslezsky,"Lučina, Horní Domaslavice","Lucina,HorniDomaslavice",290800
+469,Moravskoslezsky,"Lučina, VD Žermanice","Lucina,VDZermanice",291000
+470,Moravskoslezsky,"Lučina, Radvanice","Lucina,Radvanice",292300
+471,Moravskoslezsky,"Ostravice, Ostrava","Ostravice,Ostrava",293000
+472,Moravskoslezsky,"Stružka, Rychvald","Struzka,Rychvald",293500
+473,Moravskoslezsky,"Odra, Bohumín","Odra,Bohumin",294000
+474,Moravskoslezsky,"Olše, Jablunkov","Olse,Jablunkov",296000
+475,Moravskoslezsky,"Lomná, Jablunkov","Lomna,Jablunkov",298000
+476,Moravskoslezsky,"Olše, Český Těšín","Olse,CeskyTesin",299000
+477,Moravskoslezsky,"Ropičanka, Řeka","Ropicanka,Reka",300100
+478,Moravskoslezsky,"Stonávka, Hradiště","Stonavka,Hradiste",301000
+479,Moravskoslezsky,"Stonávka, VD Těrlicko","Stonavka,VDTerlicko",301700
+480,Moravskoslezsky,"Olše, Dětmarovice","Olse,Detmarovice",301900
+481,Moravskoslezsky,"Karvinský potok, Dětmarovice","Karvinskypotok,Detmarovice",301920
+482,Moravskoslezsky,"Olše, Věřňovice","Olse,Vernovice",303000
+483,Moravskoslezsky,"Osoblaha, Osoblaha","Osoblaha,Osoblaha",304300
+484,Zlinsky,"Vsetínská Bečva, Velké Karlovice","VsetinskaBecva,VelkeKarlovice",370000
+485,Zlinsky,"Velká Stanovnice, VD Karolinka","VelkaStanovnice,VDKarolinka",370500
+486,Zlinsky,"Kychová, Kychová","Kychova,Kychova",374000
+487,Zlinsky,"Zděchovka, Zděchov","Zdechovka,Zdechov",376000
+488,Zlinsky,"Senice, Ústí","Senice,Usti",378100
+489,Zlinsky,"Vsetínská Bečva, Vsetín","VsetinskaBecva,Vsetin",379000
+490,Zlinsky,"Bystřice, Bystřička nad nádrží","Bystrice,Bystrickanadnadrzi",380000
+491,Zlinsky,"Bystřice, VD Bystřička","Bystrice,VDBystricka",381000
+492,Zlinsky,"Vsetínská Bečva, Jarcová","VsetinskaBecva,Jarcova",382000
+493,Zlinsky,"Rožnovská Bečva, Horní Bečva","RoznovskaBecva,HorniBecva",383000
+494,Zlinsky,"Hutiský potok, Solanec","Hutiskypotok,Solanec",385000
+495,Zlinsky,"Rožnovská Bečva, Rožnov pod Radhoštěm","RoznovskaBecva,RoznovpodRadhostem",386000
+496,Zlinsky,"Rožnovská Bečva, Valašské Meziříčí","RoznovskaBecva,ValasskeMezirici",387000
+497,Zlinsky,"Juhyně, Rajnochovice","Juhyne,Rajnochovice",387500
+498,Zlinsky,"Juhyně, Kelč","Juhyne,Kelc",388000
+499,Zlinsky,"Morava, Kroměříž","Morava,Kromeriz",403000
+500,Zlinsky,"Rusava, Chomýž","Rusava,Chomyz",404000
+501,Zlinsky,"Rusava, Třebětice","Rusava,Trebetice",405000
+502,Zlinsky,"Dřevnice, Kašava","Drevnice,Kasava",405500
+503,Zlinsky,"Dřevnice, VD Slušovice","Drevnice,VDSlusovice",406000
+504,Zlinsky,"Všeminka, Slušovice","Vseminka,Slusovice",407000
+505,Zlinsky,"Lutoninka, Vizovice","Lutoninka,Vizovice",409300
+506,Zlinsky,"Fryštácký potok, VD Fryšták","Frystackypotok,VDFrystak",410000
+507,Zlinsky,"Dřevnice, Zlín","Drevnice,Zlin",412000
+508,Zlinsky,"Morava, Spytihněv","Morava,Spytihnev",413000
+509,Zlinsky,"Salaška, Velehrad","Salaska,Velehrad",414000
+510,Zlinsky,"Kolelač, Bojkovice nad nádrží","Kolelac,Bojkovicenadnadrzi",414100
+511,Zlinsky,"Kolelač, VD Bojkovice","Kolelac,VDBojkovice",414500
+512,Zlinsky,"Luhačovický potok, Luhačovice nad nádrží","Luhacovickypotok,Luhacovicenadnadrzi",414700
+513,Zlinsky,"Luhačovický potok, VD Luhačovice","Luhacovickypotok,VDLuhacovice",415000
+514,Zlinsky,"Ludkovický potok, Řetechov-Pradlisko","Ludkovickypotok,Retechov-Pradlisko",416000
+515,Zlinsky,"Olšava, Uherský Brod","Olsava,UherskyBrod",418000
+516,Zlinsky,"Kyjovka, Koryčany nad nádrží","Kyjovka,Korycanynadnadrzi",483100
+517,Zlinsky,"Kyjovka, VD Koryčany","Kyjovka,VDKorycany",484000
+518,Zlinsky,"Hruškovice, Osvětimany","Hruskovice,Osvetimany",486500
+519,Zlinsky,"Vlára, Popov","Vlara,Popov",487000
+520,Zlinsky,"Brumovka, Brumov","Brumovka,Brumov",487500
