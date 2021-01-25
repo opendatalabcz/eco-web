@@ -18,15 +18,21 @@ Czech Hydrometeorological Institute or supported in any way. This project just u
 The repository contains a web scraper for downloading data from Czech Hydrometeorological Institute.
 
 ## How to install
-**1.)** First step is to install Python and Conda on your machine. You can use these links for **[Miniconda](https://docs.conda.io/en/latest/miniconda.html)** 
-and **[VS Code IDE](https://code.visualstudio.com/)**.\
-**2.)** *Optional* - If you are using VS Code, you have to install the Python module from the modules store in VS Code. For more help about installation process in VS Code,
-follow this **[link](https://code.visualstudio.com/docs/python/python-tutorial)**.\
-**3.)** Open CMD on Windows or Terminal on Linux and macOS in VS Code or standalone and in eco-web/Scraper directory run this command **conda env update**.\
-**4.)** Install **[Docker](https://www.docker.com/products/docker-desktop)**.\
-**5.)** Start Docker.\
-**6.)** Run **docker pull scrapinghub/splash** command in PowerShell if using Windows or in terminal on macOS. In case of using Linux, run **sudo docker pull scrapinghub/splash**
+
+###### Scraper
+**1.)** First step is to install Python and Conda on your machine. You can use this link for **[Miniconda](https://docs.conda.io/en/latest/miniconda.html)**.\
+**2.)** Open CMD on Windows or Terminal on Linux and macOS and in eco-web/Scraper directory run this command **conda env update**.\
+**3.)** Install **[Docker](https://www.docker.com/products/docker-desktop)**.\
+**4.)** Start Docker.\
+**5.)** Run **docker pull scrapinghub/splash** command in PowerShell if using Windows or in terminal on macOS. In case of using Linux, run **sudo docker pull scrapinghub/splash**
 in terminal.\
-**7.)** If you are using **Docker Desktop**, open **images** tab and run Splash container on port **8050**. Later you can just start Splash container from Containers tab. On Linux, use **docker run -p 8050:8050 scrapinghub/splash** command in Terminal.\
-**8.)** Run command **conda activate eco-web** to start environment which contains all needed libraries and plugins for Python.\
-**9.)** Run command **scrapy crawl [spider_name] -o [output_name]** to start the selected spider.
+**6.)** If you are using **Docker Desktop**, open **images** tab and run Splash container on port **8050**. Later you can just start Splash container from Containers tab. On Linux, use **docker run -p 8050:8050 scrapinghub/splash** command in Terminal.\
+**7.)** Run command **conda activate eco-web** to start environment which contains all needed libraries and plugins for Python.\
+**8.)** Run command **scrapy crawl [spider_name] -o [output_name]** from the Spider directory to start the selected spider.
+
+###### Downloader
+**1.)** First step is to install Python and Conda on your machine, if not already done. You can use this link for **[Miniconda](https://docs.conda.io/en/latest/miniconda.html)**.\
+**2.)** Open CMD on Windows or Terminal on Linux and macOS and in eco-web/Downloader directory run this command **conda env update** if not already done *(Scraper and Downloader uses the same environment)*.\
+**3.)** Run command **conda activate eco-web** to start environment which contains all needed libraries and plugins for Python.\
+**4.)** *Optional* - Run command **python CHMU_Downloader -h** from Downloader directory to get help  *(recommended if using first time)* and to list all the options you can use.\
+**5.)** Run command **python CHMU_Downloader** or **python CHMU_Downloader [your_chosen_options]** from the Downloader directory to use the downloader.
