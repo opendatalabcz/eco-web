@@ -181,6 +181,10 @@ def generateFileName(stationCode: str, dataType: str) -> str:
         return None
     # Create filename for Average daily water flow
     if dataType == dataTypes['Average_daily_water_flow']:
+        if len(stationCode) < 6:
+            for i in range (0, 6 - len(stationCode)):
+                tmpStationCode = '0' + stationCode
+                stationCode = tmpStationCode
         return 'QD_' + stationCode + '.zip'
     # Remove -AVG from datatypes since filename does not contains it
     if re.search(r'-AVG', dataType):
