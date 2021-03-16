@@ -159,3 +159,4 @@ dmypy.json
 
 # Ignore Downloader output
 /Downloader/OutputData
+/Database
