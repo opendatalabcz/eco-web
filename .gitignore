@@ -159,4 +159,5 @@ dmypy.json
 
 # Ignore Downloader output
 /Data/Downloader/OutputData
+/Data/DB_Data_Inserter/DataStructure
 /Database
