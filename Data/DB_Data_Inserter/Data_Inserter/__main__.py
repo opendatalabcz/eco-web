@@ -59,6 +59,8 @@ if __name__ == "__main__":
             h.removeHelpingStructure()
             sys.exit(1)
 
+        h.insertStations(con, args.debug)
+
         # Closing conection to database
         con.close()
     except error:

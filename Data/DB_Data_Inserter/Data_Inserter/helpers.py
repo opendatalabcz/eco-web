@@ -1,5 +1,6 @@
 import os
 import utm
+import csv
 import shutil
 import unidecode
 import pandas as pd
@@ -206,8 +207,8 @@ def createTemperatureStructure(sourcePath: str, targetPath: str, hydrometeoTypes
                 minDF = pd.read_csv(sourcePath + '\\' + dataTypes[1] + '\\' + region + '\\' + station + '\\data.csv', encoding='windows-1250', sep=';').drop(['Příznak'], axis = 1)
                 minDF = minDF[minDF['Hodnota'].notna()]
             if os.path.exists(sourcePath + '\\' + dataTypes[2] + '\\' + region + '\\' + station + '\\data.csv'):
-                maxFile = pd.read_csv(sourcePath + '\\' + dataTypes[2] + '\\' + region + '\\' + station + '\\data.csv', encoding='windows-1250', sep=';').drop(['Příznak'], axis = 1)
-                maxFile = maxFile[maxFile['Hodnota'].notna()]
+                maxDF = pd.read_csv(sourcePath + '\\' + dataTypes[2] + '\\' + region + '\\' + station + '\\data.csv', encoding='windows-1250', sep=';').drop(['Příznak'], axis = 1)
+                maxDF = maxDF[maxDF['Hodnota'].notna()]
 
             outputFile = open(dest + '\\' + station, 'w')
             outputFile.close()
@@ -222,7 +223,7 @@ def createHelpingStructure(sourcePath: str, regions: dict, hydrometeoTypes: dict
     # Create and write down stations to csv
     stationStructure = createStationsStructure(sourcePath, regions, debug)
     writeStationsStructure(dest, stationStructure, debug)
-    createTemperatureStructure(sourcePath, dest, hydrometeoTypes, debug)
+    #createTemperatureStructure(sourcePath, dest, hydrometeoTypes, debug)
 
 def removeHelpingStructure():
     shutil.rmtree(os.getcwd() + '\\tmp')
@@ -277,12 +278,49 @@ def insertHydroMeteoTypes(db):
     cursor.close()
     return toRet
 
-# INSERT INTO public.station(
-# 	id, region_id, station_type, location_name, longitude, latitude, height)
-# 	VALUES (?, ?, ?, ?, ?, ?, ?);
+def insertStations(db, debug: bool):
+    # Create new cursor for interaction with database
+    cursor = db.cursor()
 
-def insertStations():
-    pass
+    if debug:
+        print('DEBUG: Fetching station data from database.')
+    # Check if database contains staions
+    cursor.execute('SELECT * FROM station')
+    rows = cursor.fetchall()
+    # If database doesn't contains regions, insert them
+    if len(rows) == 0:
+        if debug:
+            print('DEBUG: Station data not found. Starting to read station.csv file.')
+        # If not, iterate over station file in temporary structure and insert it to the database
+        with open(os.getcwd() + '\\tmp\\stations\\stations.csv', 'r') as file:
+            csvReader = csv.reader(file, delimiter=';')
+            next(csvReader)
+            for line in csvReader:
+                id = line[0]
+                regionID = int(line[1])
+                stationType = int(line[2])
+                location = line[3]
+                longitude = None
+                latitude = None
+                height = None
+                if debug:
+                    print('DEBUG: Inserting ' + id + ' station to the database.')
+                if line[4] != 'NULL':
+                    longitude = float(line[4])
+                if line[5] != 'NULL':
+                    latitude = float(line[5])
+                if line[6] != 'NULL':
+                    height = float(line[6])
+                cursor.execute(
+                    '''INSERT INTO station (id, region_id, station_type, location_name, longitude, latitude, height) 
+                        VALUES (%s, %s, %s, %s, %s, %s, %s);''', 
+                        (id, regionID, stationType, location, longitude, latitude, height))
+                db.commit()
+    elif debug:
+        print('DEBUG: Station data found. Skipping.')
+
+    # Closing transaction
+    cursor.close()
 
 def insertMesurement():
     pass

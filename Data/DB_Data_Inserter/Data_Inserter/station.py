@@ -53,6 +53,6 @@ class Station:
             self.stationType += 1 << 11
 
     def toCSV (self):
-        return (str(self.id) + ';' + str(self.regionID) + ';' + str(self.stationType) 
-            + ';' + str(self.locationName) + ';' + str(self.longitude) 
-            + ';' + str(self.latitude) + ';' + str(self.height) + '\n')
+        return (str(self.id) + ';' + str(self.regionID) + ';' + str(self.stationType) + ';' + 
+            str(self.locationName) + ';' + str(self.longitude).replace(',','.') + ';' + 
+            str(self.latitude).replace(',','.') + ';' + str(self.height).replace(',','.') + '\n')

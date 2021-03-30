@@ -26,8 +26,8 @@ CREATE TABLE "station" (
   "region_id" int NOT NULL,
   "station_type" numeric NOT NULL,
   "location_name" varchar NOT NULL,
-  "longitude" numeric NOT NULL,
-  "latitude" numeric NOT NULL,
+  "longitude" numeric,
+  "latitude" numeric,
   "height" numeric
 );
 
