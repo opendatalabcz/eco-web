@@ -64,38 +64,38 @@ def test_generateURL(region, dataType, fileName, expected):
 
 def test_processHydroDataFromZIPFile():
     currentDir = os.getcwd()
-    testZip = currentDir + '\\Tests\\QD_169000.zip'
-    outputDirPath = currentDir + '\\Tests\\Output'
-    outputPath = outputDirPath + '\\QD_169000'
+    testZip = os.path.join(currentDir, 'Tests', 'QD_169000.zip')
+    outputDirPath = os.path.join(currentDir, 'Tests', 'Output')
+    outputPath = os.path.join(outputDirPath, 'QD_169000')
     os.mkdir(outputDirPath)
     os.mkdir(outputPath)
     h.processHydroDataFromZIPFile(testZip, outputPath)
-    assert os.path.exists(outputPath + '\\data.csv')
-    assert os.path.exists(outputPath + '\\station.csv')
-    with open(outputPath + '\\data.csv', 'r') as f:
+    assert os.path.exists(os.path.join(outputPath, 'data.csv'))
+    assert os.path.exists(os.path.join(outputPath, 'station.csv'))
+    with open(os.path.join(outputPath, 'data.csv'), 'r') as f:
         first_line = f.readline()
         assert first_line == 'ID;Typ;Rok;Měsíc;Den;Hodnota\n'
-    os.remove(outputPath + '\\data.csv')
-    os.remove(outputPath + '\\station.csv')
+    os.remove(os.path.join(outputPath, 'data.csv'))
+    os.remove(os.path.join(outputPath, 'station.csv'))
     os.rmdir(outputPath)
     os.rmdir(outputDirPath)
 
 
 def test_processMeteoDataFromZIPFile():
     currentDir = os.getcwd()
-    testZip = currentDir + '\\Tests\\P1PKAR01_T_N.csv.zip'
-    outputDirPath = currentDir + '\\Tests\\Output'
-    outputPath = outputDirPath + '\\P1PKAR01_T_N'
+    testZip = os.path.join(currentDir, 'Tests', 'P1PKAR01_T_N.csv.zip')
+    outputDirPath = os.path.join(currentDir, 'Tests', 'Output')
+    outputPath = os.path.join(outputDirPath, 'P1PKAR01_T_N')
     os.mkdir(outputDirPath)
     os.mkdir(outputPath)
     h.processMeteoDataFromZIPFile(testZip, outputPath)
-    assert os.path.exists(outputPath + '\\data.csv')
-    assert os.path.exists(outputPath + '\\station.csv')
-    with open(outputPath + '\\data.csv', 'r') as f:
+    assert os.path.exists(os.path.join(outputPath, 'data.csv'))
+    assert os.path.exists(os.path.join(outputPath, 'station.csv'))
+    with open(os.path.join(outputPath, 'data.csv'), 'r') as f:
         first_line = f.readline()
         assert first_line == 'Rok;Měsíc;Den;Hodnota;Příznak\n'
-    os.remove(outputPath + '\\data.csv')
-    os.remove(outputPath + '\\station.csv')
+    os.remove(os.path.join(outputPath, 'data.csv'))
+    os.remove(os.path.join(outputPath, 'station.csv'))
     os.rmdir(outputPath)
     os.rmdir(outputDirPath)
 
@@ -103,17 +103,17 @@ def test_processMeteoDataFromZIPFile():
 def test_downloadFromURL():
     url = 'https://www.chmi.cz/files/portal/docs/hydro/denni_data/QD/Praha/QD_169000.zip'
     currentDir = os.getcwd()
-    path = currentDir + '\\Tests\\Output'
+    path = os.path.join(currentDir, 'Tests', 'Output')
     os.mkdir(path)
-    h.downloadFromURL(url, path + '\\QD_169000.zip')
-    assert os.path.exists(path + '\\QD_169000.zip')
-    h.processHydroDataFromZIPFile(path + '\\QD_169000.zip', path)
-    assert os.path.exists(path + '\\data.csv')
-    assert os.path.exists(path + '\\station.csv')
-    with open(path + '\\data.csv', 'r') as f:
+    h.downloadFromURL(url, os.path.join(path, 'QD_169000.zip'))
+    assert os.path.exists(os.path.join(path, 'QD_169000.zip'))
+    h.processHydroDataFromZIPFile(os.path.join(path, 'QD_169000.zip'), path)
+    assert os.path.exists(os.path.join(path, 'data.csv'))
+    assert os.path.exists(os.path.join(path, 'station.csv'))
+    with open(os.path.join(path, 'data.csv'), 'r') as f:
         first_line = f.readline()
         assert first_line == 'ID;Typ;Rok;Měsíc;Den;Hodnota\n'
-    os.remove(path + '\\data.csv')
-    os.remove(path + '\\station.csv')
-    os.remove(path + '\\QD_169000.zip')
+    os.remove(os.path.join(path, 'data.csv'))
+    os.remove(os.path.join(path, 'station.csv'))
+    os.remove(os.path.join(path, 'QD_169000.zip'))
     os.rmdir(path)

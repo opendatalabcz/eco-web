@@ -1,7 +1,6 @@
 if __name__ == "__main__":
     import os
     import time
-    import pandas as pd
     import helpers as h
     from argparse import ArgumentParser
 
@@ -96,6 +95,12 @@ if __name__ == "__main__":
     if not args.silent and not args.debug:
         print('\nATTENTION: To reduce server load, there is delay between downloads.\n')
 
+    # Structure to keep tracking data, which failed to download
+    failedData = dict()
+    # Creating nested dictionary for each region
+    for region in selectedRegions:
+        failedData[h.regions[region]] = dict()
+
     if args.debug:
         print('DEBUG: Starting to process data.')
     # Loop through all selected data types and regions, download files and process them
@@ -105,15 +110,15 @@ if __name__ == "__main__":
         if args.debug:
             print('DEBUG: Checking output structure.')
         # Create output structure if doesn't exists
-        outputDest =  args.output + '\\OutputData'
+        outputDest =  os.path.join(args.output, 'OutputData')
         if not os.path.isdir(outputDest):
             if args.debug:
                 print('DEBUG: Creating output directory.')
             os.mkdir(outputDest)
-        if not os.path.isdir(outputDest + '\\' + dataType):
+        if not os.path.isdir(os.path.join(outputDest, dataType)):
             if args.debug:
                 print('DEBUG: Creating data type directory.')
-            os.mkdir(outputDest + '\\' + dataType)
+            os.mkdir(os.path.join(outputDest, dataType))
 
         df = None
         # for each data type read corresponding file with stations
@@ -187,10 +192,10 @@ if __name__ == "__main__":
             if args.debug:
                 print('DEBUG: Procesing ' + dataType + ' data type for region ' + h.regions[region] + '.')
             # Create region directory if doesn't exists
-            if not os.path.isdir(outputDest + '\\' + dataType + '\\' + h.regions[region]):
+            if not os.path.isdir(os.path.join(outputDest, dataType, h.regions[region])):
                 if args.debug:
                     print('DEBUG: Creating region directory.')
-                os.mkdir(outputDest + '\\' + dataType + '\\' + h.regions[region])
+                os.mkdir(os.path.join(outputDest, dataType, h.regions[region]))
             if args.debug:
                 print('DEBUG: Selecting stations from region' + h.regions[region] + '.')
             # Filter stations so it contains only stations from given region
@@ -203,11 +208,11 @@ if __name__ == "__main__":
                 if args.debug:
                     print('DEBUG: Starting to process stations in region' + h.regions[region] + '.')
                 # Process station if directory doesn't exist, else skip
-                if not os.path.isdir(outputDest + '\\' + dataType + '\\' + h.regions[region] + '\\' + str(station)):
+                if not os.path.isdir(os.path.join(outputDest, dataType, h.regions[region], str(station))):
                     if args.debug:
                         print('DEBUG: Creating directory for station ' + str(station) + '.')
                     # Create directory for the station
-                    os.mkdir(outputDest + '\\' + dataType + '\\' + h.regions[region] + '\\' + str(station))
+                    os.mkdir(os.path.join(outputDest, dataType, h.regions[region], str(station)))
                     if args.debug:
                         print('DEBUG: Preparing file name for station ' + str(station) + '.')
                     # Generate name and URL for given station
@@ -216,19 +221,31 @@ if __name__ == "__main__":
                         print('DEBUG: Creating URL for station ' + str(station) + '.')
                     url = h.generateURL(h.regions[region], dataType, fileName)
                     # Set up path to store downloaded file and where to put processed output
-                    dest = outputDest + '\\' + dataType + '\\' + h.regions[region] + '\\' + str(station)
-                    path = dest + '\\' + fileName
+                    dest = os.path.join(outputDest, dataType, h.regions[region], str(station))
+                    path = os.path.join(dest, fileName)
                     # Downloading and processing file
                     if args.debug:
                         print('DEBUG: Downloading data for station ' + str(station) + '.')
-                    h.downloadFromURL(url=url, path=path)
+                    try:
+                        h.downloadFromURL(url=url, path=path)
+                    except Exception as exception:
+                        if args.debug:
+                            print('WARNING: Failed to download data for station ' + str(station) + ', because URL does not responding.')
+                        failedData[h.regions[region]][station] = exception
+                        continue
                     if args.debug:
                         print('DEBUG: Processing data for station ' + str(station) + '.')
-                    # If data type is W-AVG, process differently
-                    if dataType == h.dataTypes['Average_daily_water_flow']:
-                        h.processHydroDataFromZIPFile(path, dest)
-                    else:
-                        h.processMeteoDataFromZIPFile(path, dest)
+                    try:
+                        # If data type is W-AVG, process differently
+                        if dataType == h.dataTypes['Average_daily_water_flow']:
+                            h.processHydroDataFromZIPFile(path, dest)
+                        else:
+                            h.processMeteoDataFromZIPFile(path, dest)
+                    except Exception as exception:
+                        if args.debug:
+                            print('WARNING: Failed to download data for station ' + str(station) + ', because a 404 error occurred.')
+                        failedData[h.regions[region]][station] = exception
+                        continue
                     if args.debug:
                         print('DEBUG: Completed data processing for statation ' + str(station) + '.')
                     if not args.silent and not args.debug:
@@ -251,3 +268,10 @@ if __name__ == "__main__":
         print('DEBUG: Processing of data finished.')
     if not args.silent and not args.debug:
         print('\nDownloading finished! All requested data downloaded.')
+    # Prits out failed downloads, if some ocurred
+    if not args.silent:
+        for region, error in failedData.items():
+            if len(error) > 0:
+                print('\nWARNING: In ' + region + ' region, these stations failed to download:')
+            for station in error:
+                print(' ' + station + ' failed for this reason: {0}'.format(error[station]))
