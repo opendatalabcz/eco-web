@@ -1,6 +1,6 @@
 class Station:
     id = None
-    regionID = None
+    region = None
     stationType = None
     locationName = None
     longitude = None
@@ -9,16 +9,28 @@ class Station:
 
     def __init__(
         self,
-        id,
-        regionID,
-        stationType,
-        locationName,
-        longitude,
-        latitude,
-        height,
+        id=None,
+        region=None,
+        stationType=None,
+        locationName=None,
+        longitude=None,
+        latitude=None,
+        height=None,
     ):
+        """Constructor of the Station class.
+
+            Arguments:
+                id -- ID of the station
+                region -- name of region
+                stationType -- name of station type
+                locationName -- name of location where station is located
+                longitude -- longitude of station
+                latitude -- latitude of station
+                height -- altitude of the station
+            Returns None
+        """
         self.id = id
-        self.regionID = regionID
+        self.region = region
         self.stationType = 0
         self.locationName = locationName
         self.longitude = longitude
@@ -27,6 +39,12 @@ class Station:
         self.updateType(stationType)
 
     def updateType(self, type: str):
+        """Method for updating station's type.
+
+            Arguments:
+                type -- type of station
+            Returns None
+        """
         if type == 'T-AVG':
             self.stationType += 1
         elif type == 'TMI':
@@ -52,7 +70,17 @@ class Station:
         elif type == 'W-AVG':
             self.stationType += 1 << 11
 
-    def toCSV (self):
-        return (str(self.id) + ';' + str(self.regionID) + ';' + str(self.stationType) + ';' + 
-            str(self.locationName) + ';' + str(self.longitude).replace(',','.') + ';' + 
-            str(self.latitude).replace(',','.') + ';' + str(self.height).replace(',','.') + '\n')
+    def toCSV(self):
+        """Function for getting formated data as csv line.
+
+            Arguments:
+                None
+            Returns str
+        """
+        return (str(self.id) + ';' + 
+                str(self.region) + ';' +
+                str(self.stationType) + ';' +
+                str(self.locationName) + ';' +
+                str(self.longitude).replace(',', '.') + ';' +
+                str(self.latitude).replace(',', '.') + ';' +
+                str(self.height).replace(',', '.') + '\n')

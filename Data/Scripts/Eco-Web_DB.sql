@@ -9,9 +9,9 @@ CREATE TABLE "hydrometeo_measurement" (
   "avg_value" numeric,
   "azimuth" numeric,
   "time" time,
-  "symptom" char,
+  "symptom" varchar,
   "total_value" numeric,
-  "total_symptom" numeric,
+  "total_symptom" varchar,
   "last_updated" timestamp NOT NULL DEFAULT (now())
 );
 
