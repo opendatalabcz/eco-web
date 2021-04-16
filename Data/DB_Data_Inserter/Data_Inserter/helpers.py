@@ -1068,6 +1068,7 @@ def insertWind(db, hydrometeoTypes: dict, debug: bool):
                     tmp = str(row[6]).split(':')
                     hour = int(tmp[0])
                     minute = int(tmp[1])
+                    # If not valid format, reformate it
                     if hour == 24:
                         hour = 0
                     if hour > 24:
