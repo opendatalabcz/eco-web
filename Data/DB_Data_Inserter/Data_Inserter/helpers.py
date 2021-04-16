@@ -259,13 +259,19 @@ def createTemperatureStructure(sourcePath: str, targetPath: str, debug: bool):
     for region in regionList:
         if debug:
             print('\nDEBUG: Processing ' + region + ' region.')
+        avgStations = list()
+        minStations = list()
+        maxStations = list()
         # Listing all content for needed measurement types
-        avgStations = os.listdir(os.path.join(
-            sourcePath, dataTypes[0], region))
-        minStations = os.listdir(os.path.join(
-            sourcePath, dataTypes[1], region))
-        maxStations = os.listdir(os.path.join(
-            sourcePath, dataTypes[2], region))
+        if os.path.exists(os.path.join(sourcePath, dataTypes[0], region)):
+            avgStations = os.listdir(os.path.join(
+                sourcePath, dataTypes[0], region))
+        if os.path.exists(os.path.join(sourcePath, dataTypes[1], region)):
+            minStations = os.listdir(os.path.join(
+                sourcePath, dataTypes[1], region))
+        if os.path.exists(os.path.join(sourcePath, dataTypes[2], region)):
+            maxStations = os.listdir(os.path.join(
+                sourcePath, dataTypes[2], region))
         # Creating set of uniqes stations
         stations = set().union(avgStations, minStations, maxStations)
         # For each station load desired data, join them and store in new file
@@ -337,8 +343,11 @@ def createWaterStructure(sourcePath: str, targetPath: str, debug: bool):
     for region in regionList:
         if debug:
             print('\nDEBUG: Processing ' + region + ' region.')
+        stations = list()
         # Listing all content for needed measurement types
-        stations = os.listdir(os.path.join(sourcePath, dataTypes[-1], region))
+        if os.path.exists(os.path.join(sourcePath, dataTypes[-1], region)):
+            stations = os.listdir(os.path.join(
+                sourcePath, dataTypes[-1], region))
         # For each station load desired data, join them and store in new file
         for station in stations:
             if debug:
@@ -380,8 +389,11 @@ def createPressureStructure(sourcePath: str, targetPath: str, debug: bool):
     for region in regionList:
         if debug:
             print('\nDEBUG: Processing ' + region + ' region.')
+        stations = list()
         # Listing all content for needed measurement types
-        stations = os.listdir(os.path.join(sourcePath, dataTypes[8], region))
+        if os.path.exists(os.path.join(sourcePath, dataTypes[8], region)):
+            stations = os.listdir(os.path.join(
+                sourcePath, dataTypes[8], region))
         # For each station load desired data, join them and store in new file
         for station in stations:
             if debug:
@@ -423,11 +435,15 @@ def createWindStructure(sourcePath: str, targetPath: str, debug: bool):
     for region in regionList:
         if debug:
             print('\nDEBUG: Processing ' + region + ' region.')
+        avgStations = list()
+        maxStations = list()
         # Listing all content for needed measurement types
-        avgStations = os.listdir(os.path.join(
-            sourcePath, dataTypes[-3], region))
-        maxStations = os.listdir(os.path.join(
-            sourcePath, dataTypes[-2], region))
+        if os.path.exists(os.path.join(sourcePath, dataTypes[-3], region)):
+            avgStations = os.listdir(os.path.join(
+                sourcePath, dataTypes[-3], region))
+        if os.path.exists(os.path.join(sourcePath, dataTypes[-2], region)):
+            maxStations = os.listdir(os.path.join(
+                sourcePath, dataTypes[-2], region))
         # Creating set of uniqes stations
         stations = set().union(avgStations, maxStations)
         # For each station load desired data, join them and store in new file
@@ -465,7 +481,8 @@ def createWindStructure(sourcePath: str, targetPath: str, debug: bool):
             finalDF = pd.merge(avgDF, maxDF, on=[
                                'Rok', 'Měsíc', 'Den'], how='outer')
             finalDF.to_csv(os.path.join(dest, station + '.csv'),
-                           sep=';', index=False, encoding='windows-1250')
+                           sep=';', index=False, encoding='windows-1250',
+                           columns=['Rok', 'Měsíc', 'Den', 'Průměrná_Hodnota', 'Maximální_Hodnota', 'Směr', 'Čas'])
     if debug:
         print('DEBUG: All wind data are processed.')
 
@@ -490,11 +507,15 @@ def createPrecipitationStructure(sourcePath: str, targetPath: str, debug: bool):
     for region in regionList:
         if debug:
             print('\nDEBUG: Processing ' + region + ' region.')
+        avgHumidityStations = list()
+        precipitationStations = list()
         # Listing all content for needed measurement types
-        avgHumidityStations = os.listdir(
-            os.path.join(sourcePath, dataTypes[4], region))
-        precipitationStations = os.listdir(
-            os.path.join(sourcePath, dataTypes[3], region))
+        if os.path.exists(os.path.join(sourcePath, dataTypes[4], region)):
+            avgHumidityStations = os.listdir(
+                os.path.join(sourcePath, dataTypes[4], region))
+        if os.path.exists(os.path.join(sourcePath, dataTypes[-3], region)):
+            precipitationStations = os.listdir(
+                os.path.join(sourcePath, dataTypes[-3], region))
         # Creating set of uniqes stations
         stations = set().union(avgHumidityStations, precipitationStations)
         # For each station load desired data, join them and store in new file
@@ -559,8 +580,11 @@ def createShineStructure(sourcePath: str, targetPath: str, debug: bool):
     for region in regionList:
         if debug:
             print('\nDEBUG: Processing ' + region + ' region.')
+        stations = list()
         # Listing all content for needed measurement types
-        stations = os.listdir(os.path.join(sourcePath, dataTypes[7], region))
+        if os.path.exists(os.path.join(sourcePath, dataTypes[7], region)):
+            stations = os.listdir(os.path.join(
+                sourcePath, dataTypes[7], region))
         # For each station load desired data, join them and store in new file
         for station in stations:
             if debug:
@@ -602,11 +626,15 @@ def createSnowStructure(sourcePath: str, targetPath: str, debug: bool):
     for region in regionList:
         if debug:
             print('\nDEBUG: Processing ' + region + ' region.')
+        newSnowStations = list()
+        totalStations = list()
         # Listing all content for needed measurement types
-        newSnowStations = os.listdir(
-            os.path.join(sourcePath, dataTypes[5], region))
-        totalStations = os.listdir(os.path.join(
-            sourcePath, dataTypes[6], region))
+        if os.path.exists(os.path.join(sourcePath, dataTypes[5], region)):
+            newSnowStations = os.listdir(
+                os.path.join(sourcePath, dataTypes[5], region))
+        if os.path.exists(os.path.join(sourcePath, dataTypes[6], region)):
+            totalStations = os.listdir(os.path.join(
+                sourcePath, dataTypes[6], region))
         # Creating set of uniqes stations
         stations = set().union(newSnowStations, totalStations)
         # For each station load desired data, join them and store in new file
@@ -835,6 +863,7 @@ def insertStations(db, regions: dict, debug: bool):
     # Closing transaction
     cursor.close()
 
+
 def insertTemperature(db, hydrometeoTypes: dict, debug: bool):
     """Function for inserting temperature measurement to the database.
 
@@ -850,12 +879,14 @@ def insertTemperature(db, hydrometeoTypes: dict, debug: bool):
     if debug:
         print('DEBUG: Fetching temperature measurements from database.')
     # Check if database contains temperature measurements
-    cursor.execute('SELECT * FROM hydrometeo_measurement WHERE hydrometeo_type = ' + str(hydrometeoTypes['Temperature']))
+    cursor.execute('SELECT * FROM hydrometeo_measurement WHERE hydrometeo_type = ' +
+                   str(hydrometeoTypes['Temperature']))
     rows = cursor.fetchall()
     # If database doesn't contains temperature measurements, insert them
     if len(rows) == 0:
         if debug:
-            print('DEBUG: Temperature measurements not found. Starting to read temperature files.')
+            print(
+                'DEBUG: Temperature measurements not found. Starting to read temperature files.')
         # If not, iterate over temperature files in temporary structure and insert them to the database
         path = os.path.join(os.getcwd(), 'tmp', 'Temperature')
         for fileName in os.listdir(path):
@@ -863,12 +894,14 @@ def insertTemperature(db, hydrometeoTypes: dict, debug: bool):
                 print('DEBUG: Inserting ' + fileName + ' file.')
             # Extract station ID, read station file and insert each row to the database
             stationID = fileName.split('.')[0]
-            df = pd.read_csv(os.path.join(path, fileName), encoding='windows-1250', sep=';')
+            df = pd.read_csv(os.path.join(path, fileName),
+                             encoding='windows-1250', sep=';')
             for row in df.itertuples(index=False):
                 # Join values from columns to create sing date - row[0] = year, row[1] = month, row[2] = day
                 date = dt.date(row[0], row[1], row[2])
                 if debug:
-                    print('DEBUG: Inserting temperature measurement for date ' + str(date) + '.')
+                    print(
+                        'DEBUG: Inserting temperature measurement for date ' + str(date) + '.')
                 cursor.execute(
                     '''INSERT INTO hydrometeo_measurement(
 	                    id, station_id, hydrometeo_type, date, value, min_value, max_value, avg_value,
@@ -883,6 +916,7 @@ def insertTemperature(db, hydrometeoTypes: dict, debug: bool):
 
     # Closing transaction
     cursor.close()
+
 
 def insertWater(db, hydrometeoTypes: dict, debug: bool):
     """Function for inserting water measurement to the database.
@@ -899,7 +933,8 @@ def insertWater(db, hydrometeoTypes: dict, debug: bool):
     if debug:
         print('DEBUG: Fetching water measurements from database.')
     # Check if database contains water measurements
-    cursor.execute('SELECT * FROM hydrometeo_measurement WHERE hydrometeo_type = ' + str(hydrometeoTypes['Water']))
+    cursor.execute('SELECT * FROM hydrometeo_measurement WHERE hydrometeo_type = ' +
+                   str(hydrometeoTypes['Water']))
     rows = cursor.fetchall()
     # If database doesn't contains water measurements, insert them
     if len(rows) == 0:
@@ -912,12 +947,14 @@ def insertWater(db, hydrometeoTypes: dict, debug: bool):
                 print('DEBUG: Inserting ' + fileName + ' file.')
             # Extract station ID, read station file and insert each row to the database
             stationID = fileName.split('.')[0]
-            df = pd.read_csv(os.path.join(path, fileName), encoding='windows-1250', sep=';')
+            df = pd.read_csv(os.path.join(path, fileName),
+                             encoding='windows-1250', sep=';')
             for row in df.itertuples(index=False):
                 # Join values from columns to create sing date - row[0] = year, row[1] = month, row[2] = day
                 date = dt.date(row[0], row[1], row[2])
                 if debug:
-                    print('DEBUG: Inserting water measurement for date ' + str(date) + '.')
+                    print(
+                        'DEBUG: Inserting water measurement for date ' + str(date) + '.')
                 cursor.execute(
                     '''INSERT INTO hydrometeo_measurement(
 	                    id, station_id, hydrometeo_type, date, value, min_value, max_value, avg_value,
@@ -932,6 +969,7 @@ def insertWater(db, hydrometeoTypes: dict, debug: bool):
 
     # Closing transaction
     cursor.close()
+
 
 def insertPressure(db, hydrometeoTypes: dict, debug: bool):
     """Function for inserting pressure measurement to the database.
@@ -948,12 +986,14 @@ def insertPressure(db, hydrometeoTypes: dict, debug: bool):
     if debug:
         print('DEBUG: Fetching pressure measurements from database.')
     # Check if database contains pressure measurements
-    cursor.execute('SELECT * FROM hydrometeo_measurement WHERE hydrometeo_type = ' + str(hydrometeoTypes['Pressure']))
+    cursor.execute('SELECT * FROM hydrometeo_measurement WHERE hydrometeo_type = ' +
+                   str(hydrometeoTypes['Pressure']))
     rows = cursor.fetchall()
     # If database doesn't contains pressure measurements, insert them
     if len(rows) == 0:
         if debug:
-            print('DEBUG: Pressure measurements not found. Starting to read pressure files.')
+            print(
+                'DEBUG: Pressure measurements not found. Starting to read pressure files.')
         # If not, iterate over pressure files in temporary structure and insert them to the database
         path = os.path.join(os.getcwd(), 'tmp', 'Pressure')
         for fileName in os.listdir(path):
@@ -961,12 +1001,14 @@ def insertPressure(db, hydrometeoTypes: dict, debug: bool):
                 print('DEBUG: Inserting ' + fileName + ' file.')
             # Extract station ID, read station file and insert each row to the database
             stationID = fileName.split('.')[0]
-            df = pd.read_csv(os.path.join(path, fileName), encoding='windows-1250', sep=';')
+            df = pd.read_csv(os.path.join(path, fileName),
+                             encoding='windows-1250', sep=';')
             for row in df.itertuples(index=False):
                 # Join values from columns to create sing date - row[0] = year, row[1] = month, row[2] = day
                 date = dt.date(row[0], row[1], row[2])
                 if debug:
-                    print('DEBUG: Inserting pressure measurement for date ' + str(date) + '.')
+                    print(
+                        'DEBUG: Inserting pressure measurement for date ' + str(date) + '.')
                 cursor.execute(
                     '''INSERT INTO hydrometeo_measurement(
 	                    id, station_id, hydrometeo_type, date, value, min_value, max_value, avg_value,
@@ -981,6 +1023,7 @@ def insertPressure(db, hydrometeoTypes: dict, debug: bool):
 
     # Closing transaction
     cursor.close()
+
 
 def insertWind(db, hydrometeoTypes: dict, debug: bool):
     """Function for inserting wind measurement to the database.
@@ -997,10 +1040,11 @@ def insertWind(db, hydrometeoTypes: dict, debug: bool):
     if debug:
         print('DEBUG: Fetching wind measurements from database.')
     # Check if database contains wind measurements
-    cursor.execute('SELECT * FROM hydrometeo_measurement WHERE hydrometeo_type = ' + str(hydrometeoTypes['Wind']))
+    cursor.execute('SELECT * FROM hydrometeo_measurement WHERE hydrometeo_type = ' +
+                   str(hydrometeoTypes['Wind']))
     rows = cursor.fetchall()
     # If database doesn't contains wind measurements, insert them
-    if len(rows) == 0:
+    if len(rows) != 0:
         if debug:
             print('DEBUG: Wind measurements not found. Starting to read wind files.')
         # If not, iterate over wind files in temporary structure and insert them to the database
@@ -1010,14 +1054,16 @@ def insertWind(db, hydrometeoTypes: dict, debug: bool):
                 print('DEBUG: Inserting ' + fileName + ' file.')
             # Extract station ID, read station file and insert each row to the database
             stationID = fileName.split('.')[0]
-            df = pd.read_csv(os.path.join(path, fileName), encoding='windows-1250', sep=';')
+            df = pd.read_csv(os.path.join(path, fileName),
+                             encoding='windows-1250', sep=';')
             for row in df.itertuples(index=False):
                 # Join values from columns to create sing date - row[0] = year, row[1] = month, row[2] = day
                 date = dt.date(row[0], row[1], row[2])
                 if debug:
-                    print('DEBUG: Inserting wind measurement for date ' + str(date) + '.')
+                    print(
+                        'DEBUG: Inserting wind measurement for date ' + str(date) + '.')
                 time = None
-                if not pd.isna(row[6]):
+                if pd.notnull(row[6]) and str(row[6]) != '' and str(row[6]) != ':':
                     # Converting string time to time format for database
                     tmp = str(row[6]).split(':')
                     hour = int(tmp[0])
@@ -1025,11 +1071,11 @@ def insertWind(db, hydrometeoTypes: dict, debug: bool):
                     if hour == 24:
                         hour = 0
                     if hour > 24:
-                        # TODO - write down some correcture of wrong times - currently can't read B1HOLE01 - 1996-11-18
                         tmp = str(hour)
                         if tmp[0] == tmp[1]:
                             hour = int('0' + tmp[1])
-                    time = dt.time(hour, minute)
+                    if hour >= 0 and hour < 24 and minute >= 0 and minute < 60:
+                        time = dt.time(hour, minute)
                 cursor.execute(
                     '''INSERT INTO hydrometeo_measurement(
 	                    id, station_id, hydrometeo_type, date, value, min_value, max_value, avg_value,
@@ -1044,6 +1090,7 @@ def insertWind(db, hydrometeoTypes: dict, debug: bool):
 
     # Closing transaction
     cursor.close()
+
 
 def insertPrecipitation(db, hydrometeoTypes: dict, debug: bool):
     """Function for inserting precipitation measurement to the database.
@@ -1060,12 +1107,14 @@ def insertPrecipitation(db, hydrometeoTypes: dict, debug: bool):
     if debug:
         print('DEBUG: Fetching precipitation measurements from database.')
     # Check if database contains precipitation measurements
-    cursor.execute('SELECT * FROM hydrometeo_measurement WHERE hydrometeo_type = ' + str(hydrometeoTypes['Precipitation']))
+    cursor.execute('SELECT * FROM hydrometeo_measurement WHERE hydrometeo_type = ' +
+                   str(hydrometeoTypes['Precipitation']))
     rows = cursor.fetchall()
     # If database doesn't contains precipitation measurements, insert them
     if len(rows) == 0:
         if debug:
-            print('DEBUG: Precipitation measurements not found. Starting to read precipitation files.')
+            print(
+                'DEBUG: Precipitation measurements not found. Starting to read precipitation files.')
         # If not, iterate over precipitation files in temporary structure and insert them to the database
         path = os.path.join(os.getcwd(), 'tmp', 'Precipitation')
         for fileName in os.listdir(path):
@@ -1073,12 +1122,14 @@ def insertPrecipitation(db, hydrometeoTypes: dict, debug: bool):
                 print('DEBUG: Inserting ' + fileName + ' file.')
             # Extract station ID, read station file and insert each row to the database
             stationID = fileName.split('.')[0]
-            df = pd.read_csv(os.path.join(path, fileName), encoding='windows-1250', sep=';')
+            df = pd.read_csv(os.path.join(path, fileName),
+                             encoding='windows-1250', sep=';')
             for row in df.itertuples(index=False):
                 # Join values from columns to create sing date - row[0] = year, row[1] = month, row[2] = day
                 date = dt.date(row[0], row[1], row[2])
                 if debug:
-                    print('DEBUG: Inserting precipitation measurement for date ' + str(date) + '.')
+                    print(
+                        'DEBUG: Inserting precipitation measurement for date ' + str(date) + '.')
                 cursor.execute(
                     '''INSERT INTO hydrometeo_measurement(
 	                    id, station_id, hydrometeo_type, date, value, min_value, max_value, avg_value,
@@ -1093,6 +1144,7 @@ def insertPrecipitation(db, hydrometeoTypes: dict, debug: bool):
 
     # Closing transaction
     cursor.close()
+
 
 def insertShine(db, hydrometeoTypes: dict, debug: bool):
     """Function for inserting shine measurement to the database.
@@ -1109,7 +1161,8 @@ def insertShine(db, hydrometeoTypes: dict, debug: bool):
     if debug:
         print('DEBUG: Fetching shine measurements from database.')
     # Check if database contains shine measurements
-    cursor.execute('SELECT * FROM hydrometeo_measurement WHERE hydrometeo_type = ' + str(hydrometeoTypes['Shine']))
+    cursor.execute('SELECT * FROM hydrometeo_measurement WHERE hydrometeo_type = ' +
+                   str(hydrometeoTypes['Shine']))
     rows = cursor.fetchall()
     # If database doesn't contains shine measurements, insert them
     if len(rows) == 0:
@@ -1122,12 +1175,14 @@ def insertShine(db, hydrometeoTypes: dict, debug: bool):
                 print('DEBUG: Inserting ' + fileName + ' file.')
             # Extract station ID, read station file and insert each row to the database
             stationID = fileName.split('.')[0]
-            df = pd.read_csv(os.path.join(path, fileName), encoding='windows-1250', sep=';')
+            df = pd.read_csv(os.path.join(path, fileName),
+                             encoding='windows-1250', sep=';')
             for row in df.itertuples(index=False):
                 # Join values from columns to create sing date - row[0] = year, row[1] = month, row[2] = day
                 date = dt.date(row[0], row[1], row[2])
                 if debug:
-                    print('DEBUG: Inserting shine measurement for date ' + str(date) + '.')
+                    print(
+                        'DEBUG: Inserting shine measurement for date ' + str(date) + '.')
                 cursor.execute(
                     '''INSERT INTO hydrometeo_measurement(
 	                    id, station_id, hydrometeo_type, date, value, min_value, max_value, avg_value,
@@ -1142,6 +1197,7 @@ def insertShine(db, hydrometeoTypes: dict, debug: bool):
 
     # Closing transaction
     cursor.close()
+
 
 def insertSnow(db, hydrometeoTypes: dict, debug: bool):
     """Function for inserting snow measurement to the database.
@@ -1158,7 +1214,8 @@ def insertSnow(db, hydrometeoTypes: dict, debug: bool):
     if debug:
         print('DEBUG: Fetching snow measurements from database.')
     # Check if database contains snow measurements
-    cursor.execute('SELECT * FROM hydrometeo_measurement WHERE hydrometeo_type = ' + str(hydrometeoTypes['Snow']))
+    cursor.execute('SELECT * FROM hydrometeo_measurement WHERE hydrometeo_type = ' +
+                   str(hydrometeoTypes['Snow']))
     rows = cursor.fetchall()
     # If database doesn't contains snow measurements, insert them
     if len(rows) == 0:
@@ -1171,12 +1228,14 @@ def insertSnow(db, hydrometeoTypes: dict, debug: bool):
                 print('DEBUG: Inserting ' + fileName + ' file.')
             # Extract station ID, read station file and insert each row to the database
             stationID = fileName.split('.')[0]
-            df = pd.read_csv(os.path.join(path, fileName), encoding='windows-1250', sep=';')
+            df = pd.read_csv(os.path.join(path, fileName),
+                             encoding='windows-1250', sep=';')
             for row in df.itertuples(index=False):
                 # Join values from columns to create sing date - row[0] = year, row[1] = month, row[2] = day
                 date = dt.date(row[0], row[1], row[2])
                 if debug:
-                    print('DEBUG: Inserting temperature measurement for date ' + str(date) + '.')
+                    print(
+                        'DEBUG: Inserting temperature measurement for date ' + str(date) + '.')
                 cursor.execute(
                     '''INSERT INTO hydrometeo_measurement(
 	                    id, station_id, hydrometeo_type, date, value, min_value, max_value, avg_value,
