@@ -5,14 +5,13 @@ if __name__ == "__main__":
     import helpers as h
     from decouple import config
     from argparse import ArgumentParser
-    from os import error
 
     # Script descrtiption
     parser = ArgumentParser(
         description="Inserts downloaded data to the Postgres database.")
 
     # Argument to specify where to store data
-    parser.add_argument("-", "--path", default=os.path.join('..', 'Downloader', 'OutputData'),
+    parser.add_argument("-p", "--path", default=os.path.join('..', 'Downloader', 'OutputData'),
                         help="Specify the path where the data is stored. Default path is ../Downloader/OutputData.")
 
     # Argument to disable removing helping structure files
@@ -41,9 +40,7 @@ if __name__ == "__main__":
     # Creating helping structure, which later helps with inserting data to the database
     try:
         h.createHelpingStructure(args.path, args.debug)
-    # TODO: Remove Error when finished
-    except error:
-        print(error)
+    except:
         print("ERROR: Can not create directory or file.")
         h.removeHelpingStructure(args.debug)
         sys.exit(1)
@@ -68,7 +65,7 @@ if __name__ == "__main__":
         h.insertWater(con, hydrometeoTypes, args.debug)
         h.insertPressure(con, hydrometeoTypes, args.debug)
         # TEMPORARY disabled - problems with errors in data. Because misstypes, some data are not valid
-        #h.insertWind(con, hydrometeoTypes, args.debug)
+        h.insertWind(con, hydrometeoTypes, args.debug)
         h.insertPrecipitation(con, hydrometeoTypes, args.debug)
         h.insertShine(con, hydrometeoTypes, args.debug)
         h.insertSnow(con, hydrometeoTypes, args.debug)
@@ -76,9 +73,7 @@ if __name__ == "__main__":
         # Closing conection to database
         con.close()
 
-    # TODO: remove Error when finished
-    except error:
-        print(error)
+    except:
         print("ERROR: Can not connect to the database.")
 
     # Clearing used structure if flag is not set
