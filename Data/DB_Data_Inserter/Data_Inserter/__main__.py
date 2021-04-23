@@ -22,6 +22,10 @@ if __name__ == "__main__":
     parser.add_argument("-d", "--debug", default=False, action='store_true',
                         help="Prints out debug info. False is default.")
 
+    # Argument to enable debug info
+    parser.add_argument("-im", "--ignore_measurement", default=False, action='store_true',
+                        help="Ignores already inserted measuremets - allows to insert new measurements of existing type. False is default.")
+
     # Creates namespace with arguments
     args = parser.parse_args()
 
@@ -61,13 +65,13 @@ if __name__ == "__main__":
 
         # Inserting station data from helping structure
         h.insertStations(con, regions, args.debug)
-        h.insertTemperature(con, hydrometeoTypes, args.debug)
-        h.insertWater(con, hydrometeoTypes, args.debug)
-        h.insertPressure(con, hydrometeoTypes, args.debug)
-        h.insertWind(con, hydrometeoTypes, args.debug)
-        h.insertPrecipitation(con, hydrometeoTypes, args.debug)
-        h.insertShine(con, hydrometeoTypes, args.debug)
-        h.insertSnow(con, hydrometeoTypes, args.debug)
+        h.insertTemperature(con, hydrometeoTypes, args.debug, args.ignore_measurement)
+        h.insertWater(con, hydrometeoTypes, args.debug, args.ignore_measurement)
+        h.insertPressure(con, hydrometeoTypes, args.debug, args.ignore_measurement)
+        h.insertWind(con, hydrometeoTypes, args.debug, args.ignore_measurement)
+        h.insertPrecipitation(con, hydrometeoTypes, args.debug, args.ignore_measurement)
+        h.insertShine(con, hydrometeoTypes, args.debug, args.ignore_measurement)
+        h.insertSnow(con, hydrometeoTypes, args.debug, args.ignore_measurement)
 
         # Closing conection to database
         con.close()

@@ -318,7 +318,8 @@ def createTemperatureStructure(sourcePath: str, targetPath: str, debug: bool):
             finalDF = pd.merge(pd.merge(avgDF, minDF, on=[
                                'Rok', 'Měsíc', 'Den'], how='outer'), maxDF, on=['Rok', 'Měsíc', 'Den'], how='outer')
             finalDF.to_csv(os.path.join(dest, station + '.csv'),
-                           sep=';', index=False, encoding='windows-1250')
+                           sep=';', index=False, encoding='windows-1250',
+                           columns=['Rok', 'Měsíc', 'Den', 'Průměrná_Hodnota', 'Minimální_Hodnota', 'Maximální_Hodnota'])
     if debug:
         print('DEBUG: All temperature data are processed.')
 
@@ -364,7 +365,8 @@ def createWaterStructure(sourcePath: str, targetPath: str, debug: bool):
                              sep=',', decimal='.').drop(['ID', 'Typ'], axis=1)
             df = df[df['Hodnota'].notna()]
             df.to_csv(os.path.join(dest, station + '.csv'),
-                      sep=';', index=False, encoding='windows-1250')
+                      sep=';', index=False, encoding='windows-1250',
+                      columns=['Rok', 'Měsíc', 'Den', 'Hodnota'])
     if debug:
         print('DEBUG: All temperature data are processed.')
 
@@ -410,7 +412,8 @@ def createPressureStructure(sourcePath: str, targetPath: str, debug: bool):
                              sep=';', decimal=',').drop(['Příznak'], axis=1)
             df = df[df['Hodnota'].notna()]
             df.to_csv(os.path.join(dest, station + '.csv'),
-                      sep=';', index=False, encoding='windows-1250')
+                      sep=';', index=False, encoding='windows-1250',
+                      columns=['Rok', 'Měsíc', 'Den', 'Hodnota'])
     if debug:
         print('DEBUG: All pressure data are processed.')
 
@@ -555,7 +558,8 @@ def createPrecipitationStructure(sourcePath: str, targetPath: str, debug: bool):
             finalDF = pd.merge(precipitationDF, humidityDF, on=[
                                'Rok', 'Měsíc', 'Den'], how='outer')
             finalDF.to_csv(os.path.join(dest, station + '.csv'),
-                           sep=';', index=False, encoding='windows-1250')
+                           sep=';', index=False, encoding='windows-1250',
+                           columns=['Rok', 'Měsíc', 'Den', 'Celková_Hodnota', 'Příznak_Celkové_Hodnoty', 'Průměrná_Hodnota'])
     if debug:
         print('DEBUG: All precipitation data are processed.')
 
@@ -601,7 +605,8 @@ def createShineStructure(sourcePath: str, targetPath: str, debug: bool):
                              sep=';', decimal=',').drop(['Příznak'], axis=1)
             df = df[df['Hodnota'].notna()]
             df.to_csv(os.path.join(dest, station + '.csv'),
-                      sep=';', index=False, encoding='windows-1250')
+                      sep=';', index=False, encoding='windows-1250',
+                      columns=['Rok', 'Měsíc', 'Den', 'Hodnota'])
     if debug:
         print('DEBUG: All shine data are processed.')
 
@@ -685,7 +690,8 @@ def createSnowStructure(sourcePath: str, targetPath: str, debug: bool):
             finalDF = pd.merge(totalDF, newSnowDF, on=[
                                'Rok', 'Měsíc', 'Den'], how='outer')
             finalDF.to_csv(os.path.join(dest, station + '.csv'),
-                           sep=';', index=False, encoding='windows-1250')
+                           sep=';', index=False, encoding='windows-1250',
+                           columns=['Rok', 'Měsíc', 'Den', 'Celková_Hodnota', 'Příznak_Celkové_Hodnoty', 'Hodnota_Nového_Sněhu', 'Příznak_Nového_Sněhu'])
     if debug:
         print('DEBUG: All snow data are processed.')
 
@@ -864,13 +870,14 @@ def insertStations(db, regions: dict, debug: bool):
     cursor.close()
 
 
-def insertTemperature(db, hydrometeoTypes: dict, debug: bool):
+def insertTemperature(db, hydrometeoTypes: dict, debug: bool, ignoreExistingInDB: bool):
     """Function for inserting temperature measurement to the database.
 
         Arguments:
             db -- postgress connection for database
             hydrometeoTypes -- dictionary with hydrometeo types and their database IDs
             debug -- flag to enable debug messages
+            ignoreExistingInDB -- flag to disable data existence in DB check
         Returns None
     """
     # Create new cursor for interaction with database
@@ -883,10 +890,13 @@ def insertTemperature(db, hydrometeoTypes: dict, debug: bool):
                    str(hydrometeoTypes['Temperature']))
     rows = cursor.fetchall()
     # If database doesn't contains temperature measurements, insert them
-    if len(rows) == 0:
+    if ignoreExistingInDB or len(rows) == 0:
         if debug:
-            print(
-                'DEBUG: Temperature measurements not found. Starting to read temperature files.')
+            if ignoreExistingInDB:
+                print('DEBUG: Ignoring data in database. Starting to read temperature files.')
+            else:
+                print(
+                    'DEBUG: Temperature measurements not found. Starting to read temperature files.')
         # If not, iterate over temperature files in temporary structure and insert them to the database
         path = os.path.join(os.getcwd(), 'tmp', 'Temperature')
         for fileName in os.listdir(path):
@@ -918,13 +928,14 @@ def insertTemperature(db, hydrometeoTypes: dict, debug: bool):
     cursor.close()
 
 
-def insertWater(db, hydrometeoTypes: dict, debug: bool):
+def insertWater(db, hydrometeoTypes: dict, debug: bool, ignoreExistingInDB: bool):
     """Function for inserting water measurement to the database.
 
         Arguments:
             db -- postgress connection for database
             hydrometeoTypes -- dictionary with hydrometeo types and their database IDs
             debug -- flag to enable debug messages
+            ignoreExistingInDB -- flag to disable data existence in DB check
         Returns None
     """
     # Create new cursor for interaction with database
@@ -937,9 +948,12 @@ def insertWater(db, hydrometeoTypes: dict, debug: bool):
                    str(hydrometeoTypes['Water']))
     rows = cursor.fetchall()
     # If database doesn't contains water measurements, insert them
-    if len(rows) == 0:
+    if ignoreExistingInDB or len(rows) == 0:
         if debug:
-            print('DEBUG: Water measurements not found. Starting to read water files.')
+            if ignoreExistingInDB:
+                print('DEBUG: Ignoring data in database. Starting to read water files.')
+            else:
+                print('DEBUG: Water measurements not found. Starting to read water files.')
         # If not, iterate over water files in temporary structure and insert them to the database
         path = os.path.join(os.getcwd(), 'tmp', 'Water')
         for fileName in os.listdir(path):
@@ -971,13 +985,14 @@ def insertWater(db, hydrometeoTypes: dict, debug: bool):
     cursor.close()
 
 
-def insertPressure(db, hydrometeoTypes: dict, debug: bool):
+def insertPressure(db, hydrometeoTypes: dict, debug: bool, ignoreExistingInDB: bool):
     """Function for inserting pressure measurement to the database.
 
         Arguments:
             db -- postgress connection for database
             hydrometeoTypes -- dictionary with hydrometeo types and their database IDs
             debug -- flag to enable debug messages
+            ignoreExistingInDB -- flag to disable data existence in DB check
         Returns None
     """
     # Create new cursor for interaction with database
@@ -990,10 +1005,13 @@ def insertPressure(db, hydrometeoTypes: dict, debug: bool):
                    str(hydrometeoTypes['Pressure']))
     rows = cursor.fetchall()
     # If database doesn't contains pressure measurements, insert them
-    if len(rows) == 0:
+    if ignoreExistingInDB or len(rows) == 0:
         if debug:
-            print(
-                'DEBUG: Pressure measurements not found. Starting to read pressure files.')
+            if ignoreExistingInDB:
+                print('DEBUG: Ignoring data in database. Starting to read pressure files.')
+            else:
+                print(
+                    'DEBUG: Pressure measurements not found. Starting to read pressure files.')
         # If not, iterate over pressure files in temporary structure and insert them to the database
         path = os.path.join(os.getcwd(), 'tmp', 'Pressure')
         for fileName in os.listdir(path):
@@ -1025,13 +1043,14 @@ def insertPressure(db, hydrometeoTypes: dict, debug: bool):
     cursor.close()
 
 
-def insertWind(db, hydrometeoTypes: dict, debug: bool):
+def insertWind(db, hydrometeoTypes: dict, debug: bool, ignoreExistingInDB: bool):
     """Function for inserting wind measurement to the database.
 
         Arguments:
             db -- postgress connection for database
             hydrometeoTypes -- dictionary with hydrometeo types and their database IDs
             debug -- flag to enable debug messages
+            ignoreExistingInDB -- flag to disable data existence in DB check
         Returns None
     """
     # Create new cursor for interaction with database
@@ -1044,9 +1063,12 @@ def insertWind(db, hydrometeoTypes: dict, debug: bool):
                    str(hydrometeoTypes['Wind']))
     rows = cursor.fetchall()
     # If database doesn't contains wind measurements, insert them
-    if len(rows) != 0:
+    if ignoreExistingInDB or len(rows) == 0:
         if debug:
-            print('DEBUG: Wind measurements not found. Starting to read wind files.')
+            if ignoreExistingInDB:
+                print('DEBUG: Ignoring data in database. Starting to read wind files.')
+            else:
+                print('DEBUG: Wind measurements not found. Starting to read wind files.')
         # If not, iterate over wind files in temporary structure and insert them to the database
         path = os.path.join(os.getcwd(), 'tmp', 'Wind')
         for fileName in os.listdir(path):
@@ -1093,13 +1115,14 @@ def insertWind(db, hydrometeoTypes: dict, debug: bool):
     cursor.close()
 
 
-def insertPrecipitation(db, hydrometeoTypes: dict, debug: bool):
+def insertPrecipitation(db, hydrometeoTypes: dict, debug: bool, ignoreExistingInDB: bool):
     """Function for inserting precipitation measurement to the database.
 
         Arguments:
             db -- postgress connection for database
             hydrometeoTypes -- dictionary with hydrometeo types and their database IDs
             debug -- flag to enable debug messages
+            ignoreExistingInDB -- flag to disable data existence in DB check
         Returns None
     """
     # Create new cursor for interaction with database
@@ -1112,10 +1135,13 @@ def insertPrecipitation(db, hydrometeoTypes: dict, debug: bool):
                    str(hydrometeoTypes['Precipitation']))
     rows = cursor.fetchall()
     # If database doesn't contains precipitation measurements, insert them
-    if len(rows) == 0:
+    if ignoreExistingInDB or len(rows) == 0:
         if debug:
-            print(
-                'DEBUG: Precipitation measurements not found. Starting to read precipitation files.')
+            if ignoreExistingInDB:
+                print('DEBUG: Ignoring data in database. Starting to read precipitation files.')
+            else:
+                print(
+                    'DEBUG: Precipitation measurements not found. Starting to read precipitation files.')
         # If not, iterate over precipitation files in temporary structure and insert them to the database
         path = os.path.join(os.getcwd(), 'tmp', 'Precipitation')
         for fileName in os.listdir(path):
@@ -1147,13 +1173,14 @@ def insertPrecipitation(db, hydrometeoTypes: dict, debug: bool):
     cursor.close()
 
 
-def insertShine(db, hydrometeoTypes: dict, debug: bool):
+def insertShine(db, hydrometeoTypes: dict, debug: bool, ignoreExistingInDB: bool):
     """Function for inserting shine measurement to the database.
 
         Arguments:
             db -- postgress connection for database
             hydrometeoTypes -- dictionary with hydrometeo types and their database IDs
             debug -- flag to enable debug messages
+            ignoreExistingInDB -- flag to disable data existence in DB check
         Returns None
     """
     # Create new cursor for interaction with database
@@ -1166,9 +1193,12 @@ def insertShine(db, hydrometeoTypes: dict, debug: bool):
                    str(hydrometeoTypes['Shine']))
     rows = cursor.fetchall()
     # If database doesn't contains shine measurements, insert them
-    if len(rows) == 0:
+    if ignoreExistingInDB or len(rows) == 0:
         if debug:
-            print('DEBUG: Shine measurements not found. Starting to read shine files.')
+            if ignoreExistingInDB:
+                print('DEBUG: Ignoring data in database. Starting to read shine files.')
+            else:
+                print('DEBUG: Shine measurements not found. Starting to read shine files.')
         # If not, iterate over shine files in temporary structure and insert them to the database
         path = os.path.join(os.getcwd(), 'tmp', 'Shine')
         for fileName in os.listdir(path):
@@ -1200,13 +1230,14 @@ def insertShine(db, hydrometeoTypes: dict, debug: bool):
     cursor.close()
 
 
-def insertSnow(db, hydrometeoTypes: dict, debug: bool):
+def insertSnow(db, hydrometeoTypes: dict, debug: bool, ignoreExistingInDB: bool):
     """Function for inserting snow measurement to the database.
 
         Arguments:
             db -- postgress connection for database
             hydrometeoTypes -- dictionary with hydrometeo types and their database IDs
             debug -- flag to enable debug messages
+            ignoreExistingInDB -- flag to disable data existence in DB check
         Returns None
     """
     # Create new cursor for interaction with database
@@ -1219,9 +1250,12 @@ def insertSnow(db, hydrometeoTypes: dict, debug: bool):
                    str(hydrometeoTypes['Snow']))
     rows = cursor.fetchall()
     # If database doesn't contains snow measurements, insert them
-    if len(rows) == 0:
+    if ignoreExistingInDB or len(rows) == 0:
         if debug:
-            print('DEBUG: Snow measurements not found. Starting to read snow files.')
+            if ignoreExistingInDB:
+                print('DEBUG: Ignoring data in database. Starting to read snow files.')
+            else:
+                print('DEBUG: Snow measurements not found. Starting to read snow files.')
         # If not, iterate over snow files in temporary structure and insert them to the database
         path = os.path.join(os.getcwd(), 'tmp', 'Snow')
         for fileName in os.listdir(path):
