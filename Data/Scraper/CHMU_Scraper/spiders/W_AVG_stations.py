@@ -1,7 +1,6 @@
 import re
 import scrapy
 import unidecode
-from scrapy_splash import SplashRequest
 
 
 class AverageTemperatureStationsSpider(scrapy.Spider):
@@ -32,6 +31,11 @@ class AverageTemperatureStationsSpider(scrapy.Spider):
         'Zlinsky',
     ]
 
+    def generateURL(self, region: str) -> str:
+        if region == 'Kralovehradecky':
+            region = 'hradecky'
+        return 'https://www.chmi.cz/files/portal/docs/hydro/denni_data/QD/HTML/' + region.lower() + '.html'
+    
     def start_requests(self):
         """Function to start scraping given URL.
 
@@ -39,16 +43,15 @@ class AverageTemperatureStationsSpider(scrapy.Spider):
             self -- instance of the class
         Yields parsed requests
         """
-        for regionID in range(0, 14):
-            for column in range(1, 3):
-                # Uses Splash by calling it in Docker image and calls parse function on returned requests. Using lua script to navigate through page
-                yield SplashRequest(
-                    url='https://www.chmi.cz/historicka-data/hydrologie/denni_data/denni-data-dle-z.-123-1998-Sb#',
-                    callback=self.parse,
-                    cb_kwargs=dict(regionID=regionID),
-                    endpoint='execute',
-                    args={'wait': 30, 'lua_source': self.generateScript(regionID + 1)}
-                )
+        regionID = 0
+        for region in self.regions:
+            # Calling pages for all regions and calls back parse function on them
+            yield scrapy.Request(
+                url=self.generateURL(region),
+                callback=self.parse,
+                cb_kwargs=dict(regionID=regionID),
+            )
+            regionID += 1
 
     def parse(self, response, regionID):
         """Function to parse given response from URL
@@ -59,7 +62,7 @@ class AverageTemperatureStationsSpider(scrapy.Spider):
         Yields parsed given request
         """
         # For each station it founds, it stores it's ID, name, convets name to normalized version (without spaces and diacritics) and region
-        for hyperlink in response.xpath('//*[@id="loadedcontent"]/a'):
+        for hyperlink in response.xpath('//html/body/a'):
             self.id += 1
             stationName = hyperlink.xpath(".//text()").extract_first()
             fileName = re.search(r'^[0-9]{6}', stationName).group(0)
@@ -72,32 +75,3 @@ class AverageTemperatureStationsSpider(scrapy.Spider):
                 'normalized_name': normalizedName,
                 'file_name': fileName
             }
-
-    def generateScript(self, region: int) -> str:
-        """Function to generate lua script for navigation on page to retrieve needed html
-
-        Arguments:
-            self -- instance of the class
-            row -- index of row in range from 1 to 15
-            column -- index of column in range from 1 to 3
-        Yields parsed given request
-        """
-        if region < 1 or region > 14:
-            return None
-        # Lua script for splash for navigation on webpage, because it's using JavaScript
-        script = """
-            function main(splash, args)
-                assert(splash:go(args.url))
-                assert(splash:wait(3))
-                js = string.format("document.querySelector('#loadedcontent > ul > li > a').click()", args.page)
-                splash:runjs(js)
-                assert(splash:wait(3))
-                js = string.format("document.querySelector('#loadedcontent > ul > li:nth-child(""" + str(region) + """) > a').click()", args.page)
-                splash:runjs(js)
-                assert(splash:wait(3))
-                return {
-                    html = splash:html(),
-                }
-            end
-        """
-        return script

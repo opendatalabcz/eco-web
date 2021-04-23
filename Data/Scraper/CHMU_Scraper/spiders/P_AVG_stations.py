@@ -34,7 +34,7 @@ class AveragePressureStationsSpider(scrapy.Spider):
     def generateURL(self, region: str) -> str:
         if region == 'Kralovehradecky':
             region = 'hradecky'
-        return 'https://www.chmi.cz/files/portal/docs/meteo/ok/denni_data/P-AVG/HTML_test/' + region.lower() + '.html'
+        return 'https://www.chmi.cz/files/portal/docs/meteo/ok/denni_data/P-AVG/HTML/' + region.lower() + '.html'
     
     def start_requests(self):
         """Function to start scraping given URL.
