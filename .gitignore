@@ -158,4 +158,6 @@ dmypy.json
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,python
 
 # Ignore Downloader output
-/Downloader/OutputData
+/Data/Downloader/OutputData
+/Data/DB_Data_Inserter/DataStructure*
+/Database
