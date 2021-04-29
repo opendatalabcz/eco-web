@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
-import { AppBar, Toolbar, IconButton, ThemeProvider, Button } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, ThemeProvider, Button, createMuiTheme } from '@material-ui/core';
 import MenuSharpIcon from '@material-ui/icons/MenuSharp';
 import DateRangeSharpIcon from '@material-ui/icons/DateRangeSharp';
 import BarChartSharpIcon from '@material-ui/icons/BarChartSharp';
 import ListAltSharpIcon from '@material-ui/icons/ListAltSharp';
 import ZoomOutMapSharpIcon from '@material-ui/icons/ZoomOutMapSharp';
+import CompareArrowsSharpIcon from '@material-ui/icons/CompareArrowsSharp';
 import { makeStyles } from '@material-ui/styles';
 import { DarkContext } from './DarkContext';
 import { useTranslation } from 'react-i18next';
@@ -30,10 +31,10 @@ const useStyles = makeStyles(() => ({
             height: 45,
         },
     },
-    toolbarButtons: {
+    ToolbarButtons: {
         marginLeft: 'auto',
     },
-    showButton: {
+    ShowButton: {
         fontWeight: 'bold',
         marginLeft: 3,
         [topBarThemeLight.breakpoints.up('sm')]: {
@@ -49,13 +50,13 @@ function TopBar() {
 
     return (
         <div>
-            <ThemeProvider theme={ isDark ? topBarThemeDark : topBarThemeLight }>
+            <ThemeProvider theme={ createMuiTheme(isDark ? topBarThemeDark : topBarThemeLight) }>
                 <AppBar position='static'>
                     <Toolbar>
                         <IconButton edge='start' color='inherit' aria-label='menu' className={ classes.MenuButtonStyle }>
                             <MenuSharpIcon />
                         </IconButton>
-                        <div className={classes.toolbarButtons}>
+                        <div className={classes.ToolbarButtons}>
                             <IconButton color='inherit' aria-label='menu' className={ classes.IconButtonStyle }>
                                 <ZoomOutMapSharpIcon />
                             </IconButton>
@@ -68,7 +69,10 @@ function TopBar() {
                             <IconButton color='inherit' aria-label='menu' className={ classes.IconButtonStyle }>
                                 <BarChartSharpIcon />
                             </IconButton>
-                            <Button variant='contained' size='small' color='secondary' className={ classes.showButton }>
+                            <IconButton color='inherit' aria-label='menu' className={ classes.IconButtonStyle }>
+                                <CompareArrowsSharpIcon />
+                            </IconButton>
+                            <Button variant='contained' size='small' color='secondary' className={ classes.ShowButton }>
                                 { t("showButton") }
                             </Button>
                         </div>
