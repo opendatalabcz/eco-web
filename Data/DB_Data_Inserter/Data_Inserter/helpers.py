@@ -516,9 +516,9 @@ def createPrecipitationStructure(sourcePath: str, targetPath: str, debug: bool):
         if os.path.exists(os.path.join(sourcePath, dataTypes[4], region)):
             avgHumidityStations = os.listdir(
                 os.path.join(sourcePath, dataTypes[4], region))
-        if os.path.exists(os.path.join(sourcePath, dataTypes[-3], region)):
+        if os.path.exists(os.path.join(sourcePath, dataTypes[3], region)):
             precipitationStations = os.listdir(
-                os.path.join(sourcePath, dataTypes[-3], region))
+                os.path.join(sourcePath, dataTypes[3], region))
         # Creating set of uniqes stations
         stations = set().union(avgHumidityStations, precipitationStations)
         # For each station load desired data, join them and store in new file
