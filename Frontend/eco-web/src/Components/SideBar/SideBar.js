@@ -1,26 +1,33 @@
 import React, { useContext, useState } from 'react';
 import { ThemeProvider, Typography, Switch, Select, MenuItem } from '@material-ui/core';
 import { makeStyles, withStyles } from '@material-ui/styles';
-import { DarkContext } from './DarkContext';
+import { DarkContext } from '../DarkContext';
 import { useTranslation } from 'react-i18next';
-import { sideBarTheme } from '../Themes.js';
-import LanguageSharpIcon from '@material-ui/icons/LanguageSharp';
+import { sideBarTheme } from '../../Themes.js';
+import TranslateSharpIcon from '@material-ui/icons/TranslateSharp';
 import grey from '@material-ui/core/colors/grey';
-import logoPicture from '../logo.svg';
+import logoPicture from '../../logo.svg';
+import NavBar from './NavBar';
 import 'fontsource-roboto';
 
 const useStyles = makeStyles(() => ({
     Container: {
         display: 'flex',
+        justifyContent: 'center',
+        width: '100%',
+        height: '100%'
     },
     Background: {
         background: '#005005',
         justifyContent: 'center',
+        display: 'center',
         height: '100%',
-        width: '300px'
+        width: '100%',
+        overflowY: 'auto',
+        overflowX: 'hidden'
     },
     LogoContainer: {
-        height: '200px',
+        height: '30%',
         display: 'flex',
         justifyContent: 'center'
     },
@@ -28,8 +35,8 @@ const useStyles = makeStyles(() => ({
         textColor: '#ffffff'
     },
     SettingsContainer: {
-        height: '100px',
-        justifyContent: 'center',
+        height: '11%',
+        justifyContent: 'start',
         display: 'flex'
     },
     SwitchLabelStyle: {
@@ -50,6 +57,9 @@ const useStyles = makeStyles(() => ({
         textAlign: 'center',
         verticalAlign: 'middle',
         width: '125px'
+    },
+    NavBarContainer: {
+        height: '59%'
     }
 }));
 
@@ -101,12 +111,14 @@ function SideBar() {
                     <div className={ classes.LogoContainer }>
                         <img src={ logoPicture } alt='Logo'/>
                     </div>
-                    <div></div>
+                    <div className={ classes.NavBarContainer }>
+                        <NavBar />
+                    </div>
                     <div className={ classes.SettingsContainer }>
                         <table className={ classes.TableStyle }>
                             <tr>
                                 <td className={ classes.LeftColumn }>
-                                    <LanguageSharpIcon className={ classes.IconStyle }/>
+                                    <TranslateSharpIcon className={ classes.IconStyle }/>
                                 </td>
                                 <td className={ classes.RightColumn }>
                                     <StyledSelect id='LanguageSelector' value={ language } onChange={ changeLanguage }>
@@ -123,7 +135,7 @@ function SideBar() {
                                     <StyledSwitch checked={ isDark } onChange={ () => setDark(!isDark) } id="darkModeSwitch"/>
                                 </td>
                                 <td className={ classes.RightColumn }>
-                                    <Typography className={ classes.SwitchLabelStyle }>{ t("darkMode") }</Typography>
+                                    <Typography className={ classes.SwitchLabelStyle }>{ t('darkMode') }</Typography>
                                 </td>
                             </tr>
                         </table>

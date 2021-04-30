@@ -1,4 +1,17 @@
 {
     "showButton": "Show Graphs",
-    "darkMode": "Dark Mode"
+    "darkMode": "Dark Mode",
+    "homePage": "Home Page",
+    "meteo": "Meteorology",
+    "daylight": "Daylight",
+    "precipitation": "Precipitation",
+    "pressure": "Pressure",
+    "snow": "Snow",
+    "temperature": "Temperature",
+    "wind": "Wind",
+    "hydro": "Hydrology",
+    "waterflow": "Waterflow",
+    "forestry": "Forestry",
+    "legal": "Legal",
+    "help": "Help"
 }

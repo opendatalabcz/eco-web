@@ -1,26 +1,48 @@
 import './App.css';
-import { LanguageProvider } from './Components/LanguageContext';
 import { DarkProvider } from './Components/DarkContext';
 import TopBar from './Components/TopBar';
-import Sidebar from './Components/SideBar';
-import { Grid } from '@material-ui/core';
+import Sidebar from './Components/SideBar/SideBar';
+import { Grid, makeStyles, Paper } from '@material-ui/core';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'fontsource-roboto';
 
+const useStyles = makeStyles(() => ({
+  AppStyle: {
+    display: 'flex'
+  },
+  SideBarContainer: {
+    height: '100vh',
+    width: '250px'
+  },
+  Container: {
+    flex: '1',
+    width: '100%'
+  },
+  TopBarContainer: {
+    width: '100%'
+  }
+}));
+
 function App() {
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <LanguageProvider>
-        <DarkProvider>
-          <Grid container direction='row' justify='flex-start' alignItems='center'>
-            <Grid item xs={ false } md={ 2 } >
-              <Sidebar />
-            </Grid>
-            <Grid item xs={ 12 } md={ 10 }>
+    <div className={ classes.AppStyle }>
+      <DarkProvider>
+        <Router>
+          <div className={ classes.SideBarContainer }>
+            <Sidebar />
+          </div>
+          <div className={ classes.Container }>
+            <div className={ classes.TopBarContainer }>
               <TopBar />
-            </Grid>
-          </Grid>
-        </DarkProvider>
-      </LanguageProvider>
+            </div>
+            <div>
+              <Paper></Paper>
+            </div>
+          </div>
+        </Router>
+      </DarkProvider>
     </div>
   );
 }
