@@ -9,7 +9,6 @@ export const NavBarContent = [
     },
     {
         title: 'meteo',
-        path: '/meteo',
         expandIcon: <ExpandMoreIcon />,
         colapseIcon: <ExpandLessIcon />,
         subNav: [
@@ -41,7 +40,6 @@ export const NavBarContent = [
     },
     {
         title: 'hydro',
-        path: '/hydro',
         expandIcon: <ExpandMoreIcon />,
         colapseIcon: <ExpandLessIcon />,
         subNav: [

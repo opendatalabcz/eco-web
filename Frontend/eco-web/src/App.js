@@ -38,7 +38,19 @@ function App() {
               <TopBar />
             </div>
             <div>
-              <Paper></Paper>
+              <Switch>
+                <Route path='/' exact />
+                <Route path='/meteo/daylight' exact />
+                <Route path='/meteo/precipitation' exact />
+                <Route path='/meteo/pressure' exact />
+                <Route path='/meteo/snow' exact />
+                <Route path='/meteo/temperature' exact />
+                <Route path='/meteo/wind' exact />
+                <Route path='/hydro/waterflow' exact />
+                <Route path='/forestry' exact />
+                <Route path='/legal' exact />
+                <Route path='/help' exact />
+              </Switch>
             </div>
           </div>
         </Router>

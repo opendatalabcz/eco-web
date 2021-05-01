@@ -28,6 +28,7 @@ const useStyles = makeStyles(() => ({
     },
     LogoContainer: {
         height: '30%',
+        minHeight: '50px',
         display: 'flex',
         justifyContent: 'center'
     },
@@ -59,7 +60,8 @@ const useStyles = makeStyles(() => ({
         width: '125px'
     },
     NavBarContainer: {
-        height: '59%'
+        height: '59%',
+        minHeight: '400px'
     }
 }));
 
@@ -109,7 +111,7 @@ function SideBar() {
             <ThemeProvider theme={ sideBarTheme }>
                 <div className={ classes.Background }>
                     <div className={ classes.LogoContainer }>
-                        <img src={ logoPicture } alt='Logo'/>
+                        <img src={ logoPicture } alt='Logo' />
                     </div>
                     <div className={ classes.NavBarContainer }>
                         <NavBar />
@@ -118,13 +120,15 @@ function SideBar() {
                         <table className={ classes.TableStyle }>
                             <tr>
                                 <td className={ classes.LeftColumn }>
-                                    <TranslateSharpIcon className={ classes.IconStyle }/>
+                                    <TranslateSharpIcon className={ classes.IconStyle } />
                                 </td>
                                 <td className={ classes.RightColumn }>
                                     <StyledSelect id='LanguageSelector' value={ language } onChange={ changeLanguage }>
                                         {languages.map(({name, value}) => {
                                             return (
-                                                <MenuItem value={ value } key={value}>{ name }</MenuItem>
+                                                <MenuItem value={ value } key={value}>
+                                                    { name }
+                                                </MenuItem>
                                             );
                                         })}
                                     </StyledSelect>
@@ -132,10 +136,12 @@ function SideBar() {
                             </tr>
                             <tr>
                                 <td className={ classes.LeftColumn }>
-                                    <StyledSwitch checked={ isDark } onChange={ () => setDark(!isDark) } id="darkModeSwitch"/>
+                                    <StyledSwitch checked={ isDark } onChange={ () => setDark(!isDark) } id="darkModeSwitch" />
                                 </td>
                                 <td className={ classes.RightColumn }>
-                                    <Typography className={ classes.SwitchLabelStyle }>{ t('darkMode') }</Typography>
+                                    <Typography className={ classes.SwitchLabelStyle }>
+                                        { t('darkMode') }
+                                    </Typography>
                                 </td>
                             </tr>
                         </table>
