@@ -3,7 +3,7 @@ import { ThemeProvider, Typography, Switch, Select, MenuItem } from '@material-u
 import { makeStyles, withStyles } from '@material-ui/styles';
 import { DarkContext } from '../DarkContext';
 import { useTranslation } from 'react-i18next';
-import { sideBarTheme } from '../../Themes.js';
+import { sideBarTheme } from '../../Themes';
 import TranslateSharpIcon from '@material-ui/icons/TranslateSharp';
 import grey from '@material-ui/core/colors/grey';
 import logoPicture from '../../logo.svg';
@@ -104,7 +104,12 @@ function SideBar() {
     const changeLanguage = (event) => {
         setLanguage(event.target.value);
         i18n.changeLanguage(event.target.value)
-    }
+    };
+
+    const changeTheme = () => {
+        setDark(!isDark); 
+        localStorage.setItem('darkMode', JSON.stringify({darkMode: !isDark}))
+    };
 
     return (
         <div className={ classes.Container }>
@@ -136,7 +141,7 @@ function SideBar() {
                             </tr>
                             <tr>
                                 <td className={ classes.LeftColumn }>
-                                    <StyledSwitch checked={ isDark } onChange={ () => setDark(!isDark) } id="darkModeSwitch" />
+                                    <StyledSwitch checked={ isDark } onChange={ changeTheme } id="darkModeSwitch" />
                                 </td>
                                 <td className={ classes.RightColumn }>
                                     <Typography className={ classes.SwitchLabelStyle }>

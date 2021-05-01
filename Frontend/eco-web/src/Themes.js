@@ -58,3 +58,34 @@ export const sideBarTheme = createMuiTheme({
         }
     }
 })
+
+export const homePageThemeLight = createMuiTheme({
+    type: 'light',
+    shape: {
+        borderRadius: 0,
+    },
+    palette: {
+        primary: {
+            main: green[800]
+        },
+        secondary: {
+            main: '#ffffff',
+        }
+    }
+})
+
+export const homePageThemeDark = createMuiTheme({
+    type: 'dark',
+    shape: {
+        borderRadius: 0,
+    },
+    palette: {
+        primary: {
+            main: grey[50]
+        },
+        secondary: {
+            main: '#6d6d6d',
+        },
+        background: '#424242'
+    }
+})
