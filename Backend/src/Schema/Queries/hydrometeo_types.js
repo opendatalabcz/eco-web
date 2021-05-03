@@ -9,8 +9,13 @@ module.exports = {
             id: { type: GraphQLString }
         },
         resolve: async (parent, args) => {
-            const hydrometeoType = await pool.query('SELECT * FROM hydrometeo_types WHERE id = $1', [args.id]);
-            const { id, name, unit } = hydrometeoType.rows[0]
+            const hydrometeoType = await pool.query(
+                `SELECT *
+                FROM hydrometeo_types
+                WHERE id = $1`,
+                [args.id]
+            );
+            const { id, name, unit } = hydrometeoType.rows[0];
             return { id: id, name: name, unit: unit.split(', ') };
         }
     }),
@@ -18,12 +23,14 @@ module.exports = {
         type: new GraphQLList(HydroMeteoType),
         description: 'List of All HydroMeteoTypes',
         resolve: async () => {
-            const allHydrometeoTypes = await pool.query('SELECT * FROM hydrometeo_types');
-            rows = allHydrometeoTypes.rows
-            rows.forEach(element => {
-                element.unit = element.unit.split(', ');
+            const allHydrometeoTypes = await pool.query(
+                `SELECT *
+                FROM hydrometeo_types`
+            );
+            return allHydrometeoTypes.rows.map((element) => {
+                const { id, name, unit } = element;
+                return { id: id, name: name, unit: unit.split(', ') };
             });
-            return rows;
         }
     })
-}
+};

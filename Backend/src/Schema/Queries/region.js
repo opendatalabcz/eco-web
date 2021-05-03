@@ -9,8 +9,20 @@ module.exports = {
             id: { type: GraphQLString }
         },
         resolve: async (parent, args) => {
-            const region = await pool.query('SELECT * FROM region WHERE id = $1', [args.id]);
-            return region.rows[0];
+            const region = await pool.query(
+                `SELECT * 
+                FROM region 
+                WHERE id = $1`, 
+                [args.id]
+            );
+            const { id, name, shortcut, country_name, country_shortcut } = region.rows[0];
+            return {
+                id: id,
+                name: name,
+                shortcut: shortcut,
+                countryName: country_name,
+                countryShortcut: country_shortcut
+            };
         }
     }),
 
@@ -18,8 +30,20 @@ module.exports = {
         type: new GraphQLList(RegionType),
         description: 'List of All Regions',
         resolve: async () => {
-            const allRegions = await pool.query('SELECT * FROM region');
-            return allRegions.rows;
+            const allRegions = await pool.query(
+                `SELECT * 
+                FROM region`
+            );
+            return allRegions.rows.map((element) => {
+                const { id, name, shortcut, country_name, country_shortcut } = element;
+                return element = ({ 
+                    id: id,
+                    name: name,
+                    shortcut: shortcut,
+                    countryName: country_name,
+                    countryShortcut: country_shortcut
+                });
+            });
         }
     })
-}
+};

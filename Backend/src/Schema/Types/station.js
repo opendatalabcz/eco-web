@@ -6,17 +6,29 @@ const StationType = (types) => new GraphQLObjectType({
     description: 'This represents a station',
     fields: () => ({
         id: { type: GraphQLNonNull(GraphQLID) },
-        region_id: { type: GraphQLNonNull(GraphQLInt) },
-        station_type: { type: GraphQLNonNull(GraphQLInt) },
-        location_name: { type: GraphQLNonNull(GraphQLString) },
-        longitude: { type: GraphQLFloat },
-        latitude: { type: GraphQLFloat },
+        regionID: { type: GraphQLNonNull(GraphQLInt) },
+        stationType: { type: GraphQLNonNull(GraphQLInt) },
+        locationName: { type: GraphQLNonNull(GraphQLString) },
+        long: { type: GraphQLFloat },
+        lat: { type: GraphQLFloat },
         height: { type: GraphQLFloat },
         region: {
             type: types.RegionType,
             resolve: async (entry) => {
-                const region = await pool.query('SELECT * FROM region WHERE id = $1', [entry.region_id]);
-                return region.rows[0];
+                const region = await pool.query(
+                    `SELECT *
+                    FROM region
+                    WHERE id = $1`, 
+                    [entry.regionID]
+                );
+                const { id, name, shortcut, country_name, country_shortcut } = region.rows[0];
+                return {
+                    id: id,
+                    name: name,
+                    shortcut: shortcut,
+                    countryName: country_name,
+                    countryShortcut: country_shortcut
+                };
             }
         }
     })
