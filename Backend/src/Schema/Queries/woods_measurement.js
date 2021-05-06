@@ -1,12 +1,12 @@
 const pool = require('../../db');
-const { GraphQLString, GraphQLList } = require('graphql');
+const { GraphQLString, GraphQLList, GraphQLInt } = require('graphql');
 
 module.exports = {
     GET_WOODS_MEASUREMENT: (WoodsMeasurementType) => ({
         type: WoodsMeasurementType,
         description: 'A single Woods Measuremnet',
         args: {
-            id: { type: GraphQLString }
+            id: { type: GraphQLInt }
         },
         resolve: async (parent, args) => {
             const woodsMeasurements = await pool.query(
@@ -34,7 +34,7 @@ module.exports = {
             );
             return allWoodsMeasurements.rows.map((element) => {
                 const { id, region_id, etc, last_update } = element;
-                return element = ({ 
+                return element = ({
                     id: id,
                     regionID: region_id,
                     etc: etc,
@@ -47,7 +47,7 @@ module.exports = {
         type: new GraphQLList(WoodsMeasurementType),
         description: 'List of All Woods Measurements for given region',
         args: {
-            region_id: { type: GraphQLString }
+            region_id: { type: GraphQLInt }
         },
         resolve: async (parent, args) => {
             const allWoodsMeasurements = await pool.query(
@@ -58,7 +58,7 @@ module.exports = {
             );
             return allWoodsMeasurements.rows.map((element) => {
                 const { id, region_id, etc, last_update } = element;
-                return element = ({ 
+                return element = ({
                     id: id,
                     regionID: region_id,
                     etc: etc,

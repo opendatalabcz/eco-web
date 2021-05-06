@@ -2,18 +2,19 @@ const pool = require('../../db');
 const { GraphQLObjectType, GraphQLString, GraphQLNonNull, GraphQLID, GraphQLInt, GraphQLFloat } = require('graphql');
 const { GraphQLDate } = require('graphql-iso-date');
 
-const TemperatureType = (types) => new GraphQLObjectType({
-    name: 'TemperatureType',
-    description: 'This represents a temperature type',
+const SnowType = (types) => new GraphQLObjectType({
+    name: 'SnowType',
+    description: 'This represents a snow type',
     fields: () => ({
         id: { type: GraphQLID },
         stationID: { type: GraphQLString },
         regionID: { type: GraphQLInt },
         hydrometeoType: { type: GraphQLNonNull(GraphQLInt) },
         date: { type: GraphQLNonNull(GraphQLString) },
-        avg: { type: GraphQLFloat },
-        min: { type: GraphQLFloat },
-        max: { type: GraphQLFloat },
+        fallen: { type: GraphQLFloat },
+        fallenSymptom: { type: GraphQLString },
+        totalHeight: { type: GraphQLFloat },
+        totalHeightSymptom: { type: GraphQLString },
         lastUpdated: { type: GraphQLDate },
         station: {
             type: types.StationType,
@@ -72,4 +73,4 @@ const TemperatureType = (types) => new GraphQLObjectType({
     })
 });
 
-module.exports = TemperatureType;
+module.exports = SnowType;

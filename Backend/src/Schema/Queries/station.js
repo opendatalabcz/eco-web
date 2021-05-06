@@ -1,5 +1,5 @@
 const pool = require('../../db');
-const { GraphQLString, GraphQLList } = require('graphql');
+const { GraphQLString, GraphQLList, GraphQLInt } = require('graphql');
 const { getMask } = require('../../helpers')
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
             const station = await pool.query(
                 `SELECT *
                 FROM station
-                WHERE id = $1`, 
+                WHERE id = $1`,
                 [args.id]
             );
             const { id, region_id, station_type, location_name, longitude, latitude, height } = station.rows[0];
@@ -38,7 +38,7 @@ module.exports = {
             );
             return allStations.rows.map((element) => {
                 const { id, region_id, station_type, location_name, longitude, latitude, height } = element;
-                return element = ({ 
+                return element = ({
                     id: id,
                     regionID: region_id,
                     stationType: station_type,
@@ -54,7 +54,7 @@ module.exports = {
         type: new GraphQLList(StationType),
         description: 'List of all Stations for given region',
         args: {
-            regionID: { type: GraphQLString }
+            regionID: { type: GraphQLInt }
         },
         resolve: async (parent, args) => {
             const allStations = await pool.query(
@@ -65,7 +65,7 @@ module.exports = {
             );
             return allStations.rows.map((element) => {
                 const { id, region_id, station_type, location_name, longitude, latitude, height } = element;
-                return element = ({ 
+                return element = ({
                     id: id,
                     regionID: region_id,
                     stationType: station_type,
@@ -81,7 +81,7 @@ module.exports = {
         type: new GraphQLList(StationType),
         description: 'List of all station of given type in given region',
         args: {
-            regionID: { type: GraphQLString },
+            regionID: { type: GraphQLInt },
             dataType: { type: GraphQLString }
         },
         resolve: async (parent, args) => {
@@ -94,7 +94,7 @@ module.exports = {
             );
             return allStations.rows.map((element) => {
                 const { id, region_id, station_type, location_name, longitude, latitude, height } = element;
-                return element = ({ 
+                return element = ({
                     id: id,
                     regionID: region_id,
                     stationType: station_type,

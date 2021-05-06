@@ -1,10 +1,10 @@
 const pool = require('../../db');
 const { GraphQLObjectType, GraphQLString, GraphQLNonNull, GraphQLID, GraphQLInt, GraphQLFloat } = require('graphql');
-const { GraphQLDate } = require('graphql-iso-date');
+const { GraphQLDate, GraphQLTime } = require('graphql-iso-date');
 
-const TemperatureType = (types) => new GraphQLObjectType({
-    name: 'TemperatureType',
-    description: 'This represents a temperature type',
+const WindType = (types) => new GraphQLObjectType({
+    name: 'WindType',
+    description: 'This represents a wind type',
     fields: () => ({
         id: { type: GraphQLID },
         stationID: { type: GraphQLString },
@@ -12,8 +12,9 @@ const TemperatureType = (types) => new GraphQLObjectType({
         hydrometeoType: { type: GraphQLNonNull(GraphQLInt) },
         date: { type: GraphQLNonNull(GraphQLString) },
         avg: { type: GraphQLFloat },
-        min: { type: GraphQLFloat },
         max: { type: GraphQLFloat },
+        maxTime: { type: GraphQLTime },
+        maxAzimuth: { type: GraphQLInt },
         lastUpdated: { type: GraphQLDate },
         station: {
             type: types.StationType,
@@ -43,7 +44,7 @@ const TemperatureType = (types) => new GraphQLObjectType({
                 const region = await pool.query(
                     `SELECT *
                     FROM region
-                    WHERE id = $1`,
+                    WHERE id = $1`, 
                     [entry.regionID]
                 );
                 const { id, name, shortcut, country_name, country_shortcut } = region.rows[0];
@@ -72,4 +73,4 @@ const TemperatureType = (types) => new GraphQLObjectType({
     })
 });
 
-module.exports = TemperatureType;
+module.exports = WindType;

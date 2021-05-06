@@ -1,12 +1,12 @@
 const pool = require('../../db');
-const { GraphQLString, GraphQLList } = require('graphql');
+const { GraphQLList, GraphQLInt } = require('graphql');
 
 module.exports = {
     GET_HYDROMETEO_TYPE: (HydroMeteoType) => ({
         type: HydroMeteoType,
         description: 'A single HydroMeteoType',
         args: {
-            id: { type: GraphQLString }
+            id: { type: GraphQLInt }
         },
         resolve: async (parent, args) => {
             const hydrometeoType = await pool.query(

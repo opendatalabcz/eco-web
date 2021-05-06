@@ -20,7 +20,7 @@ const RegionType = (types) => new GraphQLObjectType({
                     [entry.id]);
                 return allStations.rows.map((element) => {
                     const { id, region_id, station_type, location_name, longitude, latitude, height } = element;
-                    return element = ({ 
+                    return element = ({
                         id: id,
                         regionID: region_id,
                         stationType: station_type,

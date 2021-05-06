@@ -18,7 +18,7 @@ const StationType = (types) => new GraphQLObjectType({
                 const region = await pool.query(
                     `SELECT *
                     FROM region
-                    WHERE id = $1`, 
+                    WHERE id = $1`,
                     [entry.regionID]
                 );
                 const { id, name, shortcut, country_name, country_shortcut } = region.rows[0];

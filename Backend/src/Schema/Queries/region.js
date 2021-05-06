@@ -1,18 +1,18 @@
 const pool = require('../../db');
-const { GraphQLString, GraphQLList } = require('graphql');
+const { GraphQLList, GraphQLInt } = require('graphql');
 
 module.exports = {
     GET_REGION: (RegionType) => ({
         type: RegionType,
         description: 'A single Region',
         args: {
-            id: { type: GraphQLString }
+            id: { type: GraphQLInt }
         },
         resolve: async (parent, args) => {
             const region = await pool.query(
                 `SELECT * 
                 FROM region 
-                WHERE id = $1`, 
+                WHERE id = $1`,
                 [args.id]
             );
             const { id, name, shortcut, country_name, country_shortcut } = region.rows[0];
@@ -36,7 +36,7 @@ module.exports = {
             );
             return allRegions.rows.map((element) => {
                 const { id, name, shortcut, country_name, country_shortcut } = element;
-                return element = ({ 
+                return element = ({
                     id: id,
                     name: name,
                     shortcut: shortcut,

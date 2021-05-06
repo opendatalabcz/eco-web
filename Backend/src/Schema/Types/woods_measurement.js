@@ -16,7 +16,7 @@ const WoodsMeasurementType = (types) => new GraphQLObjectType({
                 const region = await pool.query(
                     `SELECT *
                     FROM region
-                    WHERE id = $1`, 
+                    WHERE id = $1`,
                     [entry.regionID]
                 );
                 const { id, region_id, station_type, location_name, longitude, latitude, height } = region.rows[0];

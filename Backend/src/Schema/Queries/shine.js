@@ -1,5 +1,5 @@
 const pool = require('../../db');
-const { GraphQLString, GraphQLList } = require('graphql');
+const { GraphQLString, GraphQLList, GraphQLInt } = require('graphql');
 const { GraphQLDate } = require('graphql-iso-date');
 const { makeDate } = require('../../helpers');
 
@@ -13,7 +13,7 @@ module.exports = {
             to: { type: GraphQLDate }
         },
         resolve: async (parent, args) => {
-            const selectedShine = await pool.query(
+            const selectedRows = await pool.query(
                 `SELECT hydrometeo_measurement.id,
                     station_id,
                     hydrometeo_type,
@@ -28,10 +28,10 @@ module.exports = {
                         WHERE hydrometeo_types.name = 'Shine'
                     )
                     AND hydrometeo_measurement.date BETWEEN $2 AND $3
-                ORDER BY hydrometeo_measurement.date ASC`, 
+                ORDER BY hydrometeo_measurement.date ASC`,
                 [args.stationID, args.from, args.to]
             );
-            return selectedShine.rows.map((element) => {
+            return selectedRows.rows.map((element) => {
                 const { id, station_id, hydrometeo_type, date, value, last_updated } = element;
                 return element = ({
                     id: id,
@@ -53,11 +53,11 @@ module.exports = {
             to: { type: GraphQLDate }
         },
         resolve: async (parent, args) => {
-            const selectedShine = await pool.query(
+            const selectedRows = await pool.query(
                 `SELECT 
                     EXTRACT(YEAR FROM hydrometeo_measurement.date) AS tmpYear,
                     EXTRACT(MONTH FROM hydrometeo_measurement.date) AS tmpMonth,
-                    SUM(CASE WHEN hydrometeo_measurement."value" <> 'NaN' THEN hydrometeo_measurement."value" ELSE NULL END),
+                    SUM(CASE WHEN hydrometeo_measurement.value <> 'NaN' THEN hydrometeo_measurement.value ELSE NULL END),
                     hydrometeo_type
                 FROM hydrometeo_measurement
                 WHERE hydrometeo_measurement.station_id = $1
@@ -67,10 +67,10 @@ module.exports = {
                         WHERE hydrometeo_types.name = 'Shine'
                     ) 
                     AND hydrometeo_measurement.date BETWEEN $2 AND $3
-                GROUP BY tmpYear, tmpMonth, hydrometeo_type`, 
+                GROUP BY tmpYear, tmpMonth, hydrometeo_type`,
                 [args.stationID, args.from, args.to]
             );
-            return selectedShine.rows.map((element) => {
+            return selectedRows.rows.map((element) => {
                 const { tmpyear, tmpmonth, sum, hydrometeo_type } = element;
                 return element = ({
                     stationID: args.stationID,
@@ -90,10 +90,10 @@ module.exports = {
             to: { type: GraphQLDate }
         },
         resolve: async (parent, args) => {
-            const selectedShine = await pool.query(
+            const selectedRows = await pool.query(
                 `SELECT 
                     EXTRACT(YEAR FROM hydrometeo_measurement.date) AS tmpYear,
-                    SUM(CASE WHEN hydrometeo_measurement."value" <> 'NaN' THEN hydrometeo_measurement."value" ELSE NULL END),
+                    SUM(CASE WHEN hydrometeo_measurement.value <> 'NaN' THEN hydrometeo_measurement.value ELSE NULL END),
                     hydrometeo_type
                 FROM hydrometeo_measurement
                 WHERE hydrometeo_measurement.station_id = $1
@@ -106,7 +106,7 @@ module.exports = {
                 GROUP BY tmpYear, hydrometeo_type`,
                 [args.stationID, args.from, args.to]
             );
-            return selectedShine.rows.map((element) => {
+            return selectedRows.rows.map((element) => {
                 const { tmpyear, sum, hydrometeo_type } = element;
                 return element = ({
                     stationID: args.stationID,
@@ -121,12 +121,12 @@ module.exports = {
         type: GraphQLList(ShineType),
         description: 'A list of daily shine for region between two dates',
         args: {
-            regionID: { type: GraphQLString },
+            regionID: { type: GraphQLInt },
             from: { type: GraphQLDate },
             to: { type: GraphQLDate }
         },
         resolve: async (parent, args) => {
-            const selectedShine = await pool.query(
+            const selectedRows = await pool.query(
                 `SELECT
                     hydrometeo_measurement.date,
                     SUM(CASE WHEN hydrometeo_measurement.value <> 'NaN' THEN hydrometeo_measurement.value ELSE NULL END),
@@ -147,7 +147,7 @@ module.exports = {
                 ORDER BY hydrometeo_measurement.date ASC`,
                 [args.regionID, args.from, args.to]
             );
-            return selectedShine.rows.map((element) => {
+            return selectedRows.rows.map((element) => {
                 const { date, sum, hydrometeo_type } = element;
                 return element = ({
                     regionID: args.regionID,
@@ -162,12 +162,12 @@ module.exports = {
         type: GraphQLList(ShineType),
         description: 'A list of daily shine for region between two dates',
         args: {
-            regionID: { type: GraphQLString },
+            regionID: { type: GraphQLInt },
             from: { type: GraphQLDate },
             to: { type: GraphQLDate }
         },
         resolve: async (parent, args) => {
-            const selectedShine = await pool.query(
+            const selectedRows = await pool.query(
                 `SELECT 
                     EXTRACT(YEAR FROM hydrometeo_measurement.date) AS tmpYear,
                     EXTRACT(MONTH FROM hydrometeo_measurement.date) AS tmpMonth,
@@ -188,7 +188,7 @@ module.exports = {
                 GROUP BY tmpYear, tmpMonth, hydrometeo_type`,
                 [args.regionID, args.from, args.to]
             );
-            return selectedShine.rows.map((element) => {
+            return selectedRows.rows.map((element) => {
                 const { tmpyear, tmpmonth, sum, hydrometeo_type } = element;
                 return element = ({
                     regionID: args.regionID,
@@ -203,12 +203,12 @@ module.exports = {
         type: GraphQLList(ShineType),
         description: 'A list of annual shine for region between two dates',
         args: {
-            regionID: { type: GraphQLString },
+            regionID: { type: GraphQLInt },
             from: { type: GraphQLDate },
             to: { type: GraphQLDate }
         },
         resolve: async (parent, args) => {
-            const selectedShine = await pool.query(
+            const selectedRows = await pool.query(
                 `SELECT
                     EXTRACT(YEAR FROM hydrometeo_measurement.date) AS tmpYear,
                     SUM(CASE WHEN hydrometeo_measurement.value <> 'NaN' THEN hydrometeo_measurement.value ELSE NULL END),
@@ -228,7 +228,7 @@ module.exports = {
                 GROUP BY tmpYear, hydrometeo_type`,
                 [args.regionID, args.from, args.to]
             );
-            return selectedShine.rows.map((element) => {
+            return selectedRows.rows.map((element) => {
                 const { tmpyear, sum, hydrometeo_type } = element;
                 return element = ({
                     regionID: args.regionID,
@@ -248,7 +248,7 @@ module.exports = {
             to: { type: GraphQLDate }
         },
         resolve: async (parent, args) => {
-            const selectedShine = await pool.query(
+            const selectedRows = await pool.query(
                 `SELECT
                     hydrometeo_measurement.date,
                     SUM(CASE WHEN hydrometeo_measurement.value <> 'NaN' THEN hydrometeo_measurement.value ELSE NULL END),
@@ -273,7 +273,7 @@ module.exports = {
                 ORDER BY hydrometeo_measurement.date ASC`,
                 [String(args.countryShortcut).toUpperCase(), args.from, args.to]
             );
-            return selectedShine.rows.map((element) => {
+            return selectedRows.rows.map((element) => {
                 const { date, sum, hydrometeo_type } = element;
                 return element = ({
                     regionID: args.regionID,
@@ -293,7 +293,7 @@ module.exports = {
             to: { type: GraphQLDate }
         },
         resolve: async (parent, args) => {
-            const selectedShine = await pool.query(
+            const selectedRows = await pool.query(
                 `SELECT 
                     EXTRACT(YEAR FROM hydrometeo_measurement.date) AS tmpYear,
                     EXTRACT(MONTH FROM hydrometeo_measurement.date) AS tmpMonth,
@@ -318,7 +318,7 @@ module.exports = {
                 GROUP BY tmpYear, tmpMonth, hydrometeo_type`,
                 [String(args.countryShortcut).toUpperCase(), args.from, args.to]
             );
-            return selectedShine.rows.map((element) => {
+            return selectedRows.rows.map((element) => {
                 const { tmpyear, tmpmonth, sum, hydrometeo_type } = element;
                 return element = ({
                     regionID: args.regionID,
@@ -338,7 +338,7 @@ module.exports = {
             to: { type: GraphQLDate }
         },
         resolve: async (parent, args) => {
-            const selectedShine = await pool.query(
+            const selectedRows = await pool.query(
                 `SELECT
                     EXTRACT(YEAR FROM hydrometeo_measurement.date) AS tmpYear,
                     SUM(CASE WHEN hydrometeo_measurement.value <> 'NaN' THEN hydrometeo_measurement.value ELSE NULL END),
@@ -362,7 +362,7 @@ module.exports = {
                 GROUP BY tmpYear, hydrometeo_type`,
                 [String(args.countryShortcut).toUpperCase(), args.from, args.to]
             );
-            return selectedShine.rows.map((element) => {
+            return selectedRows.rows.map((element) => {
                 const { tmpyear, sum, hydrometeo_type } = element;
                 return element = ({
                     regionID: args.regionID,
