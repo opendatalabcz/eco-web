@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
+import { SideBarVisibilityProvider } from './Components/SideBar/SideBarVisibilityContext';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './Components/i18n';
@@ -7,7 +8,9 @@ import './Components/i18n';
 ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback={ <div>Loading...</div> }>
-      <App />
+      <SideBarVisibilityProvider>
+        <App />
+      </SideBarVisibilityProvider>
     </Suspense>
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,3 +1,18 @@
 {
-    "showButton": "Show Graphs"
+    "showButton": "Show Graphs",
+    "darkMode": "Dark Mode",
+    "homePage": "Home Page",
+    "meteo": "Meteorology",
+    "daylight": "Daylight",
+    "precipitation": "Precipitation",
+    "pressure": "Pressure",
+    "snow": "Snow",
+    "temperature": "Temperature",
+    "wind": "Wind",
+    "hydro": "Hydrology",
+    "waterflow": "Waterflow",
+    "forestry": "Forestry",
+    "legal": "Legal",
+    "help": "Help",
+    "welcome": "Welcome to the Eco-Web portal."
 }

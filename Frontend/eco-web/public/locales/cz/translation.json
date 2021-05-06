@@ -1,3 +1,18 @@
 {
-    "showButton": "Zobraz Grafy"
+    "showButton": "Zobraz Grafy",
+    "darkMode": "Tmavý režim",
+    "homePage": "Domovská stránka",
+    "meteo": "Meteorologie",
+    "daylight": "Denní světlo",
+    "precipitation": "Srážky",
+    "pressure": "Tlak",
+    "snow": "Sníh",
+    "temperature": "Teplota",
+    "wind": "Vítr",
+    "hydro": "Hydrologie",
+    "waterflow": "Průtok vody",
+    "forestry": "Lesnictví",
+    "legal": "Práva",
+    "help": "Nápověda",
+    "welcome": "Vítejte na webovém portálu Eco-Web."
 }
