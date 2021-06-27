@@ -64,7 +64,7 @@ Application was created primarily to run databases in Docker. If you want to use
 **5.)** Run **npm start** command.
 
 ###### Frontend without Docker
-**1.)** Install [NodeJS](https://nodejs.org/en/).
+**1.)** Install [NodeJS](https://nodejs.org/en/).\
 **2.)** Move to the Frontend/eco-web folder.\
 **3.)** Create and fill .env file.\
 **4.)** Run **npm install** command.\
