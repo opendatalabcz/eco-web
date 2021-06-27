@@ -60,10 +60,12 @@ Application was created primary for run database in Docker. If you want to use Y
 **1.)** Install [NodeJS](https://nodejs.org/en/).\
 **2.)** Move to the Backend folder.\
 **3.)** Create and fill .env file.\
-**4.)**
+**4.)** Run **npm install** command.\
+**5.)** Run **npm start** command.\
 
 ###### Frontend without Docker
 **1.)** Install [NodeJS](https://nodejs.org/en/).
 **2.)** Move to the Frontend/eco-web folder.\
 **3.)** Create and fill .env file.\
-**4.)**
+**4.)** Run **npm install** command.\
+**5.)** Run **npm start** command.\
