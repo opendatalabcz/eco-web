@@ -41,3 +41,29 @@ The repository contains a frontend directory, which contains source code for Rea
 **4.)** Run command **conda activate eco-web** to start environment which contains all needed libraries and plugins for Python.\
 **5.)** *Optional* - Run command **python Data_Inserter -h** from DB_Data_Inserter directory to get help  *(recommended if using first time)* and to list all the options you can use.\
 **6.)** Run command **python Data_Inserter** or **python Data_Inserter [your_chosen_options]** from the DB_Data_Inserter directory to use the data inserter.
+
+###### Database, Backend and Frontend with Docker
+**1.)** Install [Docker](https://www.docker.com/) with Docker compose.\
+**2.)** Install [pgAdmin](https://www.pgadmin.org/).\
+**3.)** Create .env files in root, backend and frontend/eco-web directory. Fill in all inforamtions.\
+**4.)** Run command **Docker Compose up -d** in comandline from projects root directory.\
+**5.)** Open pgAdmin.\
+**6.)** Add created database server.\
+**7.)** Create new database server by pressing right button and then **create new database**.\
+**8.)** Use Data Inserter with create script included in Data/Scripts or use dump file which is availavle [here](https://owncloud.cesnet.cz/index.php/s/qnZhs7KeP3eXaLr). In second case, press right button and use **Restore** option.\
+**9.)** All done, enjoy your web application.\
+
+###### Database without Docker
+Application was created primary for run database in Docker. If you want to use Your own database or Docker image, please follow instructions founded in the official documentation.
+
+###### Backend without Docker
+**1.)** Install [NodeJS](https://nodejs.org/en/).\
+**2.)** Move to the Backend folder.\
+**3.)** Create and fill .env file.\
+**4.)**
+
+###### Frontend without Docker
+**1.)** Install [NodeJS](https://nodejs.org/en/).
+**2.)** Move to the Frontend/eco-web folder.\
+**3.)** Create and fill .env file.\
+**4.)**
