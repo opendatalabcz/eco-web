@@ -45,27 +45,27 @@ The repository contains a frontend directory, which contains source code for Rea
 ###### Database, Backend and Frontend with Docker
 **1.)** Install [Docker](https://www.docker.com/) with Docker compose.\
 **2.)** Install [pgAdmin](https://www.pgadmin.org/).\
-**3.)** Create .env files in root, backend and frontend/eco-web directory. Fill in all inforamtions.\
-**4.)** Run command **Docker Compose up -d** in comandline from projects root directory.\
+**3.)** Create .env files in root, backend and frontend/eco-web directory. Fill in all informations.\
+**4.)** Run command **Docker Compose up -d** in command line from projects root directory.\
 **5.)** Open pgAdmin.\
 **6.)** Add created database server.\
 **7.)** Create new database server by pressing right button and then **create new database**.\
-**8.)** Use Data Inserter with create script included in Data/Scripts or use dump file which is availavle [here](https://owncloud.cesnet.cz/index.php/s/qnZhs7KeP3eXaLr). In second case, press right button and use **Restore** option.\
-**9.)** All done, enjoy your web application.\
+**8.)** Use Data Inserter with create script included in Data/Scripts or use dump file which is available [here](https://owncloud.cesnet.cz/index.php/s/qnZhs7KeP3eXaLr). In second case, press right button and use **Restore** option.\
+**9.)** All done, enjoy your web application.
 
 ###### Database without Docker
-Application was created primary for run database in Docker. If you want to use Your own database or Docker image, please follow instructions founded in the official documentation.
+Application was created primarily to run databases in Docker. If you want to use Your own database or Docker image, please follow instructions found in the official documentation.
 
 ###### Backend without Docker
 **1.)** Install [NodeJS](https://nodejs.org/en/).\
 **2.)** Move to the Backend folder.\
 **3.)** Create and fill .env file.\
 **4.)** Run **npm install** command.\
-**5.)** Run **npm start** command.\
+**5.)** Run **npm start** command.
 
 ###### Frontend without Docker
 **1.)** Install [NodeJS](https://nodejs.org/en/).
 **2.)** Move to the Frontend/eco-web folder.\
 **3.)** Create and fill .env file.\
 **4.)** Run **npm install** command.\
-**5.)** Run **npm start** command.\
+**5.)** Run **npm start** command.
