@@ -1,7 +1,6 @@
 const RegionTypeInject = require('./Types/region');
 const StationTypeInject = require('./Types/station');
 const HydroMeteoTypeInject = require('./Types/hydrometeo_types');
-const WoodsMeasurementTypeInject = require('./Types/woods_measurement');
 const TemperatureTypeInject = require('./Types/temperature');
 const ShineTypeInject = require('./Types/shine');
 const PressureTypeInject = require('./Types/pressure');
@@ -9,6 +8,7 @@ const WaterTypeInject = require('./Types/water');
 const PrecipitationTypeInject = require('./Types/precipitation');
 const WindTypeInject = require('./Types/wind');
 const SnowTypeInject = require('./Types/snow');
+const StationListTypeInject = require('./Types/stationList');
 const { GraphQLObjectType, GraphQLSchema } = require('graphql');
 const { GET_REGION, GET_ALL_REGIONS } = require('./Queries/region');
 const {
@@ -17,11 +17,6 @@ const {
     GET_STATION,
     GET_ALL_STATION_FOR_REGION_OF_GIVEN_TYPE
 } = require('./Queries/station');
-const {
-    GET_ALL_WOODS_MEASUREMENTS,
-    GET_ALL_WOODS_MEASUREMENTS_FOR_REGION,
-    GET_WOODS_MEASUREMENT
-} = require('./Queries/woods_measurement');
 const { GET_ALL_HYDROMETEO_TYPES, GET_HYDROMETEO_TYPE } = require('./Queries/hydrometeo_types');
 const {
     GET_DAILY_TEMPERATURE,
@@ -107,19 +102,18 @@ const types = {};
 types.RegionType = RegionTypeInject(types);
 types.StationType = StationTypeInject(types);
 types.HydroMeteoType = HydroMeteoTypeInject(types);
-types.WoodsMeasurementType = WoodsMeasurementTypeInject(types);
 types.TemperatureType = TemperatureTypeInject(types);
 types.ShineType = ShineTypeInject(types);
 types.PressureType = PressureTypeInject(types);
 types.WaterType = WaterTypeInject(types);
-types.PrecipitationType = PrecipitationTypeInject(types)
-types.WindType = WindTypeInject(types)
-types.SnowType = SnowTypeInject(types)
+types.PrecipitationType = PrecipitationTypeInject(types);
+types.WindType = WindTypeInject(types);
+types.SnowType = SnowTypeInject(types);
+types.StationListType = StationListTypeInject(types);
 
 const RegionType = types.RegionType;
 const StationType = types.StationType;
 const HydroMeteoType = types.HydroMeteoType;
-const WoodsMeasurementType = types.WoodsMeasurementType;
 const TemperatureType = types.TemperatureType;
 const ShineType = types.ShineType;
 const PressureType = types.PressureType;
@@ -137,10 +131,7 @@ const RootQueryType = new GraphQLObjectType({
         station: GET_STATION(StationType),
         stations: GET_ALL_STATION(StationType),
         stationsInRegion: GET_ALL_STATION_FOR_REGION(StationType),
-        stationInRegionForDataType: GET_ALL_STATION_FOR_REGION_OF_GIVEN_TYPE(StationType),
-        woodsMeasurement: GET_WOODS_MEASUREMENT(WoodsMeasurementType),
-        woodsMeasurements: GET_ALL_WOODS_MEASUREMENTS(WoodsMeasurementType),
-        woodsMeasurementsForRegion: GET_ALL_WOODS_MEASUREMENTS_FOR_REGION(WoodsMeasurementType),
+        stationsInRegionForDataType: GET_ALL_STATION_FOR_REGION_OF_GIVEN_TYPE(StationType),
         hydrometeoType: GET_HYDROMETEO_TYPE(HydroMeteoType),
         hydrometeoTypes: GET_ALL_HYDROMETEO_TYPES(HydroMeteoType),
         dailyTemperature: GET_DAILY_TEMPERATURE(TemperatureType),

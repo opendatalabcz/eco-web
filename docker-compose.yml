@@ -11,10 +11,35 @@ services:
             - ${DB_VOLUME}:/var/lib/postgresql/data
         ports:
             - ${DB_PORT}:5432
+        networks:
+            - eco-web
     be:
         build: ./Backend
         container_name: be
+        environment:
+            HOST: ${DB_HOST}
+            DATABASE: ${DB_DATABASE}
+            USER: ${DB_USER}
+            PASSWORD: ${DB_PASSWORD}
+            PORT: ${DB_PORT}
         depends_on:
             - db
         ports:
             - ${BE_PORT}:5000
+        networks:
+            - eco-web
+    fe:
+        build: ./Frontend/eco-web
+        container_name: fe
+        environment:
+            REACT_APP_API_URI: http://${BE_HOST}:${BE_PORT}/graphql
+        depends_on:
+            - db
+            - be
+        ports:
+            - ${FE_PORT}:3000
+        networks:
+            - eco-web
+networks:
+    eco-web:
+        driver: bridge

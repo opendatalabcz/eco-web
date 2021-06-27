@@ -1,0 +1,65 @@
+{
+    "hydroMeteoTypes": [
+        {
+            "name": "totalDurationOfSunshine",
+            "value": "value",
+            "type": "Shine"
+        },
+        {
+            "name": "averageHumidity",
+            "value": "avgHumidity",
+            "type": "Precipitation"
+        },
+        {
+            "name": "totalPrecipitation",
+            "value": "totalPrecipitation",
+            "type": "Precipitation"
+        },
+        {
+            "name": "averagePressure",
+            "value": "avg",
+            "type": "Pressure"
+        },
+        {
+            "name": "totalHeight",
+            "value": "totalHeight",
+            "type": "Snow"
+        },
+        {
+            "name": "newFallen",
+            "value": "fallen",
+            "type": "Snow"
+        },
+        {
+            "name": "minimalTemperature",
+            "value": "min",
+            "type": "Temperature"
+        },
+        {
+            "name": "maximalTemperature",
+            "value": "max",
+            "type": "Temperature"
+        },
+        {
+            "name": "averageTemperature",
+            "value": "avg",
+            "type": "Temperature"
+        },
+        {
+            "name": "averageSpeed",
+            "value": "avg",
+            "type": "Wind"
+        },
+        {
+            "name": "maximalSpeed",
+            "value": "max",
+            "type": "Wind"
+        },
+        {
+            "name": "averageWaterFlow",
+            "value": "avg",
+            "type": "Water"
+        }
+            
+    ]
+}

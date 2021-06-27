@@ -1,0 +1,21 @@
+#OPEN_EXPORT: 2020.4.14.1354
+#Datum vytvoøení souboru: 15.04.2020 18:52
+#Stažením publikovaných dat souhlasíte s podmínkami užití tìchto dat.
+
+METADATA
+Stanice ID;Jméno stanice;Zaèátek mìøení;Konec mìøení;Zemìpisná délka;Zemìpisná šíøka;Nadmoøská výška
+P1PKAR01;Praha, Karlov;01.01.1961;31.12.2002;14,4186;50,0675;260,5
+P1PKAR01;Praha, Karlov;01.01.2003;31.12.2019;14,427778;50,069167;260,5
+
+PØÍSTROJE
+Pøístroj;Zaèátek mìøení;Konec mìøení;Výška pøístroje
+Teplomìr;01.01.1961;31.12.2002;1,99
+Teplotní èidlo;01.01.2003;31.12.2019;1,99
+
+PRVEK
+Prùmìrná denní teplota vzduchu [T.AVG, °C]
+
+Popis:
+Hodnota - hodnota prvku
+Pøíznak - rozšiøující informace o hodnotì
+

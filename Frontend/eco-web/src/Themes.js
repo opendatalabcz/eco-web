@@ -3,7 +3,7 @@ import { green, grey } from '@material-ui/core/colors'
 
 export const theme = createMuiTheme({
     shape: {
-        borderRadius: 0,
+        borderRadius: 0
     },
     palette: {
         primary: {
@@ -16,38 +16,38 @@ export const theme = createMuiTheme({
 })
 
 export const topBarThemeLight = createMuiTheme({
-    type: 'light',
     shape: {
-        borderRadius: 0,
+        borderRadius: 0
     },
+    type: 'light',
     palette: {
         primary: {
             main: green[800]
         },
         secondary: {
-            main: '#ffffff',
+            main: '#ffffff'
         }
     }
 })
 
 export const topBarThemeDark = createMuiTheme({
-    type: 'dark',
     shape: {
-        borderRadius: 0,
+        borderRadius: 0
     },
+    type: 'dark',
     palette: {
         primary: {
             main: green[800]
         },
         secondary: {
-            main: '#6d6d6d',
+            main: '#6d6d6d'
         }
     }
 })
 
 export const sideBarTheme = createMuiTheme({
     shape: {
-        borderRadius: 0,
+        borderRadius: 0
     },
     palette: {
         primary: {
@@ -55,6 +55,39 @@ export const sideBarTheme = createMuiTheme({
         },
         secondary: {
             main: grey[800]
+        }
+    }
+})
+
+export const appThemeLight = createMuiTheme({
+    shape: {
+        borderRadius: 0
+    },
+    palette: {
+        type: 'light',
+        primary: {
+            main: green[800]
+        },
+        secondary: {
+            main: '#60ad5e'
+        }
+    }
+})
+
+export const appThemeDark = createMuiTheme({
+    shape: {
+        borderRadius: 0
+    },
+    palette: {
+        type: 'dark',
+        primary: {
+            main: grey[50]
+        },
+        secondary: {
+            main: '#60ad5e'
+        },
+        background: {
+            paper: '#424242'
         }
     }
 })
