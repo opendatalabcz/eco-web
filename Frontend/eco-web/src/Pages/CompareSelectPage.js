@@ -309,7 +309,6 @@ function CompareSelectPage() {
             },
             level: level
         });
-        console.log(selectedCompare);
     }
 
     if (error) console.log(error);
