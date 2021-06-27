@@ -50,10 +50,6 @@ export const NavBarContent = [
         ]
     },
     {
-        title: 'forestry',
-        path: '/forestry'
-    },
-    {
         title: 'legal',
         path: '/legal'
     },

@@ -1,7 +1,14 @@
-const pool = require('../../db');
 const { GraphQLObjectType, GraphQLString, GraphQLNonNull, GraphQLID, GraphQLInt, GraphQLFloat } = require('graphql');
 const { GraphQLDate } = require('graphql-iso-date');
+const { REGION_RESOLVER } = require('../Resolvers/region');
+const { STATION_RESOLVER } = require('../Resolvers/station');
+const { HYDROMETEO_TYPE_RESOLVER } = require('../Resolvers/hydrometeo_type');
 
+/**
+ * Shine Type definition
+ * 
+ * @param {Object} types - collection of all types definitions
+ */
 const ShineType = (types) => new GraphQLObjectType({
     name: 'ShineType',
     description: 'This represents a shine type',
@@ -16,55 +23,20 @@ const ShineType = (types) => new GraphQLObjectType({
         station: {
             type: types.StationType,
             resolve: async (entry) => {
-                const station = await pool.query(
-                    `SELECT *
-                    FROM station
-                    WHERE id = $1`,
-                    [entry.stationID]
-                );
-                const { id, region_id, station_type, location_name, longitude, latitude, height } = station.rows[0];
-                return {
-                    id: id,
-                    regionID: region_id,
-                    stationType: station_type,
-                    locationName: location_name,
-                    long: longitude === 'NaN' ? null : longitude,
-                    lat: latitude === 'NaN' ? null : latitude,
-                    height: height === 'NaN' ? null : height
-                };
+                return STATION_RESOLVER(entry.stationID);
             }
         },
         region: {
             type: types.RegionType,
             resolve: async (entry) => {
                 if (!entry.regionID) return null;
-                const region = await pool.query(
-                    `SELECT *
-                    FROM region
-                    WHERE id = $1`,
-                    [entry.regionID]
-                );
-                const { id, name, shortcut, country_name, country_shortcut } = region.rows[0];
-                return {
-                    id: id,
-                    name: name,
-                    shortcut: shortcut,
-                    countryName: country_name,
-                    countryShortcut: country_shortcut
-                };
+                return REGION_RESOLVER(entry.regionID);
             }
         },
         hydrometeoTypeInfo: {
             type: types.HydroMeteoType,
             resolve: async (entry) => {
-                const hydrometeoType = await pool.query(
-                    `SELECT *
-                    FROM hydrometeo_types
-                    WHERE id = $1`,
-                    [entry.hydrometeoType]
-                );
-                const { id, name, unit } = hydrometeoType.rows[0];
-                return { id: id, name: name, unit: unit.split(', ') };
+                return HYDROMETEO_TYPE_RESOLVER(entry.hydrometeoType);
             }
         }
     })

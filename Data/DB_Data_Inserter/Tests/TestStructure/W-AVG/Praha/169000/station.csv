@@ -1,0 +1,24 @@
+METADATA
+DBC,STAN,TOK,POB,CHP,A,UTM_X,UTM_Y,PCR,SOUV
+
+169000,Praha-Zbraslav,Vltava,PR,1-09-04-0110-0-00-20,17826.38,456782.22,5535703.59,1980/11,A
+
+DBC...databázové èíslo
+STAN...název vodomìrné stanice (profilu)
+TOK...název toku
+POB...poboèka ÈHMÚ spravující stanici
+CHP...èíslo hydrologického poøadí
+A...plocha povodí ke stanici v km2
+UTM_X...x-ová souøadnice polohy stanice v systému WGS 1984 UTM Zone 33N
+UTM_Y...y-ová souøadnice polohy stanice v systému WGS 1984 UTM Zone 33N
+PCR...poèátek èasové øady (rok/mìsíc)
+SOUV...souvislá (nepøerušená) øada v databázi ano (A) / ne (N)
+
+DATOVÝ SOUBOR
+Jednotlivé sloupce postupnì obsahují:
+S1...databázové èíslo
+S2...oznaèení typu dat
+S3...rok
+S4...mìsíc
+S5...den
+S6...prùmìrný denní prùtok (m3/s)

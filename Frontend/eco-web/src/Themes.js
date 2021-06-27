@@ -3,7 +3,7 @@ import { green, grey } from '@material-ui/core/colors'
 
 export const theme = createMuiTheme({
     shape: {
-        borderRadius: 0,
+        borderRadius: 0
     },
     palette: {
         primary: {
@@ -16,38 +16,38 @@ export const theme = createMuiTheme({
 })
 
 export const topBarThemeLight = createMuiTheme({
-    type: 'light',
     shape: {
-        borderRadius: 0,
+        borderRadius: 0
     },
+    type: 'light',
     palette: {
         primary: {
             main: green[800]
         },
         secondary: {
-            main: '#ffffff',
+            main: '#ffffff'
         }
     }
 })
 
 export const topBarThemeDark = createMuiTheme({
-    type: 'dark',
     shape: {
-        borderRadius: 0,
+        borderRadius: 0
     },
+    type: 'dark',
     palette: {
         primary: {
             main: green[800]
         },
         secondary: {
-            main: '#6d6d6d',
+            main: '#6d6d6d'
         }
     }
 })
 
 export const sideBarTheme = createMuiTheme({
     shape: {
-        borderRadius: 0,
+        borderRadius: 0
     },
     palette: {
         primary: {
@@ -59,33 +59,35 @@ export const sideBarTheme = createMuiTheme({
     }
 })
 
-export const homePageThemeLight = createMuiTheme({
-    type: 'light',
+export const appThemeLight = createMuiTheme({
     shape: {
-        borderRadius: 0,
+        borderRadius: 0
     },
     palette: {
+        type: 'light',
         primary: {
             main: green[800]
         },
         secondary: {
-            main: '#ffffff',
+            main: '#60ad5e'
         }
     }
 })
 
-export const homePageThemeDark = createMuiTheme({
-    type: 'dark',
+export const appThemeDark = createMuiTheme({
     shape: {
-        borderRadius: 0,
+        borderRadius: 0
     },
     palette: {
+        type: 'dark',
         primary: {
             main: grey[50]
         },
         secondary: {
-            main: '#6d6d6d',
+            main: '#60ad5e'
         },
-        background: '#424242'
+        background: {
+            paper: '#424242'
+        }
     }
 })

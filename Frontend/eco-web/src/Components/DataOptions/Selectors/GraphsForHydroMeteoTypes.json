@@ -1,0 +1,116 @@
+{
+    "hydroMeteoTypes": [
+        {
+            "name": "Shine",
+            "graphs": [
+                {
+                    "name": "totalDurationOfSunshine",
+                    "value": "value" 
+                },
+                {
+                    "name": "map",
+                    "value": ""
+                }
+                
+            ]
+        },
+        {
+            "name": "Precipitation",
+            "graphs": [
+                {
+                    "name": "averageHumidity",
+                    "value": "avgHumidity"
+                },
+                {
+                    "name": "totalPrecipitation",
+                    "value": "totalPrecipitation"
+                },
+                {
+                    "name": "map",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "name": "Pressure",
+            "graphs": [
+                {
+                    "name": "averagePressure",
+                    "value": "avg"
+                },
+                {
+                    "name": "map",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "name": "Snow",
+            "graphs": [
+                {
+                    "name": "totalHeight",
+                    "value": "totalHeight"
+                },
+                {
+                    "name": "newFallen",
+                    "value": "fallen"
+                },
+                {
+                    "name": "map",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "name": "Temperature",
+            "graphs": [
+                {
+                    "name": "minimalTemperature",
+                    "value": "min"
+                },
+                {
+                    "name": "maximalTemperature",
+                    "value": "max"
+                },
+                {
+                    "name": "averageTemperature",
+                    "value": "avg"
+                },
+                {
+                    "name": "map",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "name": "Wind",
+            "graphs": [
+                {
+                    "name": "averageSpeed",
+                    "value": "avg"
+                },
+                {
+                    "name": "maximalSpeed",
+                    "value": "max"
+                },
+                {
+                    "name": "map",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "name": "Water",
+            "graphs": [
+                {
+                    "name": "averageWaterFlow",
+                    "value": "avg"
+                },
+                {
+                    "name": "map",
+                    "value": ""
+                }
+            ]
+        }
+    ]
+}

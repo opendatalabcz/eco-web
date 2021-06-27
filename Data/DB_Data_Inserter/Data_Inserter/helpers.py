@@ -7,20 +7,20 @@ import datetime as dt
 from station import Station
 
 regions = [
-    ('Praha', 'PHA', 'Czech Republic', 'CZ'),
-    ('Jihočeský', 'JHČ', 'Czech Republic', 'CZ'),
-    ('Jihomoravský', 'JHM', 'Czech Republic', 'CZ'),
-    ('Karlovarský', 'KVK', 'Czech Republic', 'CZ'),
-    ('Vysočina', 'VYS', 'Czech Republic', 'CZ'),
-    ('Královehradecký', 'HKK', 'Czech Republic', 'CZ'),
-    ('Liberecký', 'LBK', 'Czech Republic', 'CZ'),
-    ('Moravskoslezský', 'MSK', 'Czech Republic', 'CZ'),
-    ('Olomoucký', 'OLK', 'Czech Republic', 'CZ'),
-    ('Pardubický', 'PAK', 'Czech Republic', 'CZ'),
-    ('Plzeňský', 'PLK', 'Czech Republic', 'CZ'),
-    ('Středočeský', 'STČ', 'Czech Republic', 'CZ'),
-    ('Ústecký', 'ULK', 'Czech Republic', 'CZ'),
-    ('Zlínský', 'ZLK', 'Czech Republic', 'CZ')
+    ('Praha', 'PHA', 'Czech Republic', 'CZ', '50.075539', '14.437800'),
+    ('Jihočeský', 'JHČ', 'Czech Republic', 'CZ', '49.093170', '14.432490'),
+    ('Jihomoravský', 'JHM', 'Czech Republic', 'CZ', '49.080220', '16.635400'),
+    ('Karlovarský', 'KVK', 'Czech Republic', 'CZ', '50.174080', '12.752900'),
+    ('Vysočina', 'VYS', 'Czech Republic', 'CZ', '49.769482', '15.855030'),
+    ('Královehradecký', 'HKK', 'Czech Republic', 'CZ', '50.409392', '15.685005'),
+    ('Liberecký', 'LBK', 'Czech Republic', 'CZ', '50.747604', '14.990310'),
+    ('Moravskoslezský', 'MSK', 'Czech Republic', 'CZ', '49.860275', '18.038654'),
+    ('Olomoucký', 'OLK', 'Czech Republic', 'CZ', '49.859105', '16.956126'),
+    ('Pardubický', 'PAK', 'Czech Republic', 'CZ', '50.026667', '15.794032'),
+    ('Plzeňský', 'PLK', 'Czech Republic', 'CZ', '49.522810', '13.206311'),
+    ('Středočeský', 'STČ', 'Czech Republic', 'CZ', '50.060157', '13.830747'),
+    ('Ústecký', 'ULK', 'Czech Republic', 'CZ', '50.566326', '13.820670'),
+    ('Zlínský', 'ZLK', 'Czech Republic', 'CZ', '49.196920', '17.646091')
 ]
 
 hydrometeo_types = [
@@ -761,7 +761,7 @@ def insertRegions(db, debug: bool):
                 print('DEBUG: Inserting ' + region[0] +
                       ' region to the database.')
             cursor.execute(
-                'INSERT INTO region (id, name, shortcut, country_name, country_shortcut) VALUES (DEFAULT, %s, %s, %s, %s);', region)
+                'INSERT INTO region (id, name, shortcut, country_name, country_shortcut, latitude, longitude) VALUES (DEFAULT, %s, %s, %s, %s, %s, %s);', region)
             db.commit()
         if debug:
             print('DEBUG: All regions inserted to the database.')
@@ -974,7 +974,7 @@ def insertWater(db, hydrometeoTypes: dict, debug: bool, ignoreExistingInDB: bool
 	                    id, station_id, hydrometeo_type, date, value, min_value, max_value, avg_value,
                         azimuth, "time", symptom, total_value, total_symptom, last_updated)
 	                    VALUES (DEFAULT, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);''',
-                    (str(stationID), str(hydrometeoTypes['Water']), date, row[3], None, None, None, None, None, None, None, None, dt.datetime.now()))
+                    (str(stationID), str(hydrometeoTypes['Water']), date, None, None, None, row[3], None, None, None, None, None, dt.datetime.now()))
                 db.commit()
         if debug:
             print('DEBUG: All water measurements are inserted to the database.')
@@ -1032,7 +1032,7 @@ def insertPressure(db, hydrometeoTypes: dict, debug: bool, ignoreExistingInDB: b
 	                    id, station_id, hydrometeo_type, date, value, min_value, max_value, avg_value,
                         azimuth, "time", symptom, total_value, total_symptom, last_updated)
 	                    VALUES (DEFAULT, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);''',
-                    (str(stationID), str(hydrometeoTypes['Pressure']), date, row[3], None, None, None, None, None, None, None, None, dt.datetime.now()))
+                    (str(stationID), str(hydrometeoTypes['Pressure']), date, None, None, None, row[3], None, None, None, None, None, dt.datetime.now()))
                 db.commit()
         if debug:
             print('DEBUG: All pressure measurements are inserted to the database.')

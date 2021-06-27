@@ -1,6 +1,11 @@
-const pool = require('../../db');
 const { GraphQLObjectType, GraphQLString, GraphQLNonNull, GraphQLInt, GraphQLFloat, GraphQLID } = require('graphql');
+const { REGION_RESOLVER } = require('../Resolvers/region');
 
+/**
+ * Station Type definition
+ * 
+ * @param {Object} types - collection of all types definitions
+ */
 const StationType = (types) => new GraphQLObjectType({
     name: 'Station',
     description: 'This represents a station',
@@ -15,20 +20,7 @@ const StationType = (types) => new GraphQLObjectType({
         region: {
             type: types.RegionType,
             resolve: async (entry) => {
-                const region = await pool.query(
-                    `SELECT *
-                    FROM region
-                    WHERE id = $1`,
-                    [entry.regionID]
-                );
-                const { id, name, shortcut, country_name, country_shortcut } = region.rows[0];
-                return {
-                    id: id,
-                    name: name,
-                    shortcut: shortcut,
-                    countryName: country_name,
-                    countryShortcut: country_shortcut
-                };
+                return REGION_RESOLVER(entry.regionID);
             }
         }
     })

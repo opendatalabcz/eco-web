@@ -1,5 +1,5 @@
-const pool = require('../../db');
 const { GraphQLList, GraphQLInt } = require('graphql');
+const { HYDROMETEO_TYPE_RESOLVER, HYDROMETEO_TYPES_RESOLVER } = require('../Resolvers/hydrometeo_type');
 
 module.exports = {
     GET_HYDROMETEO_TYPE: (HydroMeteoType) => ({
@@ -9,28 +9,14 @@ module.exports = {
             id: { type: GraphQLInt }
         },
         resolve: async (parent, args) => {
-            const hydrometeoType = await pool.query(
-                `SELECT *
-                FROM hydrometeo_types
-                WHERE id = $1`,
-                [args.id]
-            );
-            const { id, name, unit } = hydrometeoType.rows[0];
-            return { id: id, name: name, unit: unit.split(', ') };
+            return HYDROMETEO_TYPE_RESOLVER(args.id);
         }
     }),
     GET_ALL_HYDROMETEO_TYPES: (HydroMeteoType) => ({
         type: new GraphQLList(HydroMeteoType),
         description: 'List of All HydroMeteoTypes',
         resolve: async () => {
-            const allHydrometeoTypes = await pool.query(
-                `SELECT *
-                FROM hydrometeo_types`
-            );
-            return allHydrometeoTypes.rows.map((element) => {
-                const { id, name, unit } = element;
-                return { id: id, name: name, unit: unit.split(', ') };
-            });
+            return HYDROMETEO_TYPES_RESOLVER();
         }
     })
 };

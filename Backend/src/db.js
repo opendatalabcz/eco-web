@@ -7,16 +7,24 @@ require('dotenv').config();
 // because by default it converts date to the local timezone timestapz
 // and therefore wrong dates were send to the API  
 const dateTypeID = 1082;
-// Function for converting recived data to standard YYYY-MM-DD format
+/**
+ * Function for converting recived data to standard YYYY-MM-DD format
+ * 
+ * @param {Object} value - incoming date
+ * @returns {Object} - reformated date
+ */
 const parseDate = (value) => {
     return value === null ? null : Moment(value).format('YYYY-MM-DD');
 };
-// Setting custom parser for use when parsing date
+/**
+ * Setting custom parser for use when parsing date
+ */
 types.setTypeParser(dateTypeID, (value) => {
     return value === null ? null : parseDate(value);
 });
-
-// Creates pool for comunication with database
+/**
+ * Creates pool for comunication with database
+ */
 const pool = new Pool({
     user: process.env.USER,
     password: process.env.PASSWORD,

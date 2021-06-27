@@ -19,5 +19,7 @@
     "moment": "^2.29.1",
     "nodemon": "^2.0.7",
     "pg": "^8.6.0"
+  },
+  "devDependencies": {
   }
 }
