@@ -69,3 +69,10 @@ Application was created primarily to run databases in Docker. If you want to use
 **3.)** Create and fill .env file.\
 **4.)** Run **npm install** command.\
 **5.)** Run **npm start** command.
+
+***
+<img src="https://fit.cvut.cz/static/images/fit-cvut-logo-en.svg" alt="FIT CTU logo" height="200">
+
+This software was developed with the support of the **Faculty of Information Technology, Czech Technical University in Prague**.
+For more information, visit [fit.cvut.cz](https://fit.cvut.cz).
+You can find the open repository at [https://github.com/opendatalabcz/eco-web](https://github.com/opendatalabcz/eco-web).
